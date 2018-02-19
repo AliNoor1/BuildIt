@@ -41,6 +41,7 @@ body {
     color: royalblue;
 }
 
+/* First image resized to fit any display */
 img.shed1{
 	display: block;
 	max-width: 100%;
@@ -49,6 +50,8 @@ img.shed1{
 	backface-visibility: hidden;
 	
 }
+
+/* Hover mechanics to respond to your cursor */
 .imageShowcase{
 	position: relative;
 }
@@ -60,6 +63,7 @@ img.shed1{
   opacity: 1;
 }
 
+/* The "Get Started" tab when you hover over the image */
 .shed1_link a{
 	background-color: #7ea6ce;
 	color: white;
@@ -69,6 +73,7 @@ img.shed1{
 	text-decoration: none;
 }
 
+/* The part that drove me nuts. Trying to center the "Get started" tab with any display. */
 .middle {
 	transition: 1.8s ease;
 	opacity: 0;
@@ -80,6 +85,7 @@ img.shed1{
 	text-align: center;
 }
 
+/* A div with some text for the image above, describing the design process. Still unfinished */
 .introPara{
 	background-color: white;
 	padding: 75px 50px;
