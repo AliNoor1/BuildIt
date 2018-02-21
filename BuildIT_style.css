@@ -43,7 +43,7 @@ body {
 }
 
 /* First image resized to fit any display */
-img.shed1{
+img.imagePreview{
 	display: block;
 	max-width: 100%;
 	height: auto;
@@ -53,19 +53,19 @@ img.shed1{
 }
 
 /* Hover mechanics to respond to your cursor */
-.imageShowcase{
+.secondaryContainer{
 	position: relative;
 }
-.imageShowcase:hover .shed1 {
+.secondaryContainer:hover .imagePreview {
 	opacity: 0.5;
 }
 
-.imageShowcase:hover .middle {
+.secondaryContainer:hover .imageTab {
   opacity: 1;
 }
 
 /* The "Get Started" tab when you hover over the image */
-.shed1_link a{
+.imagePreview_link a{
 	background-color: #7ea6ce;
 	color: white;
 	font-size: 20px;
@@ -75,7 +75,7 @@ img.shed1{
 }
 
 /* The part that drove me nuts. Trying to center the "Get started" tab with any display. */
-.middle {
+.imageTab {
 	transition: 1.8s ease;
 	opacity: 0;
 	position: absolute;
@@ -87,11 +87,12 @@ img.shed1{
 }
 
 /* A div with some text for the image above, describing the design process. Still unfinished */
-.introPara{
+.description{
 	background-color: white;
 	padding: 75px 50px;
 }
 
-#head1{
+#desc_header{
 	font-size: 45px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
