@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* Style the top header */
+.header {
+    background-image: url(https://wallpapertag.com/wallpaper/full/8/7/a/338558-popular-blueprint-background-2605x2000.jpg);
+    padding: 5px;
+    text-align: center;
+	font-size: 30px;
+	font-variant: small-caps;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	color: white;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #7ea6ce;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 30px;
+	font-size: 20px;
+	text-decoration: none;
+	position: sticky;
+	
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: royalblue;
+}
+
+/* First image resized to fit any display */
+img.shed1{
+	display: block;
+	max-width: 100%;
+	height: auto;
+	transition: 1.8s ease;
+	backface-visibility: hidden;
+	
+}
+
+/* Hover mechanics to respond to your cursor */
+.imageShowcase{
+	position: relative;
+}
+.imageShowcase:hover .shed1 {
+	opacity: 0.5;
+}
+
+.imageShowcase:hover .middle {
+  opacity: 1;
+}
+
+/* The "Get Started" tab when you hover over the image */
+.shed1_link a{
+	background-color: #7ea6ce;
+	color: white;
+	font-size: 20px;
+	padding: 25px 35px;
+	display: block;
+	text-decoration: none;
+}
+
+/* The part that drove me nuts. Trying to center the "Get started" tab with any display. */
+.middle {
+	transition: 1.8s ease;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%)
+	text-align: center;
+}
+
+/* A div with some text for the image above, describing the design process. Still unfinished */
+.introPara{
+	background-color: white;
+	padding: 75px 50px;
+}
+
+#head1{
+	font-size: 45px;
+}
