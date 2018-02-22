@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
 body {
-  margin: 0;
+	margin: 0;
+	background: linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%);
+	color:#555;
 }
 
 *{
@@ -30,7 +34,9 @@ body {
     color: white;
     text-align: center;
     padding: 20px 30px;
+	font-family:'Roboto';
 	font-size: 20px;
+	font-weight:300;
 	text-decoration: none;
 }
 
@@ -78,11 +84,13 @@ img.imagePreview{
 .description{
 	background-color: white;
 	padding: 75px 50px;
+	background: linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%);
+	font-family:'Roboto';
 }
 
 #desc_header{
 	font-size: 45px;
-	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-family:'Roboto';
 }
 
 
@@ -104,6 +112,7 @@ img.imagePreview{
 }
 
 .shutterOutTab a{
+		font-family:'Roboto';
 		text-decoration: none;
 		font-size: 20px;
 		color: white;
