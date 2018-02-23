@@ -29,4 +29,3 @@ A user-friendly website where hobbyists, contractors, and everyday homeowners ca
   |-- data
   index.html
 ```
-# trivial change
