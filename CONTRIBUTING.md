@@ -43,7 +43,7 @@ you should now see
   * master
 ```
 
-If you do not see the develop branch you need to get it from remote/orign
+If you do not see the develop branch you need to get it from remote/origin
 
 ```
     git remote update
@@ -90,6 +90,32 @@ When you are satisfied with the changes that you have made and you have tested y
 ```
 
 `develop` is now up to date on your local machine and on the remote repository and your session is complete.
+
+### Most Common Git Commands
+
+`git branch` shows what branches are on your local machine and has an asterisk next to the branch that you are on
+
+`git branch branch-name` creates a new branched called `branch-name`
+
+`git checkout branch-name` moves you onto the branch called `branch-name` at this point everything in your /BuildIt directory only reflects what exists in `branch-name`.
+
+`git status` tells you if you have any uncommitted changes and if your branch is up to date with remote/origin
+
+`git add filename.ext` adds `filename.ext` to the staging area so it is ready to commit
+
+`git add .` adds all files that were changed to the staging area so they are ready to commit
+
+`git commit -m "commit message"` commits your changes to the branch on your local machine, the `-m` allows you to type the commit message on this same line. If you do not include the `-m` flag then the terminal will open a text editor and ask you to type a commit message
+
+`git push origin branch-name` pushes your most up to date local version of `branch-name` to the remote repository. You can now see that change on the web.
+
+`git pull origin branch-name` pulls the most recent version of `branch-name` from the web to your local machine.
+
+`git log` shows a log of all commits to the branch that you are working on, this is brought up in vim so you may have to type `q` to exit. 
+
+There are many extensions to `git log`, personally I like to use:
+
+`git log --graph --pretty=oneline --abbrev-commit` which has a more visual presentation of branches and merges.
 
 ## Workflow Example
 
