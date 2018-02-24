@@ -2,7 +2,11 @@
  
 This document should serve as a guideline for contributing to this repository and also serve as a basic git tutorial. This will provide the team with a single source for all the commonly use git commands. This is document is a work in progess, some things maybe redundant but I'll clean it up as the project progresses. 
 
+## Ideal Workflow
+
 As a team we should probably discuss how we want the workflow to be but the most important thing is that we do not do any actual *work* on the `master` branch. Once the project grows in complexity we will want `master` to always be a working release of the webpage and only merge changes into `master` when they are fully functional.
+
+What I am proposing is sort of a dumbed down version of the gitflow workflow that is described in detail [here](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) and [here](http://nvie.com/posts/a-successful-git-branching-model/)
 
 ## Getting Started
 
