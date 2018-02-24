@@ -41,7 +41,7 @@ When you are ready to add stuff it is a good idea to make sure that everything o
 
 This pulls any changes to the master branch onto your local machine.
 
-Next, make sure that you have all branches available to you:
+Next, I make sure that I have all branches available to me:
 
 ```
    git remote update
@@ -88,8 +88,9 @@ Now all the files in my directory correspond to my new branch which is currently
     git commit -m "added an example work flow section"
     git push remote add-contributing.md
 ```
-I can now see that my changes have been pushed to github my viewing the `add-contributing.md` branch on the github website.
+I can now see that my changes have been pushed to github by viewing the `add-contributing.md` branch on the github website.
 
 (maybe include an image here)
 
+When
 
