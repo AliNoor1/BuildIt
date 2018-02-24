@@ -30,7 +30,7 @@ This will create a sub-directory `~/Git/BuildIt`
 
 ## Working with SSH keys
 
-## Workflow
+## Workflow Example
 
 When you are ready to add stuff it is a good idea to make sure that everything on your local machine is up to date with what actually exists on the repository. So the first thing to do is:
 
@@ -55,9 +55,41 @@ My output was:
     * [new branch]      develop    -> origin/develop
 ```
 
-So I see that there is a new branch and its one that I will be using. To get this branch onto my local machine:
+So I see that there is a new branch and it is one that I will be using. To get this branch onto my local machine:
 
 ```
     git checkout develop
 ```
+
+`develop` branch will usually be just ahead of the `master` branch. It will not necessarily always be stable but at all times it should contain all of the work for the next stable release. So to do any real work, I still want to create a new branch to contain *only* the changes that I am making. I want my new branch to be branched off of `develop` not `master` so that I am working with the most up to date code base. Since I just ran `git checkout develop` , I know that I am on that branch. Now I create the branch that I will actually work with and give it a descriptive title that makes it clear exactly what I will be changing.
+
+```
+    git branch add-contributing.md
+```
+
+Now when I type `git branch`, I see the following output:
+
+```
+      add-contributing.md
+    * develop
+      master
+```
+
+The asterisk shows that I am still on the develop branch, so I switch to my new working branch:
+
+```
+    git checkout add-contributing.md
+```
+
+Now all the files in my directory correspond to my new branch which is currently up to date with the `develop` branch. I can now create my `CONTRIBUTING.md` file and edit it. Several times throughout the editting process I may want to save my work to the remote/origin repository. So I type:
+
+```
+    git add .
+    git commit -m "added an example work flow section"
+    git push remote add-contributing.md
+```
+I can now see that my changes have been pushed to github my viewing the `add-contributing.md` branch on the github website.
+
+(maybe include an image here)
+
 
