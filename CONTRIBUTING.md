@@ -45,7 +45,8 @@ Next, make sure that you have all branches available to you:
 
 ```
    git remote update
-``
+```
+
 My output was:
 
 ```
