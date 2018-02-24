@@ -224,3 +224,31 @@ So now I have completed all the steps above, committing numerous changes along t
 
 Github then checks for conflicts to see if the branch can be merged. At this point we would wait for the rest of the team to decide whether to merge into master, but again this is not a release so it is safe to proceed.
 
+Now I checkout `master` and pull the changes from the remote back to my local machine.
+
+```
+    git checkout master
+    git pull origin master
+```
+
+Which shows the following output:
+
+```
+    remote: Counting objects: 1, done.
+    remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+    Unpacking objects: 100% (1/1), done.
+    From github.com:AliNoor1/BuildIt
+      * branch            master     -> FETCH_HEAD
+      8d5a4ac..24f86b8  master     -> origin/master
+    Updating 8d5a4ac..24f86b8
+    Fast-forward
+      CONTRIBUTING.md               | 226 ++++++++++++++++++++++++++++++++++++++++++
+      MarkdownIMG/delete-branch.png | Bin 0 -> 192490 bytes
+      MarkdownIMG/pull-request.png  | Bin 0 -> 200659 bytes
+      3 files changed, 226 insertions(+)
+      create mode 100644 CONTRIBUTING.md
+      create mode 100644 MarkdownIMG/delete-branch.png
+      create mode 100644 MarkdownIMG/pull-request.png
+```
+
+
