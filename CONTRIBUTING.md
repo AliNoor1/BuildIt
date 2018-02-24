@@ -220,5 +220,7 @@ If this were a working release we would have some sort of version tag associated
 
 So now I have completed all the steps above, committing numerous changes along the way to my `add-contributing.md` branch and merged that onto the `develop` branch. I simply go over to the github website where I see that there have been changes to the `develop` branch
 
+![pull request](/MarkdownIMG/pull-request.png)
 
+Github then checks for conflicts to see if the branch can be merged. At this point we would wait for the rest of the team to decide whether to merge into master, but again this is not a release so it is safe to proceed.
 
