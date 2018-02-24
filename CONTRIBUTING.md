@@ -31,3 +31,29 @@ This will create a sub-directory `~/Git/BuildIt`
 ## Working with SSH keys
 
 ## Workflow
+
+When you are ready to add stuff it is a good idea to make sure that everything on your local machine is up to date with what actually exists on the repository. So the first thing to do is:
+
+```
+    git checkout master
+    git pull origin master
+```
+
+This pulls any changes to the master branch onto your local machine.
+
+Next, make sure that you have all branches available to you:
+
+```
+   git remote update
+``
+My output was:
+```
+    Fetching origin
+    From github.com:AliNoor1/BuildIt
+    * [new branch]      develop    -> origin/develop
+```
+So I see that there is a new branch and its one that I will be using. To get this branch onto my local machine:
+```
+    git checkout develop
+```
+
