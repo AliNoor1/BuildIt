@@ -47,12 +47,15 @@ Next, make sure that you have all branches available to you:
    git remote update
 ``
 My output was:
+
 ```
     Fetching origin
     From github.com:AliNoor1/BuildIt
     * [new branch]      develop    -> origin/develop
 ```
+
 So I see that there is a new branch and its one that I will be using. To get this branch onto my local machine:
+
 ```
     git checkout develop
 ```
