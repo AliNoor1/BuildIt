@@ -188,5 +188,5 @@ When I have finished making all the changes that I planned for this branch I wan
     git branch -d add-contributing.md
 ```
 
-![delete branch from github.com](https://github.com/AliNoor1/BuildIt/MarkdownIMG/delete-branch.png)
+![delete branch from github.com](/MarkdownIMG/delete-branch.png)
 
