@@ -218,7 +218,7 @@ In this case, since master is not a release candidate yet and I have not made an
 
 If this were a working release we would have some sort of version tag associated with this, but it is not so I guess at this point `master` simply reflects version 0.
 
-So now I have completed all the steps above, committing numerous changes along the way to my `add-contributing.md` branch and merged that onto the `develop` branch. I simply go over to the github website where I see that there have been changes to the `develop` branch
+So now I have completed all the steps above, committing numerous changes along the way to my `add-contributing.md` branch and merged that onto the `develop` branch. I simply go over to the github website where I see that there have been changes to the `develop` branch and click compare & pull request, then follow the instructions.
 
 ![pull request](/MarkdownIMG/pull-request.png)
 
