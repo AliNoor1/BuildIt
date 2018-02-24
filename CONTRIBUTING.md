@@ -97,6 +97,8 @@ When you are satisfied with the changes that you have made and you have tested y
 
 `git branch branch-name` creates a new branched called `branch-name`
 
+`git branch -d branch-name` deletes the branch called `branch-name` this only works if you are on a different branch and is only recommended if you have already merged the changes from `branch-name`.
+
 `git checkout branch-name` moves you onto the branch called `branch-name` at this point everything in your /BuildIt directory only reflects what exists in `branch-name`.
 
 `git status` tells you if you have any uncommitted changes and if your branch is up to date with remote/origin
@@ -177,7 +179,6 @@ Now all the files in my directory correspond to my new branch which is currently
 ```
 I can now see that my changes have been pushed to github by viewing the `add-contributing.md` branch on the github website.
 
-(maybe include an image here)
 
 When I have finished making all the changes that I planned for this branch I want to merge it back onto the `develop` branch, so that I leave `develop` in an up to date state for the next contributor(s). In this example I am just working with a trivial markdown file, but if it were actual code that I was writing I would want to throughoughly test the code on my local machine to make sure it is working *before* I merge back to the `develop` branch. After I have finished my tests and pushed all of my code from this branch, I switch back to the `develop` branch, merge the branch I was just working on and push the changes from the develop branch back to remote/origin/develop. It is now safe to delete the `add-contributing.md` branch from my local machine. I can also delete this branch on the github website, as well, which keeps the repo free from clutter, both locally and on the web. We can always revert changes or create a new branch if need be. 
 
