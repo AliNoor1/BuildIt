@@ -1,6 +1,6 @@
 # Contibuting
-
-This document should serve as a guideline for contributing to this repository and also serve as a basic git tutorial. This will provide the team with a single source for all the commonly use git commands. 
+ 
+This document should serve as a guideline for contributing to this repository and also serve as a basic git tutorial. This will provide the team with a single source for all the commonly use git commands. This is document is a work in progess, some things maybe redundant but I'll clean it up as the project progresses. 
 
 As a team we should probably discuss how we want the workflow to be but the most important thing is that we do not do any actual *work* on the `master` branch. Once the project grows in complexity we will want `master` to always be a working release of the webpage and only merge changes into `master` when they are fully functional.
 
@@ -24,11 +24,72 @@ This will create a sub-directory `~/Git/BuildIt`
 
 **Important:** Do not attempt to clone a repository from within the same directory as another repostitory on your local machine. This will cause changes to the hidden `.git` file which will result in conflicts in both repositories. i.e. if you are in your `/BuildIt` directory **do not** attempt to clone a different repository. Instead `cd ..` to go back to the parent directory.
 
-## References
 
 ## Basics
 
-## Working with SSH keys
+
+Anytime you start working, you'll want to make sure you have the latest changes from remote/origin. Chane to your /BuildIt directory and:
+
+first make sure you have access to both the `develop` and the `master` branch on your local machine.
+
+```
+    git branch
+```
+
+you should now see
+
+```
+    develop
+  * master
+```
+
+If you do not see the develop branch you need to get it from remote/orign
+
+```
+    git remote update
+    git checkout develop
+```
+
+Next, make sure your both of these branches on your local machine are up to date with remote/origin
+
+```
+    git checkout master
+    git pull origin master
+    git checkout develop
+    git pull origin develop
+``` 
+
+The next step is to create a temporary branch to work on. Create a branch with a title that describes what you will be working on and checkout that branch. Some ~~good~~ decent examples of branch titles are something like: `update-mainpage-css`, `adding-sql-database`, `update-login-page` etc. In this example `your-working-branch` is the branch name, but it could be named anything.
+
+```
+    git branch your-working-branch
+    git checkout your-working-branch
+```
+
+Now that you have checked out `your-working-branch` you can add/create/edit any files in your /BuildIt directory and the changes will only affect `your-working-branch`. 
+
+At any point typing `git status` will tell you if you have any uncommitted changes. Frequently save your work to the remote repository in the following manner:
+
+```
+    git add .
+    git commit -m "a short message describing the change goes here"
+    git push origin your-working-branch
+```
+
+This allows us to revert back to any previous changes if the need occurs.
+
+When you are satisfied with the changes that you have made and you have tested your code to make sure that nothing is broken, add and commit your changes and push to the origin of `your-working-branch` one last time. Then change back to the `develop` branch, merge `your-working-branch` and delete it. This ensures that `develop` is always up to date and you are not keeping a branch on your local machine that falls too far behind `develop`. Finally push to origin/develop to keep the remote repo up to date.
+
+```
+    git add .
+    git commit -m "some message about the last change"
+    git push origin your-working-branch
+    git checkout develop
+    git merge your-working-branch
+    git push origin develop
+```
+
+`develop` is now up to date on your local machine and on the remote repository and your session is complete.
 
 ## Workflow Example
 
@@ -100,4 +161,6 @@ When I have finished making all the changes that I planned for this branch I wan
     git push origin develop
     git branch -d add-contributing.md
 ```
+
+
 
