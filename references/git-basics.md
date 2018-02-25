@@ -44,7 +44,7 @@ If you do not see the develop branch you need to get it from remote/origin
     git checkout develop
 ```
 
-Next, make sure your both of these branches on your local machine are up to date with remote/origin
+Next, make sure both of these branches on your local machine are up to date with remote/origin
 
 ```
     git checkout master
@@ -79,11 +79,16 @@ When you are satisfied with the changes that you have made and you have tested y
     git commit -m "some message about the last change"
     git push origin your-working-branch
     git checkout develop
-    git merge your-working-branch
+    git merge --no-ff your-working-branch
     git push origin develop
 ```
 
 `develop` is now up to date on your local machine and on the remote repository and your session is complete.
+
+**note:** When merging, the `--no-ff` flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature. Compare:
+
+![merge --no-ff](/references/MarkdownIMG/merge-without-ff.png)
+
 
 ### Most Common Git Commands
 
