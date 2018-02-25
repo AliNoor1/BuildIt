@@ -1,5 +1,7 @@
 # BuildIt
 
+For Git workflow guidelines and examples see: [CONTRIBUTING.md](/CONTRIBUTING.md)
+
 ## Vision Statement
 
 Help amateurs learn about and create their dream home improvements.
