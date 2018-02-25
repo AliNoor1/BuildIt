@@ -2,6 +2,8 @@
 
 For Git workflow guidelines, discussion and examples see: [CONTRIBUTING.md](/CONTRIBUTING.md)
 
+For discussion of next working release see: [release-notes.md](https://github.com/AliNoor1/BuildIt/blob/develop/release-notes.md) on the `develop` branch.
+
 ## Vision Statement
 
 Help amateurs learn about and create their dream home improvements.
