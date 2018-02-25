@@ -16,6 +16,7 @@ I think the first tagged release just needs to be a minimally functional website
 Last meeting we discussed what each of us would begin researching:
 
 - Ali - research shed designs
+    -xcel spreadsheet of items and costs
 
 - Jasper - research hosting options, research user authentication
 
