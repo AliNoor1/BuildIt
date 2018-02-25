@@ -26,7 +26,7 @@ The basic idea is this:
 - `develop` is kept then as the candidate for the next stable working release
 - when the whole team has agreed that the features in the `develop` branch are working and ready for release then we pull request and merge `develop` into `master` and tag it with a release version.
 
-[Example of Workflow](/workflow-example.md)
+[Example of Workflow](/references/workflow-example.md)
 
 This would prevent any one of us from making changes to `master` that break our most current working prototype while simultaneously allowing us to set sprint goals to keep the team focussed on working toward the next *minimum viable product*. In this way we can avoid getting bogged down in details of features that may be beyond the scope of what we can accomplish and we will always have a stable release. At the end of the semester we can submit the best working version of our project instead of potentially getting stuck with an unfinished rough draft that doesn't really work.
  
