@@ -17,7 +17,7 @@ The basic idea is this:
 - There will always be at least two branches in the repo: `develop` and `master`.
 - `master` remains stable and all code is considered production ready
 - all our work is done in some `feature-branch` that is branched off of `develop` and merged back onto `develop` when that feature has been added.
-- `develop` is kept then as the candidate for the next stable working release
+- `develop` is generally kept further ahead of `master` as the candidate for the next stable working release
 - when the whole team has agreed that the features in the `develop` branch are working and ready for release then we pull request and merge `develop` into `master` and tag it with a release version.
 
 [Example of Workflow](/references/workflow-example.md)
