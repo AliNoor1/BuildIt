@@ -68,7 +68,7 @@ When I have finished making all the changes that I planned for this branch I wan
     git branch -d add-contributing.md
 ```
 
-![delete branch from github.com](/MarkdownIMG/delete-branch.png)
+![delete branch from github.com](/references/MarkdownIMG/delete-branch.png)
 
 In this case, since master is not a release candidate yet and I have not made any changes to any code. I am going to pull request and merge `develop` onto the master branch so that I can show how to do it and CONTRIBUTING.md exists on the master branch
 
@@ -78,7 +78,7 @@ If this were a working release we would have some sort of version tag associated
 
 So now I have completed all the steps above, committing numerous changes along the way to my `add-contributing.md` branch and merged that onto the `develop` branch. I simply go over to the github website where I see that there have been changes to the `develop` branch and click compare & pull request, then follow the instructions.
 
-![pull request](/MarkdownIMG/pull-request.png)
+![pull request](/references/MarkdownIMG/pull-request.png)
 
 Github then checks for conflicts to see if the branch can be merged. At this point we would wait for the rest of the team to decide whether to merge into master, but again this is not a release so it is safe to proceed.
 
