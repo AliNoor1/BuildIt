@@ -2,7 +2,7 @@
  
 This document should serve as a guideline for contributing to this repository and also serve as a basic git tutorial. This will provide the team with a single source for all the commonly use git commands. This is document is a work in progess, some things may be redundant but I'll clean it up as the project progresses. Later this weekend, I will probably break this into sections because this has become somewhat lengthy. I'm still missing some things but I wanted to get something up tonight. 
 
-For git basics and commonly used git commands see: [references.md](/references.md)
+For git basics and commonly used git commands see: [references.md](/references/references.md)
 
 TODO: ~~create a reference.md file with links to good github references~~ 
 
