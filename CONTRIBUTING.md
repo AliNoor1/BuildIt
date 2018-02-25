@@ -6,9 +6,9 @@ For git basics and commonly used git commands see: [references.md](/references/r
 
 TODO: ~~create a reference.md file with links to good github references~~ 
 
-TODO: describe how to implement SSH keys so you don't have to retype passwords with every commit.
+TODO: ~~describe how to implement SSH keys so you don't have to retype passwords with every commit.~~
 
-TODO: discuss and link to info about GUI github client for Windows and Mac. For now unless you have git BASH installed on your machine it is probably best to do all your developement work on some version of Linux or MacOs because it is easier and more powerful to use git command line features. 
+TODO: ~~discuss and link to info about GUI github client for Windows and Mac. For now unless you have git BASH installed on your machine it is probably best to do all your developement work on some version of Linux or MacOs because it is easier and more powerful to use git command line features.~~ 
 
 ## Ideal Workflow
 
