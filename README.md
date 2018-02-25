@@ -1,6 +1,6 @@
 # BuildIt
 
-For Git workflow guidelines and examples see: [CONTRIBUTING.md](/CONTRIBUTING.md)
+For Git workflow guidelines, discussion and examples see: [CONTRIBUTING.md](/CONTRIBUTING.md)
 
 ## Vision Statement
 
