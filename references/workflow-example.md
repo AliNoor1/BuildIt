@@ -63,16 +63,22 @@ When I have finished making all the changes that I planned for this branch I wan
 
 ```
     git checkout develop
-    git merge add-contributing.md
+    git merge --no-ff add-contributing.md
     git push origin develop
     git branch -d add-contributing.md
 ```
 
 ![delete branch from github.com](/references/MarkdownIMG/delete-branch.png)
 
-In this case, since master is not a release candidate yet and I have not made any changes to any code. I am going to pull request and merge `develop` onto the master branch so that I can show how to do it and CONTRIBUTING.md exists on the master branch
+The `--no-ff` flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature. Compare:
+
+![merge --no-ff](/references/MarkdownIMG/merge-without-ff.png)
+
+This might seem kind of overly complicated now, but as the project grows in complexity it will make it easier to see the full history of repository if we need to revert any changes. Further explanation seee: [Source1](http://nvie.com/posts/a-successful-git-branching-model/) [Source2](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 
 ## Pull Request and Merge
+
+In this case, since master is not a release candidate yet and I have not made any changes to any code. I am going to pull request and merge `develop` onto the master branch so that I can show how to do it and CONTRIBUTING.md exists on the master branch
 
 If this were a working release we would have some sort of version tag associated with this, but it is not so I guess at this point `master` simply reflects version 0.
 
