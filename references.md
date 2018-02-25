@@ -8,9 +8,11 @@ Files like this one, and README.md are just plain text file that are decorated u
 
 For a quick and dirty basic rundown of git's common commands see [git-basics.md](/git-basics.md)
 
+Other good introductory info can be found in the [Github Guides](https://guides.github.com/)
+
 For a more thorough explanation I recommend looking at [Pro Git](https://git-scm.com/book/en/v2)
 
-Other good introductory info can be found in the [Github Guides](https://guides.github.com/)
+
 
 
 
