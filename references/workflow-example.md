@@ -29,7 +29,7 @@ So I see that there is a new branch and it is one that I will be using. To get t
     git checkout develop
 ```
 
-`develop` branch will usually be just ahead of the `master` branch. It will not necessarily always be stable but at all times it should contain all of the work for the next stable release. So to do any real work, I still want to create a new branch to contain *only* the changes that I am making. I want my new branch to be branched off of `develop` not `master` so that I am working with the most up to date code base. Since I just ran `git checkout develop` , I know that I am on that branch. Now I create the branch that I will actually work with and give it a descriptive title that makes it clear exactly what I will be changing.
+`develop` branch will usually be just ahead of the `master` branch. It will not necessarily always be stable but at all times it should contain all of the work for the next stable release. So to do any real work, I still want to create a new branch to contain *only* the changes that I am making. I want my new branch to be branched off of `develop` not `master` so that I am working with the most up to date code base. Since I just ran `git checkout develop` , I know that I am on that branch. Now I create the branch that I will actually work with and give it a descriptive title that makes it clear exactly what I will be changing. In this example I am editting and adding the `CONTRIBUTING.md` file.
 
 ```
     git branch add-contributing.md

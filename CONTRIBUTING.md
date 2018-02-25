@@ -4,12 +4,6 @@ This document should serve as a guideline for contributing to this repository an
 
 For git basics and commonly used git commands see: [references.md](/references/references.md)
 
-TODO: ~~create a reference.md file with links to good github references~~ 
-
-TODO: ~~describe how to implement SSH keys so you don't have to retype passwords with every commit.~~
-
-TODO: ~~discuss and link to info about GUI github client for Windows and Mac. For now unless you have git BASH installed on your machine it is probably best to do all your developement work on some version of Linux or MacOs because it is easier and more powerful to use git command line features.~~ 
-
 ## Ideal Workflow
 
 As a team we should probably discuss how we want the workflow to be in our next meeting, we can use anything but it is probably a good idea to agree on a standard and stick to it. In my opinion, the only workflow we want to avoid is [centralized workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#centralized-workflow) because it makes conflicts more of an issue, which may make us more hesitant to commit changes frequently.

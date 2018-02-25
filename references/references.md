@@ -6,7 +6,7 @@ Files like this one, and README.md are just plain text file that are decorated u
 
 ## Github References
 
-The most powerful way to use git is from the command line. There are a wide variety of [GUI options](https://git-scm.com/downloads/guis) that exist but they do not contain all git features and are not necessarily up to date. If you insist on doing your developement work in windows you will probably want to use something like [Git Bash](https://gitforwindows.org/), in either case you will need to do your own research to ensure that you can replicate the appropriate [workflow](/workflow-example.md). For our purposes that probably won't be too difficult because we won't likely need all of the myriad features of git. 
+The most powerful way to use git is from the command line. There are a wide variety of [GUI options](https://git-scm.com/downloads/guis) that exist but they do not contain all git features and are not necessarily up to date. If you insist on doing your developement work in windows you will probably want to use something like [Git Bash](https://gitforwindows.org/), in either case you will need to do your own research to ensure that you can replicate the appropriate [workflow](/references/workflow-example.md). For our purposes that probably won't be too difficult because we won't likely need all of the myriad features of git. 
 
 For a quick and dirty basic rundown of git's common commands see [git-basics.md](/git-basics.md)
 
