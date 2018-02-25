@@ -10,7 +10,11 @@ As a team we should probably discuss how we want the workflow to be in our next 
 
 With that in mind, I think the most important thing is that we do not do any actual *work* on the `master` branch. Once the project grows in complexity we will want `master` to always be a working release of the webpage and only merge changes into `master` when they are fully functional.
 
+[basic model](references/MarkdownIMG/lr-branches-2.png)
+
 What I am proposing is sort of a dumbed down version of the gitflow workflow that is described in detail [here](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) and [here](http://nvie.com/posts/a-successful-git-branching-model/)
+
+[gitflow model](/references/MarkdownIMG/git-model.png)
 
 The basic idea is this:
 
