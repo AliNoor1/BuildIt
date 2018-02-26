@@ -15,14 +15,13 @@ I think the first tagged release just needs to be a minimally functional website
 
 Last meeting we discussed what each of us would begin researching:
 
-- Ali - research shed designs
-    -xcel spreadsheet of items and costs
+- Ali - research shed designs and draw up the foundations. Xcel spreadsheet of items used to build the shed.
 
-- Jasper - research hosting options, research user authentication
+- Jasper - research hosting options, research user authentication.
 
-- Matt - look into home depot/ lowes api
+- Matt - look into home depot/ lowes api. Data base struct.
 
-- Dakota - research JS and web foundations, pictures.
+- Dakota - research JS and web foundations, pictures. Use Autocadto create foundation designs drawn-up by Ali.
 
 - Norma & Terrance - sign in page
 
