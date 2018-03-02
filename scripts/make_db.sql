@@ -7,7 +7,9 @@ FLUSH PRIVILEGES;
 USE buildit;
 
 CREATE TABLE IF NOT EXISTS users (
-	userID	int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	userID	int(25) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(65) NOT NULL,
+	password VARCHAR(32) NOT NULL,
 	firstName	text NOT NULL,
 	lastName	text NOT NULL,
 	commonName	text,
