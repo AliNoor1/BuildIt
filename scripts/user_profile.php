@@ -12,34 +12,21 @@
 
 <body>
 
-<?php
-
-if($_SESSION['LoggedIn'])
-{
-    $username = $_SESSION['username'];
-
-    $user_query = "SELECT * FROM users WHERE username = '".$username."'";
-    $userinfo = mysqli_query($conn, $user_query);
-
-    $row = mysqli_fetch_array($userinfo);
-    $_SESSION['firstname'] = $row['firstName'];
-    $_SESSION['lastname'] = $row['lastName'];
-    ?>
-
-
     <!-- NAVIGATION BAR -->
     <div class="topnav">
-        <a style="background-color:rgba(0, 0, 0, 0.40)" href="file:///C:/Users/Ali/Desktop/Buildit/BuildIt-master/BuildIT_attempt2.html">
-            <img src="http://aperatifdurum.890m.com/images/homepageicon.png" alt="home" style="width:18px;height:18px;border:0;"></img></a>
+        <a style="background-color:rgba(0, 0, 0, 0.40)" href="/">
+            <i class="fa fa-home"></i>
+        </a>
         <a href="#">Design</a>
         <a href="#">Forums</a>
         <a href="#">Contracts</a>
         <a style="float:right" href="logout.php">Sign Out</a>
     </div>
+
     <div class="parent">
         <!-- LEFT PROFILE -->
         <div class="profileLeft">
-            <img src="http://ishowmy.support/img/user-icon-360x360.jpg" alt="profile_pic"></img>
+            <img src="/img/users/default.jpg" alt="profile_pic"></img>
 
             <div class="userLocation">
                 <i class="fa fa-map-marker"></i>
@@ -60,8 +47,7 @@ if($_SESSION['LoggedIn'])
 
             <div class="Name_Bio">
                 <h1><?=$_SESSION['firstname']?> <?=$_SESSION['lastname']?></h1>
-                <p>fdinfsadfbnm fsfdinfsadfbnm fsd fs df sdf s df sdf f sd f sdf sdf sdf sd f sdf s df sdf s df sdf sdf  sfd f a fdas f asd fa sd ffdinfsadfbnm fsd fs df sdf s df sdf f sd f sdf sdf sdf sd </p>
-
+                <p>Bio text bio text bio text</p>
             </div>
 
         </div>

@@ -14,6 +14,8 @@ CREATE TABLE IF NOT EXISTS users (
 	lastName	text NOT NULL,
 	commonName	text,
 	joinDate	datetime NOT NULL,
-	location	text,
+	city	text,
+	state text,
+	bio text,
 	email	text NOT NULL
 );
