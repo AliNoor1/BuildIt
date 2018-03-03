@@ -5,7 +5,7 @@
  * Date: 3/3/18
  * Time: 11:28 AM
  */
-function update_session_info($username)
+function update_session_info($conn,$username)
 {
 
     $user_query = "SELECT * FROM users WHERE username = '" . $username . "'";
@@ -24,7 +24,7 @@ function update_session_info($username)
     $_SESSION['email'] = $row['email'];
 }
 
-function get_user_info($username)
+function get_user_info($conn,$username)
 {
     $user_query = "SELECT * FROM users WHERE username = '" . $username . "'";
     $userinfo = mysqli_query($conn, $user_query);
@@ -34,7 +34,7 @@ function get_user_info($username)
     $user = array('firstname'=>$row['firstName'],
         'lastname'=>$row['lastName'],
         'username'=>$row['username'],
-        'userid'=>$row['userid'],
+        'userid'=>$row['userID'],
         'commonName'=>$row['commonName'],
         'joinDate'=>$row['joinDate'],
         'city'=>$row['city'],
@@ -42,3 +42,4 @@ function get_user_info($username)
         'email'=>$row['email']);
     return $user;
 }
+?>

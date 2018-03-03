@@ -27,12 +27,12 @@
         else
         {
             $querystring = "INSERT INTO users (firstName,lastName,username, password, email, joinDate) 
-                            VALUES('".$firstname."','".$lastname."','".$username."', '".$password."', '".$email."',CURDATE())";
+                            VALUES('".$firstname."','".$lastname."','".$username."', '".$password."', '".$email."',NOW())";
             $registerquery = mysqli_query($conn, $querystring);
             if($registerquery)
             {
                 echo "<h1>Success</h1>";
-                echo "<p>Your account was successfully created. Please <a href=\"index.php\">click here to login</a>.</p>";
+                echo "<p>Your account was successfully created. Please <a href=\"/scripts/login.php\">click here to login</a>.</p>";
             }
             else
             {

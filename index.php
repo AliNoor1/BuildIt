@@ -1,3 +1,4 @@
+<?php include "scripts/base.php"; ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,16 +17,7 @@
 			</div>
 		
 			<!-- NAVIGATION BAR -->
-			<div class="topnav">
-					<a style="background-color:#8c8c8c" href="#">
-					<img src="http://aperatifdurum.890m.com/images/homepageicon.png" alt="home" style="width:18px;height:18px;border:0;"
-					</a>
-					<a href="#">Design</a>
-					<a href="#">Forums</a>
-					<a href="#">Contracts</a>
-					<a style="float:right" href="#">Sign in</a>
-			</div>
-		
+			<?php include $_SERVER['DOCUMENT_ROOT']."/scripts/navbar.php";?>
 		</div>
 		<!-- FIRST IMAGE ON THE SITE -->
 		<div class="secondaryContainer">
