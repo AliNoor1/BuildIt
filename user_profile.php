@@ -21,7 +21,9 @@ else{
     $user = get_user_info($conn,$username);
 $_GET['cat'] = 'dog';
 var_dump($user);
+var_dump($_SESSION);
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +57,7 @@ var_dump($user);
             if (!empty($user['city']) && !empty($user['state'])) {
                 ?>
                 <div class="userLocation">
-                    <p><i class="fa fa-map-marker"></i> Boulder, CO</p>
+                    <p><i class="fa fa-map-marker"></i> <?=$user['city']?>, <?=$user['state']?></p>
                     <br></br>
                 </div>
                 <?php
@@ -63,10 +65,17 @@ var_dump($user);
             ?>
             <p>fdinfsadfbnm fsfdinfsadfbnm fsd fs df sdf s df sdf f sd f sdf sdf sdf sd f sdf s df sdf s df sdf sdf
                 sfd f a fdas f asd fa sd ffdinfsadfbnm fsd fs df sdf s df sdf f sd f sdf sdf sdf sd </p>
+            <?php
+
+            if ($user['userid'] === $_SESSION['userid']){
+                echo "<button type='button'>Update Bio</Button>";
+            }
+            ?>
         </div>
 
         <!-- PARENT CONTAINING USER DESIGNS AND PROJECTS DIV SO THEY ARE ON THE SAME LINE -->
         <div class="parent2">
+
             <div class="userDesigns">
                 <h2 class="header2">Designs</h2>
             </div>
@@ -74,6 +83,7 @@ var_dump($user);
             <div class="userProjects">
                 <h2 class="header2">Projects</h2>
             </div>
+
         </div>
         <div class="userForums">
             <h2>Forums</h2>

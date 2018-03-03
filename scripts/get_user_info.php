@@ -16,7 +16,7 @@ function update_session_info($conn,$username)
     $_SESSION['firstname'] = $row['firstName'];
     $_SESSION['lastname'] = $row['lastName'];
     $_SESSION['username'] = $row['username'];
-    $_SESSION['userid'] = $row['userid'];
+    $_SESSION['userid'] = $row['userID'];
     $_SESSION['commonName'] = $row['commonName'];
     $_SESSION['joinDate'] = $row['joinDate'];
     $_SESSION['city'] = $row['city'];

@@ -1,4 +1,5 @@
 <?php include "base.php"; ?>
+<?php include "get_user_info.php"?>
 <!DOCTYPE html>
 <html>
 
@@ -29,8 +30,7 @@
             $row = mysqli_fetch_array($checklogin);
             $email = $row['email'];
 
-            $_SESSION['username'] = $username;
-            $_SESSION['email'] = $email;
+            update_session_info($conn, $username);
             $_SESSION['LoggedIn'] = 1;
 
             echo "<meta http-equiv='refresh' content='0;/user_profile.php' />";
