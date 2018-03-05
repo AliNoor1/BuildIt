@@ -10,10 +10,10 @@
     if (!empty($_SESSION['LoggedIn']))
     {
         echo "<a style='float:right' href='#'>My Account</a>";
-        echo "<a style='float:right' href='/scripts/logout.php'>Logout</a>";
+        echo "<a style='float:right' href='/logout/index.php'>Logout</a>";
     }
     else{
-        echo "<a style='float:right' href='/scripts/login.php'>Login/Sign Up</a>";
+        echo "<a style='float:right' href='/login/index.php'>Login/Sign Up</a>";
     }
 
     ?>

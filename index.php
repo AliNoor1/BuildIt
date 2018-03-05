@@ -1,9 +1,10 @@
-<?php include "scripts/base.php"; ?>
+<?php include $_SERVER['DOCUMENT_ROOT']."/scripts/base.php"; ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<link href="css/BuildIT_style.css" type="text/css" rel="stylesheet">
-	</head>
+		<link href="/css/BuildIT_style.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
 
 	<title>BuildIT</title>
 	
@@ -17,7 +18,7 @@
 			</div>
 		
 			<!-- NAVIGATION BAR -->
-			<?php include $_SERVER['DOCUMENT_ROOT']."/scripts/navbar.php";?>
+			<?php include $_SERVER['DOCUMENT_ROOT']."/common/navbar.php";?>
 		</div>
 		<!-- FIRST IMAGE ON THE SITE -->
 		<div class="secondaryContainer">

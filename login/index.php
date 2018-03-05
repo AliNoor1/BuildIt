@@ -1,5 +1,5 @@
-<?php include "base.php"; ?>
-<?php include "get_user_info.php"?>
+<?php include $_SERVER['DOCUMENT_ROOT']."/scripts/base.php"; ?>
+<?php include $_SERVER['DOCUMENT_ROOT']."/scripts/get_user_info.php"?>
 <!DOCTYPE html>
 <html>
 
@@ -7,15 +7,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 
-<title>User Management System (Tom Cameron for NetTuts)</title>
-<link rel="stylesheet" href="../style.css" type="text/css" />
+<title>Login</title>
 <body>
 <div id="main">
 
     <?php
     if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['username']))
     {
-        echo "<meta http-equiv='refresh' content='0;/user_profile.php' />";
+        echo "<meta http-equiv='refresh' content='0;/user/' />";
     }
     elseif(!empty($_POST['username']) && !empty($_POST['password']))
     {
@@ -33,12 +32,12 @@
             update_session_info($conn, $username);
             $_SESSION['LoggedIn'] = 1;
 
-            echo "<meta http-equiv='refresh' content='0;/user_profile.php' />";
+            echo "<meta http-equiv='refresh' content='0;/user/' />";
         }
         else
         {
             echo "<h1>Error</h1>";
-            echo "<p>Sorry, your account could not be found. Please <a href=\"/scripts/login.php\">click here to try again</a>.</p>";
+            echo "<p>Sorry, your account could not be found. Please <a href=\"/login/index.php\">click here to try again</a>.</p>";
         }
     }
     else
@@ -47,9 +46,9 @@
 
    <h1>Member Login</h1>
 
-   <p>Thanks for visiting! Please either login below, or <a href="register.php">click here to register</a>.</p>
+   <p>Thanks for visiting! Please either login below, or <a href="/register/index.php">click here to register</a>.</p>
 
-    <form method="post" action="login.php" name="loginform" id="loginform">
+    <form method="post" action="/login/index.php" name="loginform" id="loginform">
     <fieldset>
         <label for="username">Username:</label><input type="text" name="username" id="username" /><br />
         <label for="password">Password:</label><input type="password" name="password" id="password" /><br />
