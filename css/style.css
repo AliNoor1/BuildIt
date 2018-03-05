@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+body {
+	margin: 0;
+	color:#555;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* Style the top navigation bar */
+.topnav {
+	
+    overflow: hidden;
+    background-color: #7ea6ce;
+	width: 100%;
+	text-align: left;
+	margin: 0 auto;
+}
+
+/* Style the top navigation links */
+.topnav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 25px;
+	font-family:'Roboto';
+	font-size: 20px;
+	font-weight:300;
+	text-decoration: none;
+}
+
+
+/* Change color on hover */
+.topnav a:hover {
+    color: rgba(0, 0, 0, 0.40);
+}
+
+.profileLeft{
+	display: inline-block;
+	margin: 30px 0px;
+	width: 25%;
+	height: 100vh;
+	border-right:2px solid #7ea6ce;
+
+}
+
+.parent{
+	display: flex;
+}
+
+.profileLeft img{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	top: 5%;
+	width:80%;
+	height:280rpx;
+	border-radius: 75%;
+	
+}
+
+.userLocation{
+	position: relative;
+	display: block;
+	top: 9%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+}
+
+.userLocation i{
+	margin-left: 15%;
+	font-size:23px;
+	color: #7ea6ce;
+	display: inline-block;
+}
+
+
+.userLocation p{
+	font-family:'Roboto';
+	font-size: 20px;
+	color: rgba(0, 0, 0, 0.60);
+	display: inline-block;
+}
+
+.userEmail{
+	position: relative;
+	display: block;
+	top: 7%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+}
+
+.userEmail i{
+	margin-left: 15%;
+	font-size:19px;
+	color: #7ea6ce;
+	display: inline-block;
+}
+
+
+.userEmail p{
+	font-family:'Roboto';
+	font-size: 18px;
+	color: rgba(0, 0, 0, 0.60);
+	display: inline-block;
+}
+
+.profileRight{
+	display: inline-block;
+	margin: 30px 0px;
+	width: 75%;
+	height: 100vh;
+}
+
+.Name_Bio{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	top: 1%;
+	width:85%;
+	height:30%;
+}
+
+.Name_Bio h1{
+	font-family:'Roboto';
+	font-size: 60px;
+	color: rgba(0, 0, 0, 0.60);
+	padding: 0px 10px;
+}
+
+.Name_Bio p{
+	margin-top: -20px;
+	font-family:'Roboto';
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.60);
+	padding: 0px 10px;
+}

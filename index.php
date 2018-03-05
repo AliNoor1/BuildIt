@@ -1,8 +1,10 @@
+<?php include $_SERVER['DOCUMENT_ROOT']."/scripts/base.php"; ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<link href="css/BuildIT_style.css" type="text/css" rel="stylesheet">
-	</head>
+		<link href="/css/BuildIT_style.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
 
 	<title>BuildIT</title>
 	
@@ -16,16 +18,7 @@
 			</div>
 		
 			<!-- NAVIGATION BAR -->
-			<div class="topnav">
-					<a style="background-color:#8c8c8c" href="#">
-					<img src="http://aperatifdurum.890m.com/images/homepageicon.png" alt="home" style="width:18px;height:18px;border:0;"
-					</a>
-					<a href="#">Design</a>
-					<a href="#">Forums</a>
-					<a href="#">Contracts</a>
-					<a style="float:right" href="#">Sign in</a>
-			</div>
-		
+			<?php include $_SERVER['DOCUMENT_ROOT']."/common/navbar.php";?>
 		</div>
 		<!-- FIRST IMAGE ON THE SITE -->
 		<div class="secondaryContainer">
