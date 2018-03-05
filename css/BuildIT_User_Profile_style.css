@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+body {
+	background-color:#f9fbff;
+	margin: 0;
+	color:#555;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* Style the top navigation bar */
+.topnav {
+	
+    overflow: hidden;
+    background-color: #7ea6ce;
+	width: 100%;
+	text-align: left;
+	margin: 0 auto;
+}
+
+/* Style the top navigation links */
+.topnav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 25px;
+	font-family:'Roboto';
+	font-size: 20px;
+	font-weight:300;
+	text-decoration: none;
+}
+
+
+/* Change color on hover */
+.topnav a:hover {
+    color: #3c4b68;
+}
+
+/* RIGHT SIDE OF THE PROFILE */
+.parent{
+	display: flex;
+}
+
+/* LEFT SIDE OF THE PROFILE */
+.profileLeft{
+	display: inline-block;
+	margin: 30px 0px;
+	width: 25%;
+	height: 110vh;
+	border-right:2px solid #7ea6ce;
+
+}
+
+.profileLeft img{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	top: 5%;
+	width:80%;
+	height:280rpx;
+	border-radius: 75%;
+	
+}
+
+/* USER FOLLOW STYLING */
+.userFollow{
+	position: relative;
+	display: block;
+	top: 8%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 75%;
+	background-color: #3c4b68;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 12px;
+}
+
+.userFollow i{
+	margin-left: 8%;
+	font-size:20px;
+	color: #7ea6ce;
+	display: inline-block;
+}
+
+
+.userFollow a{
+	text-decoration: none;
+	font-family:'Roboto';
+	font-size: 20px;
+	color: #7ea6ce;
+	display: block;
+	padding: 10px;
+	margin-left: -20px;
+}
+
+.userFollow a:hover {
+    color: white;
+}
+
+/* USER MESSAGE STYLING */
+.userMessage{
+	position: relative;
+	display: block;
+	top: 10%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 75%;
+	background-color: #3c4b68;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 12px;
+}
+
+.userMessage i{
+	margin-left: 8%;
+	font-size:20px;
+	color: #7ea6ce;
+	display: inline-block;
+}
+
+
+.userMessage a{
+	text-decoration: none;
+	font-family:'Roboto';
+	font-size: 20px;
+	color: #7ea6ce;
+	display: block;
+	padding: 10px;
+	margin-left: -20px;
+}
+
+.userMessage a:hover {
+    color: white;
+}
+
+/* RIGHT SIDE OF THE PROFILE */
+.profileRight{
+	display: inline-block;
+	margin: 30px 0px;
+	width: 75%;
+	height: 100vh;
+}
+
+/* NAME & BIO STYLING */
+.Name_Bio{
+	background: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	top: 1%;
+	width:85%;
+	height:30%;	
+}
+
+.Name_Bio h1{
+	font-family:'Roboto';
+	font-size: 60px;
+	color: rgba(0, 0, 0, 0.60);
+	padding: 0px 10px;
+}
+
+.Name_Bio p{
+	margin-top: -20px;
+	font-family:'Roboto';
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.60);
+	padding: 0px 10px;
+}
+
+/* USER LOCATION STYLING */
+.userLocation{
+	margin-top: -35px;
+	margin-left: 8px;
+}
+
+.userLocation i{
+	font-size:20px;
+	color: #7ea6ce;
+}
+
+.userLocation p{
+	font-size:18px;
+	color: rgba(0, 0, 0, 0.60);
+}
+
+
+/* PARENT 2 CONTAINER FOR DESIGNS AND PROJECTS DIV */
+.parent2{
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	top: 8%;
+	width:85%;
+	height:25%;
+	background-color: #f9fbff;
+}
+
+/* USERS DESIGNS AND PROJECTS STYLING*/
+.userDesigns{
+	background: white;
+	display: block;
+	float: left;
+	width: 46%;
+	height:100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.userProjects{
+	background: white;
+	display: block;
+	float: right;
+	width: 46%;
+	height:100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.header2{
+	font-family:'Roboto';
+	font-size: 25px;
+	color: rgba(0, 0, 0, 0.60);
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+/* USERS DESIGNS AND PROJECTS STYLING*/
+
+.userForums{
+	background: white;
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	top: 11%;
+	width:85%;
+	height:30%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin-bottom: 5%;
+
+}
+
+.userForums h2{
+	font-family:'Roboto';
+	font-size: 30px;
+	color: rgba(0, 0, 0, 0.60);
+	padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
