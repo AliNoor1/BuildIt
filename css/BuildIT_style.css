@@ -12,7 +12,6 @@ body {
 
 /* Style the top header */
 .topContainer{
-	padding-top:3vh;
 	text-align:center;
 	background:linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%);
 	
@@ -20,16 +19,15 @@ body {
 
 /* Style the BuildIt Box */
 .header {
-    background-image: url(https://wallpapertag.com/wallpaper/full/8/7/a/338558-popular-blueprint-background-2605x2000.jpg);
+    background-image: url(/img/buildit_background.jpg);
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	padding: 5px;
+	/*padding: 5px;*/
     text-align: center;
 	font-size: 30px;
 	font-variant: small-caps;
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 	color: white;
-	width: 50%;
-	margin: 15px 0px;
+	padding: 5px;
 }
 
 /* Style the top navigation bar */
@@ -37,7 +35,6 @@ body {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     overflow: hidden;
     background-color: #7ea6ce;
-	width: 50%;
 	text-align: left;
 	margin: 0 auto;
 }
@@ -92,7 +89,7 @@ img.imagePreview{
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%)
+	-ms-transform: translate(-50%, -50%);
 	text-align: center;
 }
 
