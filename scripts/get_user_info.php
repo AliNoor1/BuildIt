@@ -39,7 +39,8 @@ function get_user_info($conn,$username)
         'joinDate'=>$row['joinDate'],
         'city'=>$row['city'],
         'state'=>$row['state'],
-        'email'=>$row['email']);
+        'email'=>$row['email'],
+        'bio'=>$row['bio']);
     return $user;
 }
 ?>

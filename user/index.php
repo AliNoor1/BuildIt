@@ -19,15 +19,13 @@ else{
     die();
 }
     $user = get_user_info($conn,$username);
-$_GET['cat'] = 'dog';
-var_dump($user);
-var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="../css/BuildIT_User_Profile_style.css" type="text/css" rel="stylesheet">
+    <link href="/css/BuildIT_User_Profile_style.css" type="text/css" rel="stylesheet">
+    <link href="/css/navbar.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <title>Profile</title>
@@ -40,7 +38,7 @@ var_dump($_SESSION);
     <!-- LEFT PROFILE -->
     <div class="profileLeft">
         <!-- Profile Picture -->
-        <img src="../img/users/default.jpg" alt="profile_pic"></img>
+        <img src="/img/users/default.jpg" alt="profile_pic">>
 
         <div class="userFollow">
             <a href="#"><i class="fa fa-group"></i> Follow <?=$user['firstname']?></a>
@@ -63,12 +61,22 @@ var_dump($_SESSION);
                 <?php
             }
             ?>
-            <p>fdinfsadfbnm fsfdinfsadfbnm fsd fs df sdf s df sdf f sd f sdf sdf sdf sd f sdf s df sdf s df sdf sdf
-                sfd f a fdas f asd fa sd ffdinfsadfbnm fsd fs df sdf s df sdf f sd f sdf sdf sdf sd </p>
             <?php
 
-            if ($user['userid'] === $_SESSION['userid']){
+            if (!empty($_SESSION['LoggedIn']) && $user['userid'] === $_SESSION['userid']){
+                if (empty($user['bio'])){
+                    echo "<p contenteditable='true'>Edit your bio!</p>";
+                }
+                else {
+                    echo "<p contenteditable='true'>" . $user['bio'] . "</p>";
+                }
+                echo "<br>";
                 echo "<button type='button'>Update Bio</Button>";
+            }
+            else
+            {
+                echo "<p> " . $user['bio'] . "</p>";
+                echo "<br>";
             }
             ?>
         </div>

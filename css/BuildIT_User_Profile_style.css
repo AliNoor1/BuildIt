@@ -10,35 +10,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Style the top navigation bar */
-.topnav {
-	
-    overflow: hidden;
-    background-color: #7ea6ce;
-	width: 100%;
-	text-align: left;
-	margin: 0 auto;
-}
-
-/* Style the top navigation links */
-.topnav a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 20px 25px;
-	font-family:'Roboto';
-	font-size: 20px;
-	font-weight:300;
-	text-decoration: none;
-}
-
-
-/* Change color on hover */
-.topnav a:hover {
-    color: #3c4b68;
-}
-
 /* RIGHT SIDE OF THE PROFILE */
 .parent{
 	display: flex;
@@ -64,7 +35,7 @@ body {
 	width:80%;
 	height:280rpx;
 	border-radius: 75%;
-	
+
 }
 
 /* USER FOLLOW STYLING */
@@ -155,7 +126,7 @@ body {
 	margin-right: auto;
 	top: 1%;
 	width:85%;
-	height:30%;	
+	height:30%;
 }
 
 .Name_Bio h1{

@@ -6,10 +6,11 @@
     <a href="#">Design</a>
     <a href="#">Forums</a>
     <a href="#">Contracts</a>
+
     <?php
     if (!empty($_SESSION['LoggedIn']))
     {
-        echo "<a style='float:right' href='#'>My Account</a>";
+        echo "<a style='float:right' href='/user/index.php?username=".$_SESSION['username']."'>".$_SESSION['firstname']."</a>";
         echo "<a style='float:right' href='/logout/index.php'>Logout</a>";
     }
     else{
@@ -17,4 +18,10 @@
     }
 
     ?>
+    <div class="search-container">
+        <form method="get" action="/search/" id="searchform">
+            <input type="text" placeholder="Search..." name="query">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
 </div>
