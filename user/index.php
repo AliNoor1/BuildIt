@@ -65,13 +65,13 @@ else{
 
             if (!empty($_SESSION['LoggedIn']) && $user['userid'] === $_SESSION['userid']){
                 if (empty($user['bio'])){
-                    echo "<p contenteditable='true'>Edit your bio!</p>";
+                    echo "<p contenteditable='true' id='bio'>Edit your bio!</p>";
                 }
                 else {
-                    echo "<p contenteditable='true'>" . $user['bio'] . "</p>";
+                    echo "<p contenteditable='true' id='bio'>" . $user['bio'] . "</p>";
                 }
                 echo "<br>";
-                echo "<button type='button'>Update Bio</Button>";
+                echo "<button type='button' id='bio-submit' style='visibility: hidden'>Save Bio Changes</Button>";
             }
             else
             {
@@ -98,6 +98,8 @@ else{
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/update_bio.js"></script>
 
 </body>
 
