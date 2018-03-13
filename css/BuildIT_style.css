@@ -1,5 +1,86 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
 
+/* ADDS ANIMATION FOR THE SLIDES */
+@-webkit-keyframes slide {
+  20% {margin-left: 0px;}
+  30% {margin-left: -2000px;}
+  50% {margin-left: -2000px;}
+  60% {margin-left: -1456px;}
+  70% {margin-left: -1456px;}
+  80% {margin-left: -4000px;}
+  90% {margin-left: -4000px;}
+}
+
+@-moz-keyframes Gradient {
+  20% {margin-left: 0px;}
+  30% {margin-left: -2000px;}
+  50% {margin-left: -2000px;}
+  60% {margin-left: -1456px;}
+  70% {margin-left: -1456px;}
+  80% {margin-left: -4000px;}
+  90% {margin-left: -4000px;}
+}
+
+@keyframes slide{
+  20% {margin-left: 0px;}
+  30% {margin-left: -1500px;}
+  50% {margin-left: -1500px;}
+  60% {margin-left: -3000px;}
+  70% {margin-left: -3000px;}
+  80% {margin-left: -4500px;}
+  90% {margin-left: -4500px;}
+}
+
+.slideShow{
+	width: 6000px;
+	-webkit-animation: slide 20s ease infinite;
+	-moz-animation: slide 20s ease infinite;
+	animation: slide 20s ease infinite;
+}
+
+.slide {
+  float: left;
+  width: 1500px;
+}
+
+/* ADDS ANIMATION FOR GRADIENT BACKGROUND */
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+/* Body */
 body {
 	margin: 0;
 	background: #dddddd;
@@ -13,22 +94,25 @@ body {
 
 /* Style the top header */
 .topContainer{
+	background: linear-gradient(-45deg, #7ea6ce, #557291 , #3c4b68 , #3c4b68 );
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+	padding-top:3vh;
 	text-align:center;
-	background: -webkit-linear-gradient(45deg, #7ea6ce 0%,#557291 46%,#3c4b68 100%);
-	
+	color:white;
 }
 
 /* Style the BuildIt Box */
 .header {
-    background-image: url(/img/buildit_background.jpg);
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	/*padding: 5px;*/
-    text-align: center;
-	font-size: 30px;
-	font-variant: small-caps;
-	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    	 text-align: center;
+	font-family:'Roboto';
+	font-size: 40px;
+	font-weight:300;
 	color: white;
-	padding: 5px;
+	width: 100%;
+	margin: 15px 0px;
 }
 
 
@@ -38,7 +122,9 @@ img.imagePreview{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	display: block;
 	max-width: 100%;
-	height: auto;
+	width: 1800px;
+	max-height: auto;
+	height:760px;
 	transition: 1.8s ease;
 	backface-visibility: hidden;
 	
@@ -46,6 +132,7 @@ img.imagePreview{
 
 /* Hover mechanics to respond to your cursor */
 .secondaryContainer{
+	overflow: hidden;
 	position: relative;
 }
 .secondaryContainer:hover .imagePreview {
@@ -69,11 +156,16 @@ img.imagePreview{
 }
 
 /* A div with some text for the image above, describing the design process. Still unfinished */
-.description{
+#description{
 	background-color: white;
 	padding: 75px 50px;
-	background: -webkit-linear-gradient(45deg, #7ea6ce 0%,#557291 46%,#3c4b68 100%);
+	background: linear-gradient(-45deg, #7ea6ce, #557291 , #3c4b68 , #3c4b68 );
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
 	font-family:'Roboto';
+	font-size: 20px;
 }
 
 #desc_header{
@@ -142,7 +234,7 @@ img.imagePreview{
 	-webkit-transition-duration: 0.3s;
 	transition-duration: 0.3s;
 	padding: 25px 0px;
-
+	border-radius: 5px;
 }
 
 .shutterOutTab a{
