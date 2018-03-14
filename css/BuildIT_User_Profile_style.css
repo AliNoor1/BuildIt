@@ -22,7 +22,6 @@ body {
 	width: 25%;
 	height: 110vh;
 	border-right:2px solid #7ea6ce;
-
 }
 
 .profileLeft img{
@@ -34,8 +33,7 @@ body {
 	top: 5%;
 	width:80%;
 	height:280rpx;
-	border-radius: 75%;
-
+	border-radius: 75%;	
 }
 
 /* USER FOLLOW STYLING */
@@ -70,6 +68,8 @@ body {
 }
 
 .userFollow a:hover {
+	-webkit-transition: 0.5s;
+    transition: 0.5s;
     color: white;
 }
 
@@ -105,6 +105,8 @@ body {
 }
 
 .userMessage a:hover {
+	-webkit-transition: 0.5s;
+    transition: 0.5s;
     color: white;
 }
 
@@ -119,7 +121,7 @@ body {
 /* NAME & BIO STYLING */
 .Name_Bio{
 	background: white;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.12);
 	position: relative;
 	display: block;
 	margin-left: auto;
@@ -127,21 +129,25 @@ body {
 	top: 1%;
 	width:85%;
 	height:30%;
+	border-radius: 5px;
+	overflow: hidden;
+	border-top: 3px solid #7ea6ce;
 }
 
 .Name_Bio h1{
+	margin-top: -3px;
 	font-family:'Roboto';
 	font-size: 60px;
 	color: rgba(0, 0, 0, 0.60);
-	padding: 0px 10px;
+	padding: 5px 15px;
 }
 
 .Name_Bio p{
-	margin-top: -20px;
+	margin-top: -30px;
 	font-family:'Roboto';
 	font-size: 15px;
 	color: rgba(0, 0, 0, 0.60);
-	padding: 0px 10px;
+	padding: 0px 20px;
 }
 
 /* USER LOCATION STYLING */
@@ -180,7 +186,9 @@ body {
 	float: left;
 	width: 46%;
 	height:100%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.12);
+	border-radius: 5px;
+	border-top: 3px solid #7ea6ce;
 }
 
 .userProjects{
@@ -189,7 +197,9 @@ body {
 	float: right;
 	width: 46%;
 	height:100%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.12);
+	border-radius: 5px;
+	border-top: 3px solid #7ea6ce;
 }
 
 .header2{
@@ -206,31 +216,23 @@ body {
 	background: white;
 	position: relative;
 	display: block;
+	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
 	top: 11%;
 	width:85%;
 	height:30%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.12);
 	margin-bottom: 5%;
+	border-radius: 5px;
+	border-top: 3px solid #7ea6ce;
 
 }
 
 .userForums h2{
+	margin-top: 8px;
 	font-family:'Roboto';
 	font-size: 30px;
 	color: rgba(0, 0, 0, 0.60);
-	padding: 20px;
+	padding: 0px 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
