@@ -7,7 +7,7 @@ body {
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
-	color: white;
+	color: #3c4b68;
 	font-family:'Roboto';
 }
 
@@ -53,7 +53,12 @@ body {
 
 .main{
 	text-align: center;
-	margin: 100px 250px;
+	margin: 100px 300px;
+	background-color: #f9fbff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 20px;
+	padding: 0px 50px;
+	border-top: 5px solid #898989;
 }
 
 .main h1{
@@ -74,13 +79,31 @@ body {
 	border: 1px solid #898989;
     border-radius: 4px;
     box-sizing: border-box;
+	-webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+#firstname:focus{
+	border: 1px solid black;
+    border-radius: 4px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	outline: none;
 }
 
 #lastname{
 	margin: 10px;
-	border: 1px solid #ccc;
+	border: 1px solid #898989;
     border-radius: 4px;
     box-sizing: border-box;
+	-webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+#lastname:focus{
+	border: 1px solid black;
+    border-radius: 4px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	outline: none;
 }
 
 #city{
@@ -88,6 +111,15 @@ body {
 	border: 1px solid #898989;
     border-radius: 4px;
     box-sizing: border-box;
+	-webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+#city:focus{
+	border: 1px solid black;
+    border-radius: 4px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	outline: none;
 }
 
 #state{
@@ -95,6 +127,15 @@ body {
 	border: 1px solid #898989;
     border-radius: 4px;
     box-sizing: border-box;
+	-webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+#state:focus{
+	border: 1px solid black;
+    border-radius: 4px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	outline: none;
 }
 
 #username{
@@ -102,6 +143,15 @@ body {
 	border: 1px solid #898989;
     border-radius: 4px;
     box-sizing: border-box;
+	-webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+#username:focus{
+	border: 1px solid black;
+    border-radius: 4px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	outline: none;
 }
 
 #password{
@@ -109,6 +159,15 @@ body {
 	border: 1px solid #898989;
     border-radius: 4px;
     box-sizing: border-box;
+	-webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+#password:focus{
+	border: 1px solid black;
+    border-radius: 4px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	outline: none;
 }
 
 #email{
@@ -116,21 +175,31 @@ body {
 	border: 1px solid #898989;
     border-radius: 4px;
     box-sizing: border-box;
+	-webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+#email:focus{
+	border: 1px solid black;
+    border-radius: 4px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	outline: none;
 }
 
 #register{
 	width: 100px;
-    background-color: #898989;
+    background-color: #7ea6ce;
     color: white;
     padding: 14px 20px;
     margin: 30px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-	
+	-webkit-transition: 0.5s;
+    transition: 0.5s;	
 }
 
 #register:hover {
-    background-color: #606060;
+    background-color: #3c4b68;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
