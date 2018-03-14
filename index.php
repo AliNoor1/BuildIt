@@ -26,8 +26,8 @@
 			
 		<div class= "slideShow">
 			<div class="slide"><img class= "imagePreview" src="img/home01.jpg" alt="Shed_img"></div>
-			<div class="slide"><img class= "imagePreview" src="img/home01.jpg" alt="Shed_img"></div>
-			<div class="slide"><img class= "imagePreview" src="img/home01.jpg" alt="Shed_img"></div>
+			<div class="slide"><img class= "imagePreview" src="img/home04.jpg" alt="Shed_img"></div>
+			<div class="slide"><img class= "imagePreview" src="img/home05.jpg" alt="Shed_img"></div>
 			<div class="slide"><img class= "imagePreview" src="img/home01.jpg" alt="Shed_img"></div>
 			
 			<div class="imageTab">
