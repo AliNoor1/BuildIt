@@ -3,32 +3,32 @@
 /* ADDS ANIMATION FOR THE SLIDES */
 @-webkit-keyframes slide {
   20% {margin-left: 0px;}
-  30% {margin-left: -2000px;}
-  50% {margin-left: -2000px;}
-  60% {margin-left: -1456px;}
-  70% {margin-left: -1456px;}
-  80% {margin-left: -4000px;}
-  90% {margin-left: -4000px;}
+  30% {margin-left: -1450px;}
+  50% {margin-left: -1450px;}
+  60% {margin-left: -2900px;}
+  70% {margin-left: -2900px;}
+  80% {margin-left: -4350px;}
+  90% {margin-left: -4350px;}
 }
 
-@-moz-keyframes Gradient {
+@-moz-keyframes slide {
   20% {margin-left: 0px;}
-  30% {margin-left: -2000px;}
-  50% {margin-left: -2000px;}
-  60% {margin-left: -1456px;}
-  70% {margin-left: -1456px;}
-  80% {margin-left: -4000px;}
-  90% {margin-left: -4000px;}
+  30% {margin-left: -1450px;}
+  50% {margin-left: -1450px;}
+  60% {margin-left: -2900px;}
+  70% {margin-left: -2900px;}
+  80% {margin-left: -4350px;}
+  90% {margin-left: -4350px;}
 }
 
 @keyframes slide{
   20% {margin-left: 0px;}
-  30% {margin-left: -1500px;}
-  50% {margin-left: -1500px;}
-  60% {margin-left: -3000px;}
-  70% {margin-left: -3000px;}
-  80% {margin-left: -4500px;}
-  90% {margin-left: -4500px;}
+  30% {margin-left: -1450px;}
+  50% {margin-left: -1450px;}
+  60% {margin-left: -2900px;}
+  70% {margin-left: -2900px;}
+  80% {margin-left: -4350px;}
+  90% {margin-left: -4350px;}
 }
 
 .slideShow{
@@ -40,7 +40,7 @@
 
 .slide {
   float: left;
-  width: 1500px;
+  width: 1450px;
 }
 
 /* ADDS ANIMATION FOR GRADIENT BACKGROUND */
@@ -124,7 +124,7 @@ img.imagePreview{
 	max-width: 100%;
 	width: 1800px;
 	max-height: auto;
-	height:760px;
+	height:780px;
 	transition: 1.8s ease;
 	backface-visibility: hidden;
 	
