@@ -58,16 +58,17 @@
     {
         ?>
 
-        <h1>Sign Up</h1>
+        <h1>Create an Account</h1>
 
-        <p>Signing up is free and easy.</p>
+        <p>Signing up is free and easy. You gain access to our forums page and can share projects or 
+		designs with other users.</p>
 
         <form method="post" action="index.php" name="registerform" class="registerform">
             
                 <label for="firstname">First Name:</label><input type="text" name="firstname" id="firstname" /><br />
                 <label for="lastname">Last Name:</label><input type="text" name="lastname" id="lastname" /><br />
-                <label for="city">City</label><input type="text" name="city" id="city" /><br />
-                <label for="state">State</label><input type="text" name="state" id="state" /><br />
+                <label for="city">City:</label><input type="text" name="city" id="city" /><br />
+                <label for="state">State:</label><input type="text" name="state" id="state" /><br />
                 <label for="username">Username:</label><input type="text" name="username" id="username" /><br />
                 <label for="password">Password:</label><input type="password" name="password" id="password" /><br />
                 <label for="email">Email Address:</label><input type="text" name="email" id="email" /><br />
