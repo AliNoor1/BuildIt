@@ -19,7 +19,7 @@
     elseif(!empty($_POST['username']) && !empty($_POST['password']))
     {
         $username = mysqli_real_escape_string($conn, $_POST['username']);
-        $password = md5(mysqli_real_escape_string($conn, $_POST['password']));
+        $password = md5(mysqli_real_escape_string($conn, $_POST['password'])); /* Need to switch from MD5 to more secure algorithm */
 
         $login_query = "SELECT * FROM users WHERE username = '".$username."' AND password = '".$password."'";
         $checklogin = mysqli_query($conn, $login_query);
