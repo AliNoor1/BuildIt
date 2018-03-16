@@ -3,46 +3,50 @@
 /* ADDS ANIMATION FOR THE SLIDES@import url('https://fonts.googleapis.com/css?family=Roboto:300');
 
 /* ADDS ANIMATION FOR THE SLIDES */
-@-webkit-keyframes slide {
-  20% {margin-left: 0px;}
-  30% {margin-left: -1450px;}
-  50% {margin-left: -1450px;}
-  60% {margin-left: -2900px;}
-  70% {margin-left: -2900px;}
-  80% {margin-left: -4350px;}
-  90% {margin-left: -4350px;}
-}
 
 @-moz-keyframes slide {
   20% {margin-left: 0px;}
-  30% {margin-left: -1450px;}
-  50% {margin-left: -1450px;}
-  60% {margin-left: -2900px;}
-  70% {margin-left: -2900px;}
-  80% {margin-left: -4350px;}
-  90% {margin-left: -4350px;}
+  30% {margin-left: -100%;}
+  50% {margin-left: -100%;}
+  60% {margin-left: -200%;}
+  70% {margin-left: -200%;}
+  80% {margin-left: -300%;}
+  90% {margin-left: -300%;}
+}
+
+@-webkit-keyframes slide {
+  20% {margin-left: 0px;}
+  30% {margin-left: -100%;}
+  50% {margin-left: -100%;}
+  60% {margin-left: -200%;}
+  70% {margin-left: -200%;}
+  80% {margin-left: -300%;}
+  90% {margin-left: -300%;}
 }
 
 @keyframes slide{
   20% {margin-left: 0px;}
-  30% {margin-left: -1450px;}
-  50% {margin-left: -1450px;}
-  60% {margin-left: -2900px;}
-  70% {margin-left: -2900px;}
-  80% {margin-left: -4350px;}
-  90% {margin-left: -4350px;}
+  30% {margin-left: -100%;}
+  50% {margin-left: -100%;}
+  60% {margin-left: -200%;}
+  70% {margin-left: -200%;}
+  80% {margin-left: -300%;}
+  90% {margin-left: -300%;}
 }
 
 .slideShow{
-	width: 6000px;
+	width: 400%;
+	height: auto;
 	-webkit-animation: slide 20s ease infinite;
 	-moz-animation: slide 20s ease infinite;
 	animation: slide 20s ease infinite;
+	display: flex;
 }
 
 .slide {
-  float: left;
-  width: 1450px;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ADDS ANIMATION FOR GRADIENT BACKGROUND */
@@ -123,13 +127,10 @@ body {
 img.imagePreview{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	display: block;
-	max-width: 100%;
-	width: 1800px;
-	max-height: auto;
-	height:780px;
+	width:100%;
+	height:auto;
 	transition: 1.8s ease;
 	backface-visibility: hidden;
-	
 }
 
 /* Hover mechanics to respond to your cursor */
