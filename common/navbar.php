@@ -10,11 +10,11 @@
     <?php
     if (!empty($_SESSION['LoggedIn']))
     {
-        echo "<a class="topLinks" style='float:right' href='/user/index.php?username=".$_SESSION['username']."'>".$_SESSION['firstname']."</a>";
-        echo "<a class="topLinks" style='float:right' href='/logout/index.php'>Logout</a>";
+        echo "<a class=\"topLinks\" style='float:right' href='/user/index.php?username=".$_SESSION['username']."'>".$_SESSION['firstname']."</a>";
+        echo "<a class=\"topLinks\" style='float:right' href='/logout/index.php'>Logout</a>";
     }
     else{
-        echo <a class="login_signup" href='/login/index.php'><i class="fa fa-user-circle"></i></a>;
+        echo "<a class=\"login_signup\" href='/login/index.php'><i class=\"fa fa-user-circle\"></i></a>";
     }
     ?>
 	
