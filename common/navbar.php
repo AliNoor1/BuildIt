@@ -3,7 +3,7 @@
     <a class="homeButton" href="/">
         <i class="fa fa-home"></i>
     </a>
-    <a class="topLinks" href="#">Design</a>
+    <a class="topLinks" href="/design-page/">Design</a>
     <a class="topLinks" href="#">Forums</a>
     <a class="topLinks" href="#">Contracts</a>
 

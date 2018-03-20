@@ -19,3 +19,18 @@ CREATE TABLE IF NOT EXISTS users (
 	bio text,
 	email	text NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS contractors (
+  contractorID int(25) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(65) NOT NULL,
+	password VARCHAR(32) NOT NULL,
+	firstName text NOT NULL,
+	lastName text NOT NULL,
+	joinDate datetime NOT NULL,
+	city text,
+	state text,
+	bio text,
+	email text NOT NULL,
+	companyName text,
+	phone int(10)
+);
