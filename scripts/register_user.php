@@ -38,7 +38,7 @@ else
         $password."','".
         $email."',
         NOW())";
-    
+
     $registerquery = mysqli_query($conn, $querystring);
 
     if($registerquery)
