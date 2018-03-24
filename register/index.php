@@ -28,9 +28,13 @@
     
 <div class="main">
     <?php
-    if(!empty($_POST['username']) && !empty($_POST['password']))
+    if(!empty($_POST['username']) && !empty($_POST['password']) && $_POST['usertype'] == "builder")
     {
         include $_SERVER['DOCUMENT_ROOT']."/scripts/register_user.php";
+    }
+    elseif (!empty($_POST['username']) && !empty($_POST['password']) && $_POST['usertype'] == "contractor")
+    {
+        include $_SERVER['DOCUMENT_ROOT']."/scripts/register_contractor.php";
     }
     else
     {

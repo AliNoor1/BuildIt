@@ -32,5 +32,7 @@ CREATE TABLE IF NOT EXISTS contractors (
 	bio text,
 	email text NOT NULL,
 	companyName text,
-	phone int(10)
+	phone int(10),
+	address1 text,
+	address2 text
 );
