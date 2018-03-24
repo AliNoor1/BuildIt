@@ -14,3 +14,4 @@ if ($conn->query($update_cmd) === TRUE) {
 } else {
     echo "Error updating record: " . $conn->error;
 }
+
