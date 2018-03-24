@@ -1,5 +1,6 @@
 <?php include $_SERVER['DOCUMENT_ROOT']."/scripts/base.php"; ?>
 <?php include $_SERVER['DOCUMENT_ROOT']."/scripts/get_user_info.php"?>
+<?php include $_SERVER['DOCUMENT_ROOT']."/scripts/get_contractor_info.php"?>
 <!DOCTYPE html>
 <html>
 
@@ -12,33 +13,18 @@
 <div id="main">
 
     <?php
+//    check if user is logged in
     if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['username']))
     {
         echo "<meta http-equiv='refresh' content='0;/user/' />";
     }
-    elseif(!empty($_POST['username']) && !empty($_POST['password']))
-    {
-        $username = mysqli_real_escape_string($conn, $_POST['username']);
-        $password = md5(mysqli_real_escape_string($conn, $_POST['password'])); /* Need to switch from MD5 to more secure algorithm */
 
-        $login_query = "SELECT * FROM users WHERE username = '".$username."' AND password = '".$password."'";
-        $checklogin = mysqli_query($conn, $login_query);
+    elseif (!empty($_POST['username']) && !empty($_POST['password']) && $_POST['usertype'] == "builder") {
+        include $_SERVER['DOCUMENT_ROOT'] . "/scripts/login_user.php";
+    }
+    elseif (!empty($_POST['username']) && !empty($_POST['password']) && $_POST['usertype'] == "contractor") {
+        include $_SERVER['DOCUMENT_ROOT'] . "/scripts/login_contractor.php";
 
-        if(mysqli_num_rows($checklogin) == 1)
-        {
-            $row = mysqli_fetch_array($checklogin);
-            $email = $row['email'];
-
-            update_session_info($conn, $username);
-            $_SESSION['LoggedIn'] = 1;
-
-            echo "<meta http-equiv='refresh' content='0;/user/' />";
-        }
-        else
-        {
-            echo "<h1>Error</h1>";
-            echo "<p>Sorry, your account could not be found. Please <a href=\"/login/index.php\">click here to try again</a>.</p>";
-        }
     }
     else
     {
@@ -52,6 +38,15 @@
     <fieldset>
         <label for="username">Username:</label><input type="text" name="username" id="username" /><br />
         <label for="password">Password:</label><input type="password" name="password" id="password" /><br />
+        <div>
+            <input type="radio" id="builder"
+                   name="usertype" value="builder" checked="checked">
+            <label for="builder">Builder</label>
+
+            <input type="radio" id="contractor"
+                   name="usertype" value="contractor">
+            <label for="contractor">Contractor</label>
+        </div>
         <input type="submit" name="login" id="login" value="Login" />
     </fieldset>
     </form>
