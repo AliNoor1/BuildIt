@@ -56,7 +56,12 @@ var_dump($contractor)?>
             if (!empty($contractor['city']) && !empty($contractor['state'])) {
                 ?>
                 <div class="userLocation">
-                    <p><i class="fa fa-map-marker"></i> <?=$contractor['city']?>, <?=$contractor['state']?></p>
+                    <p><i class="fa fa-map-marker"></i> <br>
+                        <?=$contractor['address1']?><br>
+                        <?php if ($contractor['address2']){
+                            echo $contractor['address2'] . "<br>";
+                        }?>
+                        <?=$contractor['city']?>, <?=$contractor['state']?></p>
                     <br>
                 </div>
                 <?php
