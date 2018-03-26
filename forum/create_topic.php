@@ -1,21 +1,9 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/scripts/base.php";?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <link href="/css/BuildIT_Forum_style.css" type="text/css" rel="stylesheet">
-    <link href="/css/navbar.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<title>Forum</title>
-<body>
-
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/common/navbar.php";?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/forum/header.php"; ?>
 
 <h1>Forum</h1>
 <?php
 echo '<h2>Create a topic</h2>';
-if($_SESSION['LoggedIn'] == false)
+if(empty($_SESSION['LoggedIn']))
 {
     //the user is not signed in
     echo 'Sorry, you have to be <a href="/login/">signed in</a> to create a topic.';
@@ -144,10 +132,4 @@ else
 }
 ?>
 
-
-
-
-
-
-</body>
-</html>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/forum/footer.php"; ?>

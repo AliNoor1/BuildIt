@@ -1,16 +1,5 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/scripts/base.php";?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/forum/header.php"; ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <link href="/css/BuildIT_Forum_style.css" type="text/css" rel="stylesheet">
-    <link href="/css/navbar.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<title>Forum</title>
-<body>
-
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/common/navbar.php";?>
 <h1>Forum</h1>
 
 <div id="wrapper">
@@ -31,8 +20,6 @@
             cat_description
         FROM
             forum_categories";
-
-        var_dump($sql);
 
         $result = mysqli_query($conn, $sql);
 
@@ -76,5 +63,4 @@
         ?>
     </div>
 </div>
-</body>
-</html>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/forum/footer.php"; ?>
