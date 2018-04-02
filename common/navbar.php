@@ -4,18 +4,13 @@
         <i class="fa fa-home"></i>
     </a>
     <a class="topLinks" href="/design-page/">Design</a>
-    <a class="topLinks" href="/forum/">Forums</a>
+    <a class="topLinks" href="#">Forums</a>
     <a class="topLinks" href="#">Contracts</a>
 
     <?php
     if (!empty($_SESSION['LoggedIn']))
     {
-        if($_SESSION['usertype'] == 'builder') {
-            echo "<a class=\"topLinks\" style='float:right' href='/user/index.php?username=" . $_SESSION['username'] . "'>" . $_SESSION['firstname'] . "</a>";
-        }
-        elseif($_SESSION['usertype'] == 'contractor'){
-            echo "<a class=\"topLinks\" style='float:right' href='/contractor/index.php?username=" . $_SESSION['username'] . "'>" . $_SESSION['firstname'] . "</a>";
-        }
+        echo "<a class=\"topLinks\" style='float:right' href='/user/index.php?username=".$_SESSION['username']."'>".$_SESSION['firstname']."</a>";
         echo "<a class=\"topLinks\" style='float:right' href='/logout/index.php'>Logout</a>";
     }
     else{
