@@ -17,7 +17,8 @@ CREATE TABLE IF NOT EXISTS users (
 	city text,
 	state text,
 	bio text,
-	email text NOT NULL
+	email text NOT NULL,
+    admin bit NOT NULL DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS contractors (
