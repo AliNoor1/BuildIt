@@ -33,6 +33,43 @@
 			});
 			});
 		</script>
+<script>
+var dix = 0;
+var stix = 200;
+function myFunction1() {
+	dix = dix +1;
+    document.getElementById("demo").innerHTML = String(dix) + ' Clicks Wide <br /> $' + String(dix*stix);
+}
+function myFunction2() {
+	dix = dix -1;
+    document.getElementById("demo").innerHTML = String(dix) + ' Clicks Wide <br /> $ ' + String(dix*stix);
+}
+function myFunction3() {
+	stix = stix +20;
+    document.getElementById("demo").innerHTML = String(dix) + ' Clicks Wide <br /> $ ' + String(dix*stix);
+}
+function myFunction4() {
+	stix = stix -20;
+    document.getElementById("demo").innerHTML = String(dix) + ' Clicks Wide <br /> $ ' + String(dix*stix);
+}
+function cnvs(hix,six){
+	  var canvas = document.querySelector('.myCanvas');
+      var width = canvas.width = window.innerWidth;
+      var height = canvas.height = window.innerHeight;
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'rgb(0,0,'+String(hix)+ ')';
+      ctx.fillRect(0,0,width,height);
+
+      ctx.strokeStyle = 'rgb(255,255,255)';
+      ctx.lineWidth = 5;
+	  ctx.strokeRect(25,25,50,six);
+	  for (i=0;i<hix;i++){
+      ctx.strokeRect(25+50*i,25,50,six);
+
+	  }
+}
+</script>
+
 	</head>
 
 	<title>Design</title>
@@ -72,7 +109,20 @@
 			<div id="dimensions">
 				
 				<h1>Dimensions</h1>
-			
+				<p id="demo">   </p>
+			<button type="button" onclick="myFunction1();cnvs(dix,stix)">Increase Width</button>
+<button type="button" onclick="myFunction2();cnvs(dix,stix)">Decrease Width</button>
+<button type="button" onclick="myFunction3();cnvs(dix,stix)">Increase Height</button>
+<button type="button" onclick="myFunction4();cnvs(dix,stix)">Decrease Height</button>
+
+<canvas class="myCanvas">
+      <p>Add suitable fallback here.</p>
+    </canvas>
+
+    <script>	
+		myFunction1();
+		cnvs(dix,stix);
+    </script>
 			</div>
 		
 		</div>
