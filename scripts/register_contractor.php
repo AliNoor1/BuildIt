@@ -59,7 +59,7 @@ else
     if($registerquery)
     {
         echo "<h1>Success</h1>";
-        echo "<p>Your account was successfully created. Please <a href=\"/\">click here to return to the main page.</a>.</p>";
+        echo "<p>Your contractor account was successfully created. Please <a href=\"/\">click here to return to the main page.</a>.</p>";
     }
     else
     {

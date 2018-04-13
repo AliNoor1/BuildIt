@@ -1,5 +1,11 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/forum/header.php"; ?>
-
+<div id="bread">
+    <ul>
+        <li class="active-bread"><a href="#">Posts</a></li>
+        <li><a href="category.php?cat_id=<?=$_GET['cat_id']?>">Topics</a></li>
+        <li><a href="index.php">Forum</a></li>
+    </ul>
+</div>
 <h1>Forum</h1>
 <div>
 <?php
@@ -10,7 +16,7 @@ $sql = "SELECT
         FROM
             forum_topics
         WHERE
-            forum_topics.topic_id = '" . mysqli_real_escape_string($conn, $_GET['id']) . ";'";
+            forum_topics.topic_id = '" . mysqli_real_escape_string($conn, $_GET['topic_id']) . ";'";
 
 $result = mysqli_query($conn, $sql);
 
@@ -43,7 +49,7 @@ else
                 ON
                     forum_posts.post_by = users.userID
                 WHERE
-                    forum_posts.post_topic = " . mysqli_real_escape_string($conn, $_GET['id']) . "";
+                    forum_posts.post_topic = " . mysqli_real_escape_string($conn, $_GET['topic_id']) . ";";
 
 
         $result = mysqli_query($conn, $sql);
@@ -88,7 +94,7 @@ else
                    <?php } ?>
 
                 <div>
-                    <form method="post" action="reply.php?id=<?=$_GET['id']?>">
+                    <form method="post" action="reply.php?topic_id=<?=$_GET['topic_id']?>&cat_id=<?=$_GET['cat_id']?>">
                         <textarea name="reply-content"></textarea>
                         <input type="submit" value="Submit reply" />
                     </form>

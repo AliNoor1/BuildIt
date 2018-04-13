@@ -25,7 +25,7 @@ else
                           post_by) 
                 VALUES ('" . $_POST['reply-content'] . "',
                         NOW(),
-                        " . mysqli_real_escape_string($conn, $_GET['id']) . ",
+                        " . mysqli_real_escape_string($conn, $_GET['topic_id']) . ",
                         " . $_SESSION['userid'] . ")";
 
         $result = mysqli_query($conn, $sql);
@@ -36,7 +36,7 @@ else
         }
         else
         {
-            echo 'Your reply has been saved, check out <a href="topic.php?id=' . htmlentities($_GET['id']) . '">the topic</a>.';
+            echo 'Your reply has been saved, check out <a href="topic.php?topic_id=' . $_GET['topic_id'] . '&cat_id='. $_GET['cat_id'] . '">the topic</a>.';
         }
     }
 }

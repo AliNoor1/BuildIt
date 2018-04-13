@@ -11,9 +11,12 @@
 </head>
 
 <body>
-
+<div id="bread">
+    <ul>
+        <li class="active-bread"><a href="#">Forum</a></li>
+    </ul>
+</div>
 <h1 class="header">Forums</h1>
-
 	<div class="search-forum">
         <form method="get" action="/search/" id="searchform">
             <input type="text" placeholder="Search..." name="query">
@@ -24,8 +27,13 @@
 <div class="wrapper">
     <div class="menu">
         <a class="item" href="/forum/index.php">Home</a> -
-        <a class="item" href="/forum/create_topic.php">Create Topic</a> -
-        <a class="item" href="/forum/create_cat.php">Create Category</a>
+        <a class="item" href="/forum/create_topic.php">Create Topic</a>
+        <?php if ($_SESSION['admin']==1) {
+            echo"-
+        <a class=\"item\" href=\"/forum/create_cat.php\">Create Category</a>
+        ";
+        }
+        ?>
 
     </div>
 
@@ -59,25 +67,27 @@
               <table class="ftable">
               <tr>
                 <th>Category</th>
-                <th>Topic</th>
-				<th>Posts</th>
+				<th>Topics</th>
 				<th>Author</th>
               </tr>
             <?php
 
                 while($row = mysqli_fetch_assoc($result))
                 {
+                    $querystring = "
+                  select count(forum_topics.topic_id) as cnt from forum_topics
+                    inner join forum_categories on forum_categories.cat_id=forum_topics.topic_cat
+                    where forum_categories.cat_name like '". $row['cat_name'] . "';";
+                    $count_cat_query = mysqli_query($conn, $querystring) or die(mysqli_error($conn));
+                    $cat_cnt = mysqli_fetch_array($count_cat_query)['cnt'];
                     ?>
                     <tr>
                         <td class="category_row">
-                            <a href="category.php?id=<?=$row['cat_id']?>"><?=$row['cat_name']?> Workshops</a>
-                            <?=$row['cat_description']?>
-                        </td>
-                        <td class="topic_row">
-                            <a href="topic.php?id=">Topic subject</a>
+                            <a href="category.php?cat_id=<?=$row['cat_id']?>"><?=$row['cat_name']?></a>
+                            <br><?=$row['cat_description']?>
                         </td>
 						<td class="posts_row">
-                            <a href="#">Number of posts</a>
+                            <a href="category.php?cat_id=<?=$row['cat_id']?>"><?=$cat_cnt?></a>
                         </td>
 						<td class="author_row">
                             <a href="#"><img class= "imageForum" src="https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png" alt="profile_img"> John Doe</a>

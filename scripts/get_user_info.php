@@ -22,6 +22,7 @@ function update_session_info($conn,$username)
     $_SESSION['city'] = $row['city'];
     $_SESSION['state'] = $row['state'];
     $_SESSION['email'] = $row['email'];
+    $_SESSION['admin'] = $row['admin'];
 }
 
 function get_user_info($conn,$username)

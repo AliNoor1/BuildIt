@@ -18,7 +18,7 @@ else{
     header("HTTP/1.0 404 Not Found");
     die();
 }
-    $contractor = get_contractor_info($conn,$username);
+    $contractor = get_contractor_info($conn, $username);
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +45,10 @@ var_dump($contractor)?>
             <a href="#"><i class="fa fa-group"></i> Follow <?=$contractor['firstname']?></a>
         </div>
         <div class="userMessage">
-            <a href="#"><i class="fa fa-envelope-o"></i> Message <?=$contractor['firstname']?></a>
+            <?php var_dump($contractor)?>
+            <a href="mailto:<?=$contractor['email']?>?Subject=?test" target="_top">
+                <i class="fa fa-envelope-o"></i> Message <?=$contractor['firstname']?>
+            </a>
         </div>
     </div>
     <!-- RIGHT PROFILE -->

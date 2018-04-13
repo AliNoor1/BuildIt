@@ -11,6 +11,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <script>
+//            todo - there's a bug here.
             $(document).ready(function(){
                 $(".contractor-only").hide();
                 $('input[type=radio][name=usertype]').change( function(){
@@ -28,6 +29,7 @@
     
 <div class="main">
     <?php
+    var_dump($_POST);
     if(!empty($_POST['username']) && !empty($_POST['password']) && $_POST['usertype'] == "builder")
     {
         include $_SERVER['DOCUMENT_ROOT']."/scripts/register_user.php";
