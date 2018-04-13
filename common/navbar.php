@@ -1,6 +1,5 @@
     <!-- NAVIGATION BAR -->
 <head>
-  <link href="/css/BuildIT_style.css" type="text/css" rel="stylesheet">
   <link href="/css/login.css" type="text/css" rel="stylesheet">
   <link href="/css/navbar.css" type="text/css" rel="stylesheet">
 </head>
@@ -11,7 +10,7 @@
     </a>
     <a class="topLinks" href="/design-page/">Design</a>
     <a class="topLinks" href="/forum/">Forums</a>
-    <a class="topLinks" href="#">Contracts</a>
+    <a class="topLinks" href="/contracts/">Contracts</a>
 
     <?php
     if (!empty($_SESSION['LoggedIn']))
