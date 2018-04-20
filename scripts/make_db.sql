@@ -86,4 +86,21 @@ ALTER TABLE forum_posts
   REFERENCES users(userID)
   ON DELETE RESTRICT ON UPDATE CASCADE;
   
+CREATE TABLE IF NOT EXISTS contracts (
+    contract_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    userid INT NOT NULL,
+    footprint VARCHAR(20) NOT NULL,
+    description VARCHAR(1000) NOT NULL,
+    construction_cost FLOAT NULL,
+    contract_cost FLOAT NOT NULL,
+    foundation_design VARCHAR(45) NULL,
+    roof_design VARCHAR(45) NULL,
+    city VARCHAR(15) NOT NULL,
+    state VARCHAR(5) NOT NULL,
+    zip INT NOT NULL,
+    PRIMARY KEY (contract_id),
+    FOREIGN KEY (userid)
+        REFERENCES users (userID)
+);
+  
 
