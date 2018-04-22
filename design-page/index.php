@@ -20,32 +20,58 @@
 			<input type="text" name="projectname"/>
 			<br></br>
 			
-			<div style="width:860px; height:255px; margin-left:10px; overflow:hidden">
-				<div style="width:600px; height:255px; float:left">
+			<div style="width:860px; height:335px; margin-left:10px; overflow:hidden">
+				<div style="width:600px; height:335px; float:left">
 					Select a door:</br>
-					<input type="radio" id="door1" name="doortype" value="simple" onClick="changeDoor()">6-Panel Primed Premium Steel Door Slab - 36" x 80", $99.96<br>
-					<input type="radio" id="door2" name="doortype" value="nicer" onClick="changeDoor()">6-Panel Primed Inswing Steel Door with Brickmould - 30" x 80", $174.00<br>
-					<input type="radio" id="door3" name="doortype" value="double" onClick="changeDoor()">Smooth Carrara Core Primed Molded Composite Double Door - 60" x 80", $415.25<br>
+					<input type="radio" id="door1" name="doortype" value="simple" onClick="changeDoor(); if (baseWidth > 3) {doorType=1;Build();drawData();doorLocation2 = 1;BuildF();drawDataF(); }">6-Panel Primed Premium Steel Door Slab - 36" x 80", $99.96<br>
+					<input type="radio" id="door2" name="doortype" value="nicer" onClick="changeDoor(); if (baseWidth > 2) {doorType=2;Build();drawData();doorLocation2 = 1;BuildF();drawDataF(); }">6-Panel Primed Inswing Steel Door with Brickmould - 30" x 80", $174.00<br>
+					<input type="radio" id="door3" name="doortype" value="double" onClick="changeDoor(); if (baseWidth > 5){doorType=3;Build();drawData();doorLocation2 = 1;BuildF();drawDataF(); }">Smooth Carrara Core Primed Molded Composite Double Door - 60" x 80", $415.25<br>
 					<script>
 						function changeDoor(){
 							if (document.getElementById("door1").checked){
-								document.getElementById("picture").src = "simpledoor.jpg"; } 
+								if (parseInt($("#incdec input").val()) > 3){
+									document.getElementById("picture").src = "simpledoor.jpg"; } }
 							else if (document.getElementById("door2").checked){ 
-								document.getElementById("picture").src = "nicerdoor.jpg"; } 
+								if (parseInt($("#incdec input").val()) > 2){
+									document.getElementById("picture").src = "nicerdoor.jpg"; } }
 							else if (document.getElementById("door3").checked){ 
-								document.getElementById("picture").src = "doubledoor.jpg"; }
+								if (parseInt($("#incdec input").val()) > 5){
+									document.getElementById("picture").src = "doubledoor.jpg"; } }
+							if (parseInt($("#incdec input").val()) < 3 ) { // no doors can fit
+									document.getElementById("door1").checked = false;
+									document.getElementById("door2").checked = false;
+									document.getElementById("door3").checked = false; }
+							else if (parseInt($("#incdec input").val()) < 4 ) { // only door 2 can fit
+									document.getElementById("door1").checked = false;
+									document.getElementById("door3").checked = false;									}
+							else if (parseInt($("#incdec input").val()) < 6 ) {
+									document.getElementById("door3").checked = false; }
 						}
 					</script>
 					
 					<p></p>
+					Door location:
+					<button type="button" onclick="doorLocation = 1;Build();drawData();doorLocation2 = 1;BuildF();drawDataF();">Front</button>
+					<button type="button" onclick="if (Height > 6) {doorLocation = 2;Build();drawData();doorLocation2 = 2;BuildF();drawDataF(); }">Side</button>
+					</br>
+					
+					<p></p>
 					Select a window:</br>
-					<input type="radio" id="window1" name="windowtype" value="sliding1" onClick="changeWindow()">Right-Hand Sliding Vinyl Window - 23.5" x 23.5", $101.46"<br>
-					<input type="radio" id="window2" name="windowtype" value="sliding2" onClick="changeWindow()">Right-Hand Sliding Vinyl Window - 35.5" x 35.5", $204.25<br>
-					<input type="radio" id="window3" name="windowtype" value="sliding3" onClick="changeWindow()">Right-Hand Sliding Vinyl Window - 47.5" x 47.5", $238.36<br>
-					<input type="radio" id="window4" name="windowtype" value="hung1" onClick="changeWindow()">Single Hung Vinyl Window - 23.5" x 47.5", $159.06<br>
-					<input type="radio" id="window5" name="windowtype" value="hung2" onClick="changeWindow()">Single Hung Vinyl Window - 23.5" x 35.5", $135.76<br>
-					<input type="radio" id="window6" name="windowtype" value="hung3" onClick="changeWindow()">Single Hung Vinyl Window - 35.5" x 35.5", $165.23<br>
-					<input type="radio" id="window7" name="windowtype" value="casement" onClick="changeWindow()">Left-Hand Casement Vinyl Window - 23.5" x 35.5, $185.00<br>
+					<input type="radio" id="window1" name="windowtype" value="sliding1" onClick="windowType=1; changeWindow()">Right-Hand Sliding Vinyl Window - 23.5" x 23.5", $101.46"<br>
+					<input type="radio" id="window2" name="windowtype" value="sliding2" onClick="windowType=2; changeWindow()">Right-Hand Sliding Vinyl Window - 35.5" x 35.5", $204.25<br>
+					<input type="radio" id="window3" name="windowtype" value="sliding3" onClick="windowType=3; changeWindow()">Right-Hand Sliding Vinyl Window - 47.5" x 47.5", $238.36<br>
+					<input type="radio" id="window4" name="windowtype" value="hung1" onClick="windowType=4; changeWindow()">Single Hung Vinyl Window - 23.5" x 47.5", $159.06<br>
+					<input type="radio" id="window5" name="windowtype" value="hung2" onClick="windowType=5; changeWindow()">Single Hung Vinyl Window - 23.5" x 35.5", $135.76<br>
+					<input type="radio" id="window6" name="windowtype" value="hung3" onClick="windowType=6; changeWindow()">Single Hung Vinyl Window - 35.5" x 35.5", $165.23<br>
+					<input type="radio" id="window7" name="windowtype" value="casement" onClick="windowType=7; changeWindow()">Left-Hand Casement Vinyl Window - 23.5" x 35.5, $185.00<br>
+					
+					<p></p>
+					Window location:
+					<input type="checkbox" id="windowlocF" name="windowloc" onClick="if (doorLocation != 1){windowLocationF=1;Build();drawData();doorLocation2 = 1;BuildF();drawDataF(); }">Front  
+					<input type="checkbox" id="windowlocL" name="windowloc" onClick="if (doorLocation != 2){windowLocationL=1;Build();drawData();doorLocation2 = 1;BuildF();drawDataF(); }">Left  
+					<input type="checkbox" id="windowlocB" name="windowloc" onClick="windowLocationB=1;Build();drawData();doorLocation2 = 1;BuildF();drawDataF();">Back  
+					<input type="checkbox" id="windowlocR" name="windowloc" onClick="windowLocationR=1;Build();drawData();doorLocation2 = 1;BuildF();drawDataF();">Right  
+					
 					<script>
 						function changeWindow(){
 							if (document.getElementById("window1").checked){
@@ -65,7 +91,7 @@
 						}
 					</script>
 				</div>
-				<div style="width:260px; height:255px; float:left; text-align:center; margin-top:3px;">
+				<div style="width:260px; height:335px; float:left; text-align:center; margin-top:25px;">
 					<img src="white-background.jpg" id="picture">
 				</div>
 			</div>
@@ -88,9 +114,15 @@
 						var baseDepth = 8;
 						var Rise = 5;
 						var Height = 8;
+						var doorType = 0; // no door
 								
 						var topStyle = 1;
 						var doorLocation = 1;
+						var windowLocationF = 0; // no window
+						var windowLocationL = 0;
+						var windowLocationB = 0;
+						var windowLocationR = 0;
+						var windowType = 0;
 						
 						var rX = -pi/4;
 						var rY = -11*pi/8;
@@ -171,22 +203,234 @@
 							yshift = -52-0.5*baseWidth*DM;
 							zshift = 60-0.5*(Height+Rise)*zDM;
 							dataCount = dataMatrix.length;
-							if (doorLocation == 1){ //front side
-								dataMatrix[dataCount] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-1.5)+yshift,zshift);
-								dataMatrix[dataCount+1] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-1.5)+yshift,zDM*7+zshift); // left
-								dataMatrix[dataCount+2] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+1.5)+yshift,zshift);
-								dataMatrix[dataCount+3] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+1.5)+yshift,zDM*7+zshift); // right
-								dataMatrix[dataCount+4] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-1.5)+yshift,zDM*7+zshift);
-								dataMatrix[dataCount+5] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+1.5)+yshift,zDM*7+zshift); // top
+							if (doorLocation == 1){ // fr ont
+								if (doorType == 1){ // 36 x 80
+									dataMatrix[dataCount] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-36/(2*12))+yshift,zshift);
+									dataMatrix[dataCount+1] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-36/(2*12))+yshift,zDM*80/12+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+36/(2*12))+yshift,zshift);
+									dataMatrix[dataCount+3] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+36/(2*12))+yshift,zDM*80/12+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-36/(2*12))+yshift,zDM*80/12+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+36/(2*12))+yshift,zDM*80/12+zshift); // top
+								}
+								else if (doorType == 2) { // 30 x 80
+									dataMatrix[dataCount] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-30/(2*12))+yshift,zshift);
+									dataMatrix[dataCount+1] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-30/(2*12))+yshift,zDM*80/12+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+30/(2*12))+yshift,zshift);
+									dataMatrix[dataCount+3] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+30/(2*12))+yshift,zDM*80/12+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-30/(2*12))+yshift,zDM*80/12+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+30/(2*12))+yshift,zDM*80/12+zshift); // top
+								}
+								else if (doorType == 3) { // 60 x 80
+									dataMatrix[dataCount] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-30/12)+yshift,zshift);
+									dataMatrix[dataCount+1] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-30/12)+yshift,zDM*80/12+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+30/12)+yshift,zshift);
+									dataMatrix[dataCount+3] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+30/12)+yshift,zDM*80/12+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth)+yshift,zshift);
+									dataMatrix[dataCount+5] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth)+yshift,zDM*80/12+zshift); // center
+									dataMatrix[dataCount+6] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-30/12)+yshift,zDM*80/12+zshift);
+									dataMatrix[dataCount+7] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+30/12)+yshift,zDM*80/12+zshift); // top
+								}
 							}
-							else if (doorLocation == 2){ //front side
-								dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-1.5)+xshift,yshift,zshift);
-								dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-1.5)+xshift,yshift,zDM*7+zshift); // left
-								dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+1.5)+xshift,yshift,zshift);
-								dataMatrix[dataCount+3] = new Array(DM*(0.5*baseDepth+1.5)+xshift,yshift,zDM*7+zshift); // right
-								dataMatrix[dataCount+4] = new Array(DM*(0.5*baseDepth-1.5)+xshift,yshift,zDM*7+zshift);
-								dataMatrix[dataCount+5] = new Array(DM*(0.5*baseDepth+1.5)+xshift,yshift,zDM*7+zshift); // top
+							else if (doorLocation == 2){ // side
+								if (doorType == 1){ // 36 x 80
+									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-36/(2*12))+xshift,yshift,zshift);
+									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-36/(2*12))+xshift,yshift,zDM*80/12+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+36/(2*12))+xshift,yshift,zshift);
+									dataMatrix[dataCount+3] = new Array(DM*(0.5*baseDepth+36/(2*12))+xshift,yshift,zDM*80/12+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*(0.5*baseDepth-36/(2*12))+xshift,yshift,zDM*80/12+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*(0.5*baseDepth+36/(2*12))+xshift,yshift,zDM*80/12+zshift); // top
+								}
+								else if (doorType == 2) { // 30 x 80
+									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-30/(2*12))+xshift,yshift,zshift);
+									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-30/(2*12))+xshift,yshift,zDM*80/12+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+30/(2*12))+xshift,yshift,zshift);
+									dataMatrix[dataCount+3] = new Array(DM*(0.5*baseDepth+30/(2*12))+xshift,yshift,zDM*80/12+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*(0.5*baseDepth-30/(2*12))+xshift,yshift,zDM*80/12+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*(0.5*baseDepth+30/(2*12))+xshift,yshift,zDM*80/12+zshift); // top
+								}
+								else if (doorType == 3) { // 60 x 80
+									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-30/12)+xshift,yshift,zshift);
+									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-30/12)+xshift,yshift,zDM*80/12+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+30/12)+xshift,yshift,zshift);
+									dataMatrix[dataCount+3] = new Array(DM*(0.5*baseDepth+30/12)+xshift,yshift,zDM*80/12+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*(0.5*baseDepth)+xshift,yshift,zshift);
+									dataMatrix[dataCount+5] = new Array(DM*(0.5*baseDepth)+xshift,yshift,zDM*80/12+zshift); // center
+									dataMatrix[dataCount+6] = new Array(DM*(0.5*baseDepth-30/12)+xshift,yshift,zDM*80/12+zshift);
+									dataMatrix[dataCount+7] = new Array(DM*(0.5*baseDepth+30/12)+xshift,yshift,zDM*80/12+zshift); // top
+								}
 							}
+							dataCount = dataMatrix.length;
+							
+							if (windowLocationF == 1){ // front
+								if (windowType == 1 || windowType == 2 || windowType == 3){ // sliding
+									if (windowType == 1){ dim = 23.5; }
+									else if (windowType == 2){ dim = 35.5; }
+									else if (windowType = 3){ dim = 47.5; }
+									dataMatrix[dataCount] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-dim/(2*12))+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-dim/(2*12))+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+dim/(2*12))+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+dim/(2*12))+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth)+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth)+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // center
+									dataMatrix[dataCount+6] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-dim/(2*12))+yshift,zDM*(0.5*Height+dim/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+dim/(2*12))+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // top
+									dataMatrix[dataCount+8] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-dim/(2*12))+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+9] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+dim/(2*12))+yshift,zDM*(0.5*Height-dim/(2*12))+zshift); // bottom
+								}
+								else if (windowType == 4 || windowType == 5 || windowType == 6){
+									if (windowType == 1){ dimH = 23.5; dimV = 47.5;  }
+									else if (windowType == 2){ dimH = 23.5; dimV = 35.5; }
+									else if (windowType = 3){ dimH = 35.5; dimV = 35.5; }
+									dataMatrix[dataCount] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-dimH/(2*12))+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-dimH/(2*12))+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+dimH/(2*12))+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+dimH/(2*12))+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-dimH/(2*12))+yshift,zDM*(0.5*Height)+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+dimH/(2*12))+yshift,zDM*(0.5*Height)+zshift); // center
+									dataMatrix[dataCount+6] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-dimH/(2*12))+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+dimH/(2*12))+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // top
+									dataMatrix[dataCount+8] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-dimH/(2*12))+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
+									dataMatrix[dataCount+9] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+dimH/(2*12))+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift); // bottom
+								}
+								else if (windowType == 7){
+									dataMatrix[dataCount] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // top
+									dataMatrix[dataCount+6] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift); // bottom
+								}
+							}
+							if (windowLocationL == 1){ // left
+								if (windowType == 1 || windowType == 2 || windowType == 3){ // sliding
+									if (windowType == 1){ dim = 23.5; }
+									else if (windowType == 2){ dim = 35.5; }
+									else if (windowType = 3){ dim = 47.5; }
+									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-dim/(2*12))+xshift,yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-dim/(2*12))+xshift,yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+dim/(2*12))+xshift,yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(DM*(0.5*baseDepth+dim/(2*12))+xshift,yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*0.5*baseDepth+xshift,yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*0.5*baseDepth+xshift,yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // center
+									dataMatrix[dataCount+6] = new Array(DM*(0.5*baseDepth-dim/(2*12))+xshift,yshift,zDM*(0.5*Height+dim/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(DM*(0.5*baseDepth+dim/(2*12))+xshift,yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // top
+									dataMatrix[dataCount+8] = new Array(DM*(0.5*baseDepth-dim/(2*12))+xshift,yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+9] = new Array(DM*(0.5*baseDepth+dim/(2*12))+xshift,yshift,zDM*(0.5*Height-dim/(2*12))+zshift); // bottom
+								}
+								else if (windowType == 4 || windowType == 5 || windowType == 6){
+									if (windowType == 1){ dimH = 23.5; dimV = 47.5;  }
+									else if (windowType == 2){ dimH = 23.5; dimV = 35.5; }
+									else if (windowType = 3){ dimH = 35.5; dimV = 35.5; }
+									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-dimH/(2*12))+xshift,yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-dimH/(2*12))+xshift,yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+dimH/(2*12))+xshift,yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(DM*(0.5*baseDepth+dimH/(2*12))+xshift,yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*(0.5*baseDepth-dimH/(2*12))+xshift,yshift,zDM*(0.5*Height)+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*(0.5*baseDepth+dimH/(2*12))+xshift,yshift,zDM*(0.5*Height)+zshift); // center
+									dataMatrix[dataCount+6] = new Array(DM*(0.5*baseDepth-dimH/(2*12))+xshift,yshift,zDM*(0.5*Height+dimV/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(DM*(0.5*baseDepth+dimH/(2*12))+xshift,yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // top
+									dataMatrix[dataCount+8] = new Array(DM*(0.5*baseDepth-dimH/(2*12))+xshift,yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
+									dataMatrix[dataCount+9] = new Array(DM*(0.5*baseDepth+dimH/(2*12))+xshift,yshift,zDM*(0.5*Height-dimV/(2*12))+zshift); // bottom
+								}
+								else if (windowType == 7){
+									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,yshift,zDM*(0.5*Height+35.5/(2*12))+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // top
+									dataMatrix[dataCount+6] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,yshift,zDM*(0.5*Height-35.5/(2*12))+zshift); // bottom
+								}
+							}
+							if (windowLocationB == 1){ // back
+								if (windowType == 1 || windowType == 2 || windowType == 3){ // sliding
+									if (windowType == 1){ dim = 23.5; }
+									else if (windowType == 2){ dim = 35.5; }
+									else if (windowType = 3){ dim = 47.5; }
+									dataMatrix[dataCount] = new Array(xshift,DM*(0.5*baseWidth-dim/(2*12))+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(xshift,DM*(0.5*baseWidth-dim/(2*12))+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(xshift,DM*(0.5*baseWidth+dim/(2*12))+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(xshift,DM*(0.5*baseWidth+dim/(2*12))+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(xshift,DM*(0.5*baseWidth)+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+5] = new Array(xshift,DM*(0.5*baseWidth)+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // center
+									dataMatrix[dataCount+6] = new Array(xshift,DM*(0.5*baseWidth-dim/(2*12))+yshift,zDM*(0.5*Height+dim/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(xshift,DM*(0.5*baseWidth+dim/(2*12))+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // top
+									dataMatrix[dataCount+8] = new Array(xshift,DM*(0.5*baseWidth-dim/(2*12))+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+9] = new Array(xshift,DM*(0.5*baseWidth+dim/(2*12))+yshift,zDM*(0.5*Height-dim/(2*12))+zshift); // bottom
+								}
+								else if (windowType == 4 || windowType == 5 || windowType == 6){
+									if (windowType == 1){ dimH = 23.5; dimV = 47.5;  }
+									else if (windowType == 2){ dimH = 23.5; dimV = 35.5; }
+									else if (windowType = 3){ dimH = 35.5; dimV = 35.5; }
+									dataMatrix[dataCount] = new Array(xshift,DM*(0.5*baseWidth-dimH/(2*12))+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(xshift,DM*(0.5*baseWidth-dimH/(2*12))+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(xshift,DM*(0.5*baseWidth+dimH/(2*12))+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(xshift,DM*(0.5*baseWidth+dimH/(2*12))+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(xshift,DM*(0.5*baseWidth-dimH/(2*12))+yshift,zDM*(0.5*Height)+zshift);
+									dataMatrix[dataCount+5] = new Array(xshift,DM*(0.5*baseWidth+dimH/(2*12))+yshift,zDM*(0.5*Height)+zshift); // center
+									dataMatrix[dataCount+6] = new Array(xshift,DM*(0.5*baseWidth-dimH/(2*12))+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(xshift,DM*(0.5*baseWidth+dimH/(2*12))+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // top
+									dataMatrix[dataCount+8] = new Array(xshift,DM*(0.5*baseWidth-dimH/(2*12))+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
+									dataMatrix[dataCount+9] = new Array(xshift,DM*(0.5*baseWidth+dimH/(2*12))+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift); // bottom
+								}
+								else if (windowType == 7){
+									dataMatrix[dataCount] = new Array(xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift);
+									dataMatrix[dataCount+5] = new Array(xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // top
+									dataMatrix[dataCount+6] = new Array(xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift); // bottom
+								}
+							}
+							if (windowLocationR == 1){ // right
+								if (windowType == 1 || windowType == 2 || windowType == 3){ // sliding
+									if (windowType == 1){ dim = 23.5; }
+									else if (windowType == 2){ dim = 35.5; }
+									else if (windowType = 3){ dim = 47.5; }
+									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-dim/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-dim/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+dim/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(DM*(0.5*baseDepth+dim/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*0.5*baseDepth+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*0.5*baseDepth+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // center
+									dataMatrix[dataCount+6] = new Array(DM*(0.5*baseDepth-dim/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+dim/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(DM*(0.5*baseDepth+dim/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // top
+									dataMatrix[dataCount+8] = new Array(DM*(0.5*baseDepth-dim/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
+									dataMatrix[dataCount+9] = new Array(DM*(0.5*baseDepth+dim/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dim/(2*12))+zshift); // bottom
+								}
+								else if (windowType == 4 || windowType == 5 || windowType == 6){
+									if (windowType == 1){ dimH = 23.5; dimV = 47.5;  }
+									else if (windowType == 2){ dimH = 23.5; dimV = 35.5; }
+									else if (windowType = 3){ dimH = 35.5; dimV = 35.5; }
+									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-dimH/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-dimH/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+dimH/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(DM*(0.5*baseDepth+dimH/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*(0.5*baseDepth-dimH/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height)+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*(0.5*baseDepth+dimH/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height)+zshift); // center
+									dataMatrix[dataCount+6] = new Array(DM*(0.5*baseDepth-dimH/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(DM*(0.5*baseDepth+dimH/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // top
+									dataMatrix[dataCount+8] = new Array(DM*(0.5*baseDepth-dimH/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
+									dataMatrix[dataCount+9] = new Array(DM*(0.5*baseDepth+dimH/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift); // bottom
+								}
+								else if (windowType == 7){
+									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // top
+									dataMatrix[dataCount+6] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift); // bottom
+								}
+							}
+							
+							
 							for (i=0; i<dataMatrix.length; i++){
 								dataMatrixTemp[i] = dataMatrix[i];
 							}
@@ -303,14 +547,79 @@
 								
 								if (doorLocation == 1){
 									dataCount = dataMatrixF.length;
-									dataMatrixF[dataCount] = new Array(0,(0.5*baseWidth-1.5)*DMF+yshift,zshift);
-									dataMatrixF[dataCount+1] = new Array(0,(0.5*baseWidth-1.5)*DMF+yshift,7*DMF+zshift);
-									dataMatrixF[dataCount+2] = new Array(0,(0.5*baseWidth+1.5)*DMF+yshift,zshift);
-									dataMatrixF[dataCount+3] = new Array(0,(0.5*baseWidth+1.5)*DMF+yshift,7*DMF+zshift);
-									dataMatrixF[dataCount+4] = new Array(0,(0.5*baseWidth-1.5)*DMF+yshift,7*DMF+zshift);
-									dataMatrixF[dataCount+5] = new Array(0,(0.5*baseWidth+1.5)*DMF+yshift,7*DMF+zshift);
+									if (doorType == 1){ // 36 x 80}
+										dataMatrixF[dataCount] = new Array(0,(0.5*baseWidth-36/(2*12))*DMF+yshift,zshift);
+										dataMatrixF[dataCount+1] = new Array(0,(0.5*baseWidth-36/(2*12))*DMF+yshift,80/12*DMF+zshift);
+										dataMatrixF[dataCount+2] = new Array(0,(0.5*baseWidth+36/(2*12))*DMF+yshift,zshift);
+										dataMatrixF[dataCount+3] = new Array(0,(0.5*baseWidth+36/(2*12))*DMF+yshift,80/12*DMF+zshift);
+										dataMatrixF[dataCount+4] = new Array(0,(0.5*baseWidth-36/(2*12))*DMF+yshift,80/12*DMF+zshift);
+										dataMatrixF[dataCount+5] = new Array(0,(0.5*baseWidth+36/(2*12))*DMF+yshift,80/12*DMF+zshift);
+									}
+									else if (doorType == 2){ // 30 x 80}
+										dataMatrixF[dataCount] = new Array(0,(0.5*baseWidth-30/(2*12))*DMF+yshift,zshift);
+										dataMatrixF[dataCount+1] = new Array(0,(0.5*baseWidth-30/(2*12))*DMF+yshift,80/12*DMF+zshift);
+										dataMatrixF[dataCount+2] = new Array(0,(0.5*baseWidth+30/(2*12))*DMF+yshift,zshift);
+										dataMatrixF[dataCount+3] = new Array(0,(0.5*baseWidth+30/(2*12))*DMF+yshift,80/12*DMF+zshift);
+										dataMatrixF[dataCount+4] = new Array(0,(0.5*baseWidth-30/(2*12))*DMF+yshift,80/12*DMF+zshift);
+										dataMatrixF[dataCount+5] = new Array(0,(0.5*baseWidth+30/(2*12))*DMF+yshift,80/12*DMF+zshift);
+									}
+									else if (doorType == 3){ // 60 x 80}
+										dataMatrixF[dataCount] = new Array(0,(0.5*baseWidth-30/12)*DMF+yshift,zshift);
+										dataMatrixF[dataCount+1] = new Array(0,(0.5*baseWidth-30/12)*DMF+yshift,80/12*DMF+zshift);
+										dataMatrixF[dataCount+2] = new Array(0,(0.5*baseWidth+30/12)*DMF+yshift,zshift);
+										dataMatrixF[dataCount+3] = new Array(0,(0.5*baseWidth+30/12)*DMF+yshift,80/12*DMF+zshift);
+										dataMatrixF[dataCount+4] = new Array(0,(0.5*baseWidth)*DMF+yshift,zshift);
+										dataMatrixF[dataCount+5] = new Array(0,(0.5*baseWidth)*DMF+yshift,80/12*DMF+zshift);
+										dataMatrixF[dataCount+6] = new Array(0,(0.5*baseWidth-30/12)*DMF+yshift,80/12*DMF+zshift);
+										dataMatrixF[dataCount+7] = new Array(0,(0.5*baseWidth+30/12)*DMF+yshift,80/12*DMF+zshift);
+									}
 								}
-
+								
+								
+								if (windowLocationF == 1){ // front
+									dataCount = dataMatrixF.length;
+									if (windowType == 1 || windowType == 2 || windowType == 3){ // sliding
+										if (windowType == 1){ dim = 23.5; }
+										else if (windowType == 2){ dim = 35.5; }
+										else if (windowType = 3){ dim = 47.5; }
+										dataMatrixF[dataCount] = new Array(0,DMF*(0.5*baseWidth-dim/(2*12))+yshift,DMF*(0.5*Height-dim/(2*12))+zshift);
+										dataMatrixF[dataCount+1] = new Array(0,DMF*(0.5*baseWidth-dim/(2*12))+yshift,DMF*(0.5*Height+dim/(2*12))+zshift); // left
+										dataMatrixF[dataCount+2] = new Array(0,DMF*(0.5*baseWidth+dim/(2*12))+yshift,DMF*(0.5*Height-dim/(2*12))+zshift);
+										dataMatrixF[dataCount+3] = new Array(0,DMF*(0.5*baseWidth+dim/(2*12))+yshift,DMF*(0.5*Height+dim/(2*12))+zshift); // right
+										dataMatrixF[dataCount+4] = new Array(0,DMF*(0.5*baseWidth)+yshift,DMF*(0.5*Height-dim/(2*12))+zshift);
+										dataMatrixF[dataCount+5] = new Array(0,DMF*(0.5*baseWidth)+yshift,DMF*(0.5*Height+dim/(2*12))+zshift); // center
+										dataMatrixF[dataCount+6] = new Array(0,DMF*(0.5*baseWidth-dim/(2*12))+yshift,DMF*(0.5*Height+dim/(2*12))+zshift);
+										dataMatrixF[dataCount+7] = new Array(0,DMF*(0.5*baseWidth+dim/(2*12))+yshift,DMF*(0.5*Height+dim/(2*12))+zshift); // top
+										dataMatrixF[dataCount+8] = new Array(0,DMF*(0.5*baseWidth-dim/(2*12))+yshift,DMF*(0.5*Height-dim/(2*12))+zshift);
+										dataMatrixF[dataCount+9] = new Array(0,DMF*(0.5*baseWidth+dim/(2*12))+yshift,DMF*(0.5*Height-dim/(2*12))+zshift); // bottom
+									}
+									else if (windowType == 4 || windowType == 5 || windowType == 6){
+										if (windowType == 1){ dimH = 23.5; dimV = 47.5;  }
+										else if (windowType == 2){ dimH = 23.5; dimV = 35.5; }
+										else if (windowType = 3){ dimH = 35.5; dimV = 35.5; }
+										dataMatrixF[dataCount] = new Array(0,DMF*(0.5*baseWidth-dimH/(2*12))+yshift,DMF*(0.5*Height-dimV/(2*12))+zshift);
+										dataMatrixF[dataCount+1] = new Array(0,DMF*(0.5*baseWidth-dimH/(2*12))+yshift,DMF*(0.5*Height+dimV/(2*12))+zshift); // left
+										dataMatrixF[dataCount+2] = new Array(0,DMF*(0.5*baseWidth+dimH/(2*12))+yshift,DMF*(0.5*Height-dimV/(2*12))+zshift);
+										dataMatrixF[dataCount+3] = new Array(0,DMF*(0.5*baseWidth+dimH/(2*12))+yshift,DMF*(0.5*Height+dimV/(2*12))+zshift); // right
+										dataMatrixF[dataCount+4] = new Array(0,DMF*(0.5*baseWidth-dimH/(2*12))+yshift,DMF*(0.5*Height)+zshift);
+										dataMatrixF[dataCount+5] = new Array(0,DMF*(0.5*baseWidth+dimH/(2*12))+yshift,DMF*(0.5*Height)+zshift); // center
+										dataMatrixF[dataCount+6] = new Array(0,DMF*(0.5*baseWidth-dimH/(2*12))+yshift,DMF*(0.5*Height+dimV/(2*12))+zshift);
+										dataMatrixF[dataCount+7] = new Array(0,DMF*(0.5*baseWidth+dimH/(2*12))+yshift,DMF*(0.5*Height+dimV/(2*12))+zshift); // top
+										dataMatrixF[dataCount+8] = new Array(0,DMF*(0.5*baseWidth-dimH/(2*12))+yshift,DMF*(0.5*Height-dimV/(2*12))+zshift);
+										dataMatrixF[dataCount+9] = new Array(0,DMF*(0.5*baseWidth+dimH/(2*12))+yshift,DMF*(0.5*Height-dimV/(2*12))+zshift); // bottom
+									}
+									else if (windowType == 7){
+										dataMatrixF[dataCount] = new Array(0,DMF*(0.5*baseWidth-23.5/(2*12))+yshift,DMF*(0.5*Height-35.5/(2*12))+zshift);
+										dataMatrixF[dataCount+1] = new Array(0,DMF*(0.5*baseWidth-23.5/(2*12))+yshift,DMF*(0.5*Height+35.5/(2*12))+zshift); // left
+										dataMatrixF[dataCount+2] = new Array(0,DMF*(0.5*baseWidth+23.5/(2*12))+yshift,DMF*(0.5*Height-35.5/(2*12))+zshift);
+										dataMatrixF[dataCount+3] = new Array(0,DMF*(0.5*baseWidth+23.5/(2*12))+yshift,DMF*(0.5*Height+35.5/(2*12))+zshift); // right
+										dataMatrixF[dataCount+4] = new Array(0,DMF*(0.5*baseWidth-23.5/(2*12))+yshift,DMF*(0.5*Height+35.5/(2*12))+zshift);
+										dataMatrixF[dataCount+5] = new Array(0,DMF*(0.5*baseWidth+23.5/(2*12))+yshift,DMF*(0.5*Height+35.5/(2*12))+zshift); // top
+										dataMatrixF[dataCount+6] = new Array(0,DMF*(0.5*baseWidth-23.5/(2*12))+yshift,DMF*(0.5*Height-35.5/(2*12))+zshift);
+										dataMatrixF[dataCount+7] = new Array(0,DMF*(0.5*baseWidth+23.5/(2*12))+yshift,DMF*(0.5*Height-35.5/(2*12))+zshift); // bottom
+									}
+								}
+								
 								for (i=0; i<dataMatrixF.length; i++){
 									dataMatrixTempF[i] = dataMatrixF[i];
 								}	
@@ -490,12 +799,6 @@
 						<p>Roof type: 
 							<button type="button" onclick="topStyle = 1;Build();drawData();topStyle1 = 1;BuildT();drawDataT();topStyle2 = 1;BuildF();drawDataF();">Gable</button>
 							<button type="button" onclick="topStyle = 2;Build();drawData();topStyle1 = 0;BuildT();drawDataT();topStyle2 = 0;BuildF();drawDataF();">Slanted</button>
-						</p>
-					</div>
-					<div id="doorlocation" style="float:left; clear:left; margin-left:80px">
-						<p>Door Location: 
-							<button type="button" onclick="doorLocation = 1;Build();drawData();doorLocation2 = 1;BuildF();drawDataF();">Front</button>
-							<button type="button" onclick="if (Height > 6) {doorLocation = 2;Build();drawData();doorLocation2 = 2;BuildF();drawDataF(); }">Side</button>
 						</p>
 					</div>
 						</body>
