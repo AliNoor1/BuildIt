@@ -20,78 +20,151 @@
 			<input type="text" name="projectname"/>
 			<br></br>
 			
-			<div style="width:860px; height:335px; margin-left:10px; overflow:hidden">
-				<div style="width:600px; height:335px; float:left">
+			<div style="width:860px; height:332px; margin-left:10px; overflow:hidden">
+				<div style="width:600px; height:332px; float:left">
 					Select a door:</br>
-					<input type="radio" id="door1" name="doortype" value="simple" onClick="changeDoor(); if (baseWidth > 3) {doorType=1;Build();drawData();doorLocation2 = 1;BuildF();drawDataF(); }">6-Panel Primed Premium Steel Door Slab - 36" x 80", $99.96<br>
-					<input type="radio" id="door2" name="doortype" value="nicer" onClick="changeDoor(); if (baseWidth > 2) {doorType=2;Build();drawData();doorLocation2 = 1;BuildF();drawDataF(); }">6-Panel Primed Inswing Steel Door with Brickmould - 30" x 80", $174.00<br>
-					<input type="radio" id="door3" name="doortype" value="double" onClick="changeDoor(); if (baseWidth > 5){doorType=3;Build();drawData();doorLocation2 = 1;BuildF();drawDataF(); }">Smooth Carrara Core Primed Molded Composite Double Door - 60" x 80", $415.25<br>
+					<input type="radio" id="door1" name="doortype" value="simple" onClick="changeDoor();">6-Panel Primed Premium Steel Door Slab - 36" x 80", $100<br>
+					<input type="radio" id="door2" name="doortype" value="nicer" onClick="changeDoor();">6-Panel Primed Inswing Steel Door with Brickmould - 30" x 80", $175<br>
+					<input type="radio" id="door3" name="doortype" value="double" onClick="changeDoor();">Smooth Carrara Core Primed Molded Composite Double Door - 60" x 80", $400<br>
 					<script>
 						function changeDoor(){
-							if (document.getElementById("door1").checked){
-								if (parseInt($("#incdec input").val()) > 3){
-									document.getElementById("picture").src = "simpledoor.jpg"; } }
-							else if (document.getElementById("door2").checked){ 
-								if (parseInt($("#incdec input").val()) > 2){
-									document.getElementById("picture").src = "nicerdoor.jpg"; } }
-							else if (document.getElementById("door3").checked){ 
-								if (parseInt($("#incdec input").val()) > 5){
-									document.getElementById("picture").src = "doubledoor.jpg"; } }
-							if (parseInt($("#incdec input").val()) < 3 ) { // no doors can fit
-									document.getElementById("door1").checked = false;
-									document.getElementById("door2").checked = false;
-									document.getElementById("door3").checked = false; }
-							else if (parseInt($("#incdec input").val()) < 4 ) { // only door 2 can fit
-									document.getElementById("door1").checked = false;
-									document.getElementById("door3").checked = false;									}
-							else if (parseInt($("#incdec input").val()) < 6 ) {
-									document.getElementById("door3").checked = false; }
+							if(doorLocation == 1){
+								if (document.getElementById("door1").checked){
+									if (parseInt($("#incdec input").val()) > 3){
+										document.getElementById("picture").src = "simpledoor.jpg"; 
+										doorType=1;Build();drawData();BuildF();drawDataF(); } }
+								else if (document.getElementById("door2").checked){ 
+									if (parseInt($("#incdec input").val()) > 2){
+										document.getElementById("picture").src = "nicerdoor.jpg"; 
+										doorType=2;Build();drawData();BuildF();drawDataF(); } }
+								else if (document.getElementById("door3").checked){ 
+									if (parseInt($("#incdec input").val()) > 5){
+										document.getElementById("picture").src = "doubledoor.jpg"; 
+										doorType=3;Build();drawData();BuildF();drawDataF();} }
+										
+								if (parseInt($("#incdec input").val()) < 4 ) { // only door 2 can fit
+									if (document.getElementById("door1").checked){
+										document.getElementById("door1").checked = false;
+										document.getElementById("picture").src = "white-background.jpg"; 
+										doorType=0;doorLocation=0;Build();drawData();BuildF();drawDataF(); }
+									if (document.getElementById("door3").checked){
+										document.getElementById("door3").checked = false;
+										document.getElementById("picture").src = "white-background.jpg"; 
+										doorType=0;doorLocation=0;Build();drawData();BuildF();drawDataF(); } }
+								else if (parseInt($("#incdec input").val()) < 6 ) {
+									if (document.getElementById("door3").checked){
+										document.getElementById("door3").checked = false;
+										document.getElementById("picture").src = "white-background.jpg"; 
+										doorType=0;doorLocation=0;Build();drawData();BuildF();drawDataF(); } }
+							}
+							if(doorLocation == 2){
+								if (document.getElementById("door1").checked){
+									if (parseInt($("#incdec1 input").val()) > 3){
+										document.getElementById("picture").src = "simpledoor.jpg"; 
+										doorType=1;Build();drawData();BuildF();drawDataF(); } }
+								else if (document.getElementById("door2").checked){ 
+									if (parseInt($("#incdec1 input").val()) > 2){
+										document.getElementById("picture").src = "nicerdoor.jpg"; 
+										doorType=2;Build();drawData();BuildF();drawDataF(); } }
+								else if (document.getElementById("door3").checked){ 
+									if (parseInt($("#incdec1 input").val()) > 5){
+										document.getElementById("picture").src = "doubledoor.jpg"; 
+										doorType=3;Build();drawData();BuildF();drawDataF();} }
+										
+								if (parseInt($("#incdec1 input").val()) < 4 ) { // only door 2 can fit
+									if (document.getElementById("door1").checked){
+										document.getElementById("door1").checked = false;
+										document.getElementById("picture").src = "white-background.jpg"; 
+										doorType=0;doorLocation=0;Build();drawData();BuildF();drawDataF(); }
+									if (document.getElementById("door3").checked){
+										document.getElementById("door3").checked = false;
+										document.getElementById("picture").src = "white-background.jpg"; 
+										doorType=0;doorLocation=0;Build();drawData();BuildF();drawDataF(); } }
+								else if (parseInt($("#incdec1 input").val()) < 6 ) {
+									if (document.getElementById("door3").checked){
+										document.getElementById("door3").checked = false;
+										document.getElementById("picture").src = "white-background.jpg"; 
+										doorType=0;doorLocation=0;Build();drawData();BuildF();drawDataF(); } }
+							}
 						}
+						
 					</script>
 					
 					<p></p>
-					Door location:
-					<button type="button" onclick="doorLocation = 1;Build();drawData();doorLocation2 = 1;BuildF();drawDataF();">Front</button>
-					<button type="button" onclick="if (Height > 6) {doorLocation = 2;Build();drawData();doorLocation2 = 2;BuildF();drawDataF(); }">Side</button>
+					Select a door location:
+					<button type="button" onclick="if(windowLocationF!=1){doorLocation=1;changeDoor();}">Front</button>
+					<button type="button" onclick="if(windowLocationL!=1){doorLocation=2;changeDoor();}">Side</button>
 					</br>
 					
 					<p></p>
 					Select a window:</br>
-					<input type="radio" id="window1" name="windowtype" value="sliding1" onClick="windowType=1; changeWindow()">Right-Hand Sliding Vinyl Window - 23.5" x 23.5", $101.46"<br>
-					<input type="radio" id="window2" name="windowtype" value="sliding2" onClick="windowType=2; changeWindow()">Right-Hand Sliding Vinyl Window - 35.5" x 35.5", $204.25<br>
-					<input type="radio" id="window3" name="windowtype" value="sliding3" onClick="windowType=3; changeWindow()">Right-Hand Sliding Vinyl Window - 47.5" x 47.5", $238.36<br>
-					<input type="radio" id="window4" name="windowtype" value="hung1" onClick="windowType=4; changeWindow()">Single Hung Vinyl Window - 23.5" x 47.5", $159.06<br>
-					<input type="radio" id="window5" name="windowtype" value="hung2" onClick="windowType=5; changeWindow()">Single Hung Vinyl Window - 23.5" x 35.5", $135.76<br>
-					<input type="radio" id="window6" name="windowtype" value="hung3" onClick="windowType=6; changeWindow()">Single Hung Vinyl Window - 35.5" x 35.5", $165.23<br>
-					<input type="radio" id="window7" name="windowtype" value="casement" onClick="windowType=7; changeWindow()">Left-Hand Casement Vinyl Window - 23.5" x 35.5, $185.00<br>
+					<input type="radio" id="window1" name="windowtype" value="sliding1" onClick="changeWindow()">Right-Hand Sliding Vinyl Window - 24" x 24", $100<br>
+					<input type="radio" id="window2" name="windowtype" value="sliding2" onClick="windowType=2;changeWindow()">Right-Hand Sliding Vinyl Window - 32" x 32", $200<br>
+					<input type="radio" id="window4" name="windowtype" value="hung1" onClick="windowType=4;changeWindow()">Single Hung Vinyl Window - 24" x 47.5", $150<br>
+					<input type="radio" id="window5" name="windowtype" value="hung2" onClick="windowType=5;changeWindow()">Single Hung Vinyl Window - 24" x 32", $120<br>
+					<input type="radio" id="window6" name="windowtype" value="hung3" onClick="windowType=6;changeWindow()">Single Hung Vinyl Window - 32" x 32", $160<br>
+					<input type="radio" id="window7" name="windowtype" value="casement" onClick="windowType=7;changeWindow()">Left-Hand Casement Vinyl Window - 24" x 32, $180<br>
 					
 					<p></p>
 					Window location:
-					<input type="checkbox" id="windowlocF" name="windowloc" onClick="if (doorLocation != 1){windowLocationF=1;Build();drawData();doorLocation2 = 1;BuildF();drawDataF(); }">Front  
-					<input type="checkbox" id="windowlocL" name="windowloc" onClick="if (doorLocation != 2){windowLocationL=1;Build();drawData();doorLocation2 = 1;BuildF();drawDataF(); }">Left  
-					<input type="checkbox" id="windowlocB" name="windowloc" onClick="windowLocationB=1;Build();drawData();doorLocation2 = 1;BuildF();drawDataF();">Back  
-					<input type="checkbox" id="windowlocR" name="windowloc" onClick="windowLocationR=1;Build();drawData();doorLocation2 = 1;BuildF();drawDataF();">Right  
+					<input type="checkbox" id="windowlocF" name="windowloc" onClick="addWindow();">Front  
+					<input type="checkbox" id="windowlocL" name="windowloc" onClick="if(doorLocation!=2){addWindow();}">Left  
+					<input type="checkbox" id="windowlocB" name="windowloc" onClick="addWindow();">Back  
+					<input type="checkbox" id="windowlocR" name="windowloc" onClick="addWindow();">Right  
 					
 					<script>
 						function changeWindow(){
 							if (document.getElementById("window1").checked){
-								document.getElementById("picture").src = "sliding1.jpg"; } 
+								document.getElementById("picture").src = "sliding1.jpg";
+								windowType=1;Build();drawData();BuildF();drawDataF(); }
 							else if (document.getElementById("window2").checked){ 
-								document.getElementById("picture").src = "sliding1.jpg"; }
-							else if (document.getElementById("window3").checked){ 
-								document.getElementById("picture").src = "sliding1.jpg"; } 
+								document.getElementById("picture").src = "sliding1.jpg";
+								windowType=2;Build();drawData();BuildF();drawDataF(); }
 							else if (document.getElementById("window4").checked){ 
-								document.getElementById("picture").src = "hung1.jpg"; } 
+								document.getElementById("picture").src = "hung1.jpg";
+								windowType=4;Build();drawData();BuildF();drawDataF(); } 
 							else if (document.getElementById("window5").checked){ 
-								document.getElementById("picture").src = "hung1.jpg"; } 
+								document.getElementById("picture").src = "hung1.jpg";
+								windowType=5;Build();drawData();BuildF();drawDataF(); } 
 							else if (document.getElementById("window6").checked){ 
-								document.getElementById("picture").src = "hung1.jpg"; } 
+								document.getElementById("picture").src = "hung1.jpg";
+								windowType=6;Build();drawData();BuildF();drawDataF(); } 
 							else if (document.getElementById("window7").checked){ 
-								document.getElementById("picture").src = "casement.jpg"; }
+								document.getElementById("picture").src = "casement.jpg";
+								windowType=7;Build();drawData();BuildF();drawDataF(); }
+						}
+						
+						function addWindow(){
+							if (doorLocation != 1){
+								if (document.getElementById("windowlocF").checked == true){
+									windowLocationF=1;Build();drawData();BuildF();drawDataF(); }
+								else if (document.getElementById("windowlocF").checked == false){
+									windowLocationF=0;Build();drawData();BuildF();drawDataF(); } }
+							else if (doorLocation == 1){
+								if (document.getElementById("windowlocF").checked == true){
+									document.getElementById("windowlocF").checked = false; } }
+							if (doorLocation != 2){
+								if (document.getElementById("windowlocL").checked == true){
+									windowLocationL=1;Build();drawData();BuildF();drawDataF(); }
+								else if (document.getElementById("windowlocL").checked == false){
+									windowLocationL=0;Build();drawData();BuildF();drawDataF(); } }
+							else if (doorLocation == 2){
+								if (document.getElementById("windowlocL").checked == true){
+									document.getElementById("windowlocL").checked = false; } }
+							
+							
+							if (document.getElementById("windowlocB").checked == true){
+								windowLocationB=1;Build();drawData();BuildF();drawDataF(); }
+							else if (document.getElementById("windowlocB").checked == false){
+								windowLocationB=0;Build();drawData();BuildF();drawDataF(); }
+							if (document.getElementById("windowlocR").checked == true){
+								windowLocationR=1;Build();drawData();BuildF();drawDataF(); }
+							else if (document.getElementById("windowlocR").checked == false){
+								windowLocationR=0;Build();drawData();BuildF();drawDataF(); }
 						}
 					</script>
 				</div>
-				<div style="width:260px; height:335px; float:left; text-align:center; margin-top:25px;">
+				<div style="width:260px; height:332px; float:left; text-align:center; margin-top:25px;">
 					<img src="white-background.jpg" id="picture">
 				</div>
 			</div>
@@ -117,12 +190,14 @@
 						var doorType = 0; // no door
 								
 						var topStyle = 1;
-						var doorLocation = 1;
+						var doorLocation = 0;
 						var windowLocationF = 0; // no window
 						var windowLocationL = 0;
 						var windowLocationB = 0;
 						var windowLocationR = 0;
 						var windowType = 0;
+						
+						var Fchecked = 0; // box unchecked
 						
 						var rX = -pi/4;
 						var rY = -11*pi/8;
@@ -259,13 +334,13 @@
 									dataMatrix[dataCount+7] = new Array(DM*(0.5*baseDepth+30/12)+xshift,yshift,zDM*80/12+zshift); // top
 								}
 							}
-							dataCount = dataMatrix.length;
+							
 							
 							if (windowLocationF == 1){ // front
-								if (windowType == 1 || windowType == 2 || windowType == 3){ // sliding
-									if (windowType == 1){ dim = 23.5; }
-									else if (windowType == 2){ dim = 35.5; }
-									else if (windowType = 3){ dim = 47.5; }
+								dataCount = dataMatrix.length;
+								if (windowType == 1 || windowType == 2){ // sliding
+									if (windowType == 1){ dim = 24; }
+									else if (windowType == 2){ dim = 32; }
 									dataMatrix[dataCount] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-dim/(2*12))+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
 									dataMatrix[dataCount+1] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-dim/(2*12))+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // left
 									dataMatrix[dataCount+2] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+dim/(2*12))+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
@@ -278,9 +353,9 @@
 									dataMatrix[dataCount+9] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+dim/(2*12))+yshift,zDM*(0.5*Height-dim/(2*12))+zshift); // bottom
 								}
 								else if (windowType == 4 || windowType == 5 || windowType == 6){
-									if (windowType == 1){ dimH = 23.5; dimV = 47.5;  }
-									else if (windowType == 2){ dimH = 23.5; dimV = 35.5; }
-									else if (windowType = 3){ dimH = 35.5; dimV = 35.5; }
+									if (windowType == 4){ dimH = 24; dimV = 47.5;  }
+									else if (windowType == 5){ dimH = 24; dimV = 32; }
+									else if (windowType = 6){ dimH = 32; dimV = 32; }
 									dataMatrix[dataCount] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-dimH/(2*12))+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
 									dataMatrix[dataCount+1] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-dimH/(2*12))+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // left
 									dataMatrix[dataCount+2] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+dimH/(2*12))+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
@@ -293,21 +368,21 @@
 									dataMatrix[dataCount+9] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+dimH/(2*12))+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift); // bottom
 								}
 								else if (windowType == 7){
-									dataMatrix[dataCount] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
-									dataMatrix[dataCount+1] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // left
-									dataMatrix[dataCount+2] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
-									dataMatrix[dataCount+3] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // right
-									dataMatrix[dataCount+4] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift);
-									dataMatrix[dataCount+5] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // top
-									dataMatrix[dataCount+6] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
-									dataMatrix[dataCount+7] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift); // bottom
+									dataMatrix[dataCount] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-24/(2*12))+yshift,zDM*(0.5*Height-32/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-24/(2*12))+yshift,zDM*(0.5*Height+32/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+24/(2*12))+yshift,zDM*(0.5*Height-32/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+24/(2*12))+yshift,zDM*(0.5*Height+32/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-24/(2*12))+yshift,zDM*(0.5*Height+32/(2*12))+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+24/(2*12))+yshift,zDM*(0.5*Height+32/(2*12))+zshift); // top
+									dataMatrix[dataCount+6] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth-24/(2*12))+yshift,zDM*(0.5*Height-32/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(DM*baseDepth+xshift,DM*(0.5*baseWidth+24/(2*12))+yshift,zDM*(0.5*Height-32/(2*12))+zshift); // bottom
 								}
 							}
 							if (windowLocationL == 1){ // left
-								if (windowType == 1 || windowType == 2 || windowType == 3){ // sliding
-									if (windowType == 1){ dim = 23.5; }
-									else if (windowType == 2){ dim = 35.5; }
-									else if (windowType = 3){ dim = 47.5; }
+								dataCount = dataMatrix.length;
+								if (windowType == 1 || windowType == 2){ // sliding
+									if (windowType == 1){ dim = 24; }
+									else if (windowType == 2){ dim = 32; }
 									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-dim/(2*12))+xshift,yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
 									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-dim/(2*12))+xshift,yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // left
 									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+dim/(2*12))+xshift,yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
@@ -320,9 +395,9 @@
 									dataMatrix[dataCount+9] = new Array(DM*(0.5*baseDepth+dim/(2*12))+xshift,yshift,zDM*(0.5*Height-dim/(2*12))+zshift); // bottom
 								}
 								else if (windowType == 4 || windowType == 5 || windowType == 6){
-									if (windowType == 1){ dimH = 23.5; dimV = 47.5;  }
-									else if (windowType == 2){ dimH = 23.5; dimV = 35.5; }
-									else if (windowType = 3){ dimH = 35.5; dimV = 35.5; }
+									if (windowType == 4){ dimH = 24; dimV = 47.5;  }
+									else if (windowType == 5){ dimH = 24; dimV = 32; }
+									else if (windowType = 6){ dimH = 32; dimV = 32; }
 									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-dimH/(2*12))+xshift,yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
 									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-dimH/(2*12))+xshift,yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // left
 									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+dimH/(2*12))+xshift,yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
@@ -335,21 +410,21 @@
 									dataMatrix[dataCount+9] = new Array(DM*(0.5*baseDepth+dimH/(2*12))+xshift,yshift,zDM*(0.5*Height-dimV/(2*12))+zshift); // bottom
 								}
 								else if (windowType == 7){
-									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
-									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // left
-									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
-									dataMatrix[dataCount+3] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // right
-									dataMatrix[dataCount+4] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,yshift,zDM*(0.5*Height+35.5/(2*12))+zshift);
-									dataMatrix[dataCount+5] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // top
-									dataMatrix[dataCount+6] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
-									dataMatrix[dataCount+7] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,yshift,zDM*(0.5*Height-35.5/(2*12))+zshift); // bottom
+									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-24/(2*12))+xshift,yshift,zDM*(0.5*Height-32/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-24/(2*12))+xshift,yshift,zDM*(0.5*Height+32/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+24/(2*12))+xshift,yshift,zDM*(0.5*Height-32/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(DM*(0.5*baseDepth+24/(2*12))+xshift,yshift,zDM*(0.5*Height+32/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*(0.5*baseDepth-24/(2*12))+xshift,yshift,zDM*(0.5*Height+32/(2*12))+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*(0.5*baseDepth+24/(2*12))+xshift,yshift,zDM*(0.5*Height+32/(2*12))+zshift); // top
+									dataMatrix[dataCount+6] = new Array(DM*(0.5*baseDepth-24/(2*12))+xshift,yshift,zDM*(0.5*Height-32/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(DM*(0.5*baseDepth+24/(2*12))+xshift,yshift,zDM*(0.5*Height-32/(2*12))+zshift); // bottom
 								}
 							}
 							if (windowLocationB == 1){ // back
-								if (windowType == 1 || windowType == 2 || windowType == 3){ // sliding
-									if (windowType == 1){ dim = 23.5; }
-									else if (windowType == 2){ dim = 35.5; }
-									else if (windowType = 3){ dim = 47.5; }
+								dataCount = dataMatrix.length;
+								if (windowType == 1 || windowType == 2){ // sliding
+									if (windowType == 1){ dim = 24; }
+									else if (windowType == 2){ dim = 32; }
 									dataMatrix[dataCount] = new Array(xshift,DM*(0.5*baseWidth-dim/(2*12))+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
 									dataMatrix[dataCount+1] = new Array(xshift,DM*(0.5*baseWidth-dim/(2*12))+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // left
 									dataMatrix[dataCount+2] = new Array(xshift,DM*(0.5*baseWidth+dim/(2*12))+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
@@ -362,9 +437,9 @@
 									dataMatrix[dataCount+9] = new Array(xshift,DM*(0.5*baseWidth+dim/(2*12))+yshift,zDM*(0.5*Height-dim/(2*12))+zshift); // bottom
 								}
 								else if (windowType == 4 || windowType == 5 || windowType == 6){
-									if (windowType == 1){ dimH = 23.5; dimV = 47.5;  }
-									else if (windowType == 2){ dimH = 23.5; dimV = 35.5; }
-									else if (windowType = 3){ dimH = 35.5; dimV = 35.5; }
+									if (windowType == 4){ dimH = 24; dimV = 47.5;  }
+									else if (windowType == 5){ dimH = 24; dimV = 32; }
+									else if (windowType = 6){ dimH = 32; dimV = 32; }
 									dataMatrix[dataCount] = new Array(xshift,DM*(0.5*baseWidth-dimH/(2*12))+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
 									dataMatrix[dataCount+1] = new Array(xshift,DM*(0.5*baseWidth-dimH/(2*12))+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // left
 									dataMatrix[dataCount+2] = new Array(xshift,DM*(0.5*baseWidth+dimH/(2*12))+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
@@ -377,21 +452,21 @@
 									dataMatrix[dataCount+9] = new Array(xshift,DM*(0.5*baseWidth+dimH/(2*12))+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift); // bottom
 								}
 								else if (windowType == 7){
-									dataMatrix[dataCount] = new Array(xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
-									dataMatrix[dataCount+1] = new Array(xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // left
-									dataMatrix[dataCount+2] = new Array(xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
-									dataMatrix[dataCount+3] = new Array(xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // right
-									dataMatrix[dataCount+4] = new Array(xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift);
-									dataMatrix[dataCount+5] = new Array(xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // top
-									dataMatrix[dataCount+6] = new Array(xshift,DM*(0.5*baseWidth-23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
-									dataMatrix[dataCount+7] = new Array(xshift,DM*(0.5*baseWidth+23.5/(2*12))+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift); // bottom
+									dataMatrix[dataCount] = new Array(xshift,DM*(0.5*baseWidth-24/(2*12))+yshift,zDM*(0.5*Height-32/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(xshift,DM*(0.5*baseWidth-24/(2*12))+yshift,zDM*(0.5*Height+32/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(xshift,DM*(0.5*baseWidth+24/(2*12))+yshift,zDM*(0.5*Height-32/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(xshift,DM*(0.5*baseWidth+24/(2*12))+yshift,zDM*(0.5*Height+32/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(xshift,DM*(0.5*baseWidth-24/(2*12))+yshift,zDM*(0.5*Height+32/(2*12))+zshift);
+									dataMatrix[dataCount+5] = new Array(xshift,DM*(0.5*baseWidth+24/(2*12))+yshift,zDM*(0.5*Height+32/(2*12))+zshift); // top
+									dataMatrix[dataCount+6] = new Array(xshift,DM*(0.5*baseWidth-24/(2*12))+yshift,zDM*(0.5*Height-32/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(xshift,DM*(0.5*baseWidth+24/(2*12))+yshift,zDM*(0.5*Height-32/(2*12))+zshift); // bottom
 								}
 							}
 							if (windowLocationR == 1){ // right
-								if (windowType == 1 || windowType == 2 || windowType == 3){ // sliding
-									if (windowType == 1){ dim = 23.5; }
-									else if (windowType == 2){ dim = 35.5; }
-									else if (windowType = 3){ dim = 47.5; }
+								dataCount = dataMatrix.length;
+								if (windowType == 1 || windowType == 2){ // sliding
+									if (windowType == 1){ dim = 24; }
+									else if (windowType == 2){ dim = 32; }
 									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-dim/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
 									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-dim/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+dim/(2*12))+zshift); // left
 									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+dim/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dim/(2*12))+zshift);
@@ -404,9 +479,9 @@
 									dataMatrix[dataCount+9] = new Array(DM*(0.5*baseDepth+dim/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dim/(2*12))+zshift); // bottom
 								}
 								else if (windowType == 4 || windowType == 5 || windowType == 6){
-									if (windowType == 1){ dimH = 23.5; dimV = 47.5;  }
-									else if (windowType == 2){ dimH = 23.5; dimV = 35.5; }
-									else if (windowType = 3){ dimH = 35.5; dimV = 35.5; }
+									if (windowType == 4){ dimH = 24; dimV = 47.5;  }
+									else if (windowType == 5){ dimH = 24; dimV = 32; }
+									else if (windowType = 6){ dimH = 32; dimV = 32; }
 									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-dimH/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
 									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-dimH/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+dimV/(2*12))+zshift); // left
 									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+dimH/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift);
@@ -419,14 +494,14 @@
 									dataMatrix[dataCount+9] = new Array(DM*(0.5*baseDepth+dimH/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-dimV/(2*12))+zshift); // bottom
 								}
 								else if (windowType == 7){
-									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
-									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // left
-									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
-									dataMatrix[dataCount+3] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // right
-									dataMatrix[dataCount+4] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift);
-									dataMatrix[dataCount+5] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+35.5/(2*12))+zshift); // top
-									dataMatrix[dataCount+6] = new Array(DM*(0.5*baseDepth-23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift);
-									dataMatrix[dataCount+7] = new Array(DM*(0.5*baseDepth+23.5/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-35.5/(2*12))+zshift); // bottom
+									dataMatrix[dataCount] = new Array(DM*(0.5*baseDepth-24/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-32/(2*12))+zshift);
+									dataMatrix[dataCount+1] = new Array(DM*(0.5*baseDepth-24/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+32/(2*12))+zshift); // left
+									dataMatrix[dataCount+2] = new Array(DM*(0.5*baseDepth+24/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-32/(2*12))+zshift);
+									dataMatrix[dataCount+3] = new Array(DM*(0.5*baseDepth+24/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+32/(2*12))+zshift); // right
+									dataMatrix[dataCount+4] = new Array(DM*(0.5*baseDepth-24/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+32/(2*12))+zshift);
+									dataMatrix[dataCount+5] = new Array(DM*(0.5*baseDepth+24/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height+32/(2*12))+zshift); // top
+									dataMatrix[dataCount+6] = new Array(DM*(0.5*baseDepth-24/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-32/(2*12))+zshift);
+									dataMatrix[dataCount+7] = new Array(DM*(0.5*baseDepth+24/(2*12))+xshift,DM*baseWidth+yshift,zDM*(0.5*Height-32/(2*12))+zshift); // bottom
 								}
 							}
 							
@@ -578,10 +653,9 @@
 								
 								if (windowLocationF == 1){ // front
 									dataCount = dataMatrixF.length;
-									if (windowType == 1 || windowType == 2 || windowType == 3){ // sliding
-										if (windowType == 1){ dim = 23.5; }
-										else if (windowType == 2){ dim = 35.5; }
-										else if (windowType = 3){ dim = 47.5; }
+									if (windowType == 1 || windowType == 2){ // sliding
+										if (windowType == 1){ dim = 24; }
+										else if (windowType == 2){ dim = 32; }
 										dataMatrixF[dataCount] = new Array(0,DMF*(0.5*baseWidth-dim/(2*12))+yshift,DMF*(0.5*Height-dim/(2*12))+zshift);
 										dataMatrixF[dataCount+1] = new Array(0,DMF*(0.5*baseWidth-dim/(2*12))+yshift,DMF*(0.5*Height+dim/(2*12))+zshift); // left
 										dataMatrixF[dataCount+2] = new Array(0,DMF*(0.5*baseWidth+dim/(2*12))+yshift,DMF*(0.5*Height-dim/(2*12))+zshift);
@@ -594,9 +668,9 @@
 										dataMatrixF[dataCount+9] = new Array(0,DMF*(0.5*baseWidth+dim/(2*12))+yshift,DMF*(0.5*Height-dim/(2*12))+zshift); // bottom
 									}
 									else if (windowType == 4 || windowType == 5 || windowType == 6){
-										if (windowType == 1){ dimH = 23.5; dimV = 47.5;  }
-										else if (windowType == 2){ dimH = 23.5; dimV = 35.5; }
-										else if (windowType = 3){ dimH = 35.5; dimV = 35.5; }
+										if (windowType == 4){ dimH = 24; dimV = 47.5;  }
+										else if (windowType == 5){ dimH = 24; dimV = 32; }
+										else if (windowType = 6){ dimH = 32; dimV = 32; }
 										dataMatrixF[dataCount] = new Array(0,DMF*(0.5*baseWidth-dimH/(2*12))+yshift,DMF*(0.5*Height-dimV/(2*12))+zshift);
 										dataMatrixF[dataCount+1] = new Array(0,DMF*(0.5*baseWidth-dimH/(2*12))+yshift,DMF*(0.5*Height+dimV/(2*12))+zshift); // left
 										dataMatrixF[dataCount+2] = new Array(0,DMF*(0.5*baseWidth+dimH/(2*12))+yshift,DMF*(0.5*Height-dimV/(2*12))+zshift);
@@ -609,14 +683,14 @@
 										dataMatrixF[dataCount+9] = new Array(0,DMF*(0.5*baseWidth+dimH/(2*12))+yshift,DMF*(0.5*Height-dimV/(2*12))+zshift); // bottom
 									}
 									else if (windowType == 7){
-										dataMatrixF[dataCount] = new Array(0,DMF*(0.5*baseWidth-23.5/(2*12))+yshift,DMF*(0.5*Height-35.5/(2*12))+zshift);
-										dataMatrixF[dataCount+1] = new Array(0,DMF*(0.5*baseWidth-23.5/(2*12))+yshift,DMF*(0.5*Height+35.5/(2*12))+zshift); // left
-										dataMatrixF[dataCount+2] = new Array(0,DMF*(0.5*baseWidth+23.5/(2*12))+yshift,DMF*(0.5*Height-35.5/(2*12))+zshift);
-										dataMatrixF[dataCount+3] = new Array(0,DMF*(0.5*baseWidth+23.5/(2*12))+yshift,DMF*(0.5*Height+35.5/(2*12))+zshift); // right
-										dataMatrixF[dataCount+4] = new Array(0,DMF*(0.5*baseWidth-23.5/(2*12))+yshift,DMF*(0.5*Height+35.5/(2*12))+zshift);
-										dataMatrixF[dataCount+5] = new Array(0,DMF*(0.5*baseWidth+23.5/(2*12))+yshift,DMF*(0.5*Height+35.5/(2*12))+zshift); // top
-										dataMatrixF[dataCount+6] = new Array(0,DMF*(0.5*baseWidth-23.5/(2*12))+yshift,DMF*(0.5*Height-35.5/(2*12))+zshift);
-										dataMatrixF[dataCount+7] = new Array(0,DMF*(0.5*baseWidth+23.5/(2*12))+yshift,DMF*(0.5*Height-35.5/(2*12))+zshift); // bottom
+										dataMatrixF[dataCount] = new Array(0,DMF*(0.5*baseWidth-24/(2*12))+yshift,DMF*(0.5*Height-32/(2*12))+zshift);
+										dataMatrixF[dataCount+1] = new Array(0,DMF*(0.5*baseWidth-24/(2*12))+yshift,DMF*(0.5*Height+32/(2*12))+zshift); // left
+										dataMatrixF[dataCount+2] = new Array(0,DMF*(0.5*baseWidth+24/(2*12))+yshift,DMF*(0.5*Height-32/(2*12))+zshift);
+										dataMatrixF[dataCount+3] = new Array(0,DMF*(0.5*baseWidth+24/(2*12))+yshift,DMF*(0.5*Height+32/(2*12))+zshift); // right
+										dataMatrixF[dataCount+4] = new Array(0,DMF*(0.5*baseWidth-24/(2*12))+yshift,DMF*(0.5*Height+32/(2*12))+zshift);
+										dataMatrixF[dataCount+5] = new Array(0,DMF*(0.5*baseWidth+24/(2*12))+yshift,DMF*(0.5*Height+32/(2*12))+zshift); // top
+										dataMatrixF[dataCount+6] = new Array(0,DMF*(0.5*baseWidth-24/(2*12))+yshift,DMF*(0.5*Height-32/(2*12))+zshift);
+										dataMatrixF[dataCount+7] = new Array(0,DMF*(0.5*baseWidth+24/(2*12))+yshift,DMF*(0.5*Height-32/(2*12))+zshift); // bottom
 									}
 								}
 								
@@ -715,16 +789,42 @@
 						<div id="incdec" style="float:left; clear:left; margin-left:10px;">
 						    <p>Base width:
 							<input type="text" value="6" style="width:30px; height:25px; text-align:center; vertical-align: middle;" name="incdec" />
-						    <img onclick="if (baseWidth < 15) {baseWidth++;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="up_arrow.jpeg" id="up" />
-						    <img onclick="if (baseWidth > 3) {baseWidth--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="down_arrow.jpeg" id="down" />
+						    <script>
+								function widthIncrease(){
+									if (baseWidth<15) {baseWidth++;Build();drawData();BuildF();drawDataF();BuildT();drawDataT();} }
+								function widthDecrease(){
+									if (doorType == 3 && doorLocation == 1){
+										if (baseWidth>6){baseWidth--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT();} }
+									else if (doorType == 1 && doorLocation == 1){
+										if (baseWidth>4){baseWidth--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT();} }
+									else{
+										if (baseWidth>3){baseWidth--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT();} }
+								}
+							</script>
+							<img onclick="widthIncrease();" src="up_arrow.jpeg" id="up" />
+						    <img onclick="widthDecrease();" src="down_arrow.jpeg" id="down" />
 							</p>
 						</div>
+						
 
 						<div id="incdec1" style="float:left; margin-left:50px; margin-left:10px;">
 						    <p>Base depth:
 							<input type="text" value="8" style="width:30px; height:25px; text-align:center; vertical-align: middle;" name="incdec1"/>
-						    <img onclick="if (baseDepth < 15) {baseDepth++;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="up_arrow1.jpeg" id="up1" />
-						    <img onclick="if (baseDepth > 3) {baseDepth--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="down_arrow1.jpeg" id="down1" />
+						    <script>
+								function depthIncrease(){
+									if (baseDepth<15) {baseDepth++;Build();drawData();BuildF();drawDataF();BuildT();drawDataT();} }
+								function depthDecrease(){
+									if (doorType == 3 && doorLocation == 2){
+										if (baseDepth>6) {baseDepth--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT();} }
+									else if (doorType == 1 && doorLocation == 2){
+										if (baseDepth>4) {baseDepth--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT();} }
+									else{
+										if (baseDepth>3) {baseDepth--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT();} }
+								}
+							</script>
+							
+							<img onclick="depthIncrease();" src="up_arrow1.jpeg" id="up1" />
+						    <img onclick="depthDecrease();" src="down_arrow1.jpeg" id="down1" />
 							</p>
 						</div>
 
@@ -748,25 +848,35 @@
 					$(document).ready(function(){
 					    $("#up").on('click',function(){
 					        if (parseInt($("#incdec input").val()) < 15){
-								$("#incdec input").val(parseInt($("#incdec input").val())+1);
-							}
+								$("#incdec input").val(parseInt($("#incdec input").val())+1);}
 					    });
 					    $("#down").on('click',function(){
-							if (parseInt($("#incdec input").val()) > 3){
-								$("#incdec input").val(parseInt($("#incdec input").val())-1);
-							}
+							if (doorType == 3 && doorLocation == 1){
+								if (parseInt($("#incdec input").val()) > 6){
+									$("#incdec input").val(parseInt($("#incdec input").val())-1);} }
+							else if (doorType == 1 && doorLocation == 1){
+								if (parseInt($("#incdec input").val()) > 4){
+									$("#incdec input").val(parseInt($("#incdec input").val())-1);} }
+							else {
+								if (parseInt($("#incdec input").val()) > 3){
+									$("#incdec input").val(parseInt($("#incdec input").val())-1);} }	
 					    });
 					});
 					$(document).ready(function(){
 					    $("#up1").on('click',function(){
 							if (parseInt($("#incdec1 input").val()) < 15){
-								$("#incdec1 input").val(parseInt($("#incdec1 input").val())+1);
-							}
+								$("#incdec1 input").val(parseInt($("#incdec1 input").val())+1);}
 					    });
 					    $("#down1").on('click',function(){
-					        if (parseInt($("#incdec1 input").val()) > 3){
-								$("#incdec1 input").val(parseInt($("#incdec1 input").val())-1);
-							}
+					        if (doorType == 3 && doorLocation == 2){
+								if (parseInt($("#incdec1 input").val()) > 6){
+									$("#incdec1 input").val(parseInt($("#incdec1 input").val())-1);} }
+							else if (doorType == 1 && doorLocation == 2){
+								if (parseInt($("#incdec1 input").val()) > 4){
+									$("#incdec1 input").val(parseInt($("#incdec1 input").val())-1);} }
+							else {
+								if (parseInt($("#incdec1 input").val()) > 3){
+									$("#incdec1 input").val(parseInt($("#incdec1 input").val())-1);} }
 						});
 					});
 					$(document).ready(function(){
