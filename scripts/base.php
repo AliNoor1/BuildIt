@@ -22,7 +22,7 @@ session_start();
 // ========= FOR LOCAL TESTING ===========
 $dbhost = "localhost";
 $dbname = "buildit";
-$dbuser = "admin";
+$dbuser = "root";
 $dbpass = "password";
 
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die("MySQL Error: " . mysqli_connect_error());

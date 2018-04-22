@@ -123,3 +123,9 @@ body {
 	margin: 40px;
 	color: rgba(0, 0, 0, 0.60);
 }
+
+.container {
+    display: flex;              /* establish flex container */
+    flex-direction: column;     /* align children (flex items) vertically */
+    flex-wrap: wrap;
+}
