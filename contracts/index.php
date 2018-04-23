@@ -306,8 +306,9 @@
                                             </div>
                                         </a>
                                         <?php
-                                        $i++;
                                     }
+                                    $i++;
+
                                 }
 
                             }
@@ -316,10 +317,18 @@
                             }
 
                             echo '<div class="bottomNavBar">';
-                            echo '<form method="GET" action="index.php">';
+                            echo '<form method="GET" action="index.php" id="pagenumbers">';
                             for ($i=0; $i<$pages; $i++){
-                                echo '<input type="submit" value="' . ($i+1) . '" name="page"/>';
+                                echo '<a href="#" onclick="document.getElementById(\'pagenumbers\').submit('.($i+1).');">' . ($i+1) . '</a>';
                             }
+                            foreach($_GET as $name => $value) {
+                                if ($name != 'page') {
+                                    $name = htmlspecialchars($name);
+                                    $value = htmlspecialchars($value);
+                                    echo '<input type="hidden" name="' . $name . '" value="' . $value . '">';
+                                }
+                            }
+                            echo '</form>';
                             ?>
             </div>
 
