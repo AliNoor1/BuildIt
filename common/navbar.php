@@ -5,7 +5,7 @@
 </head>
 
 <div class="topnav">
-    <a class="homeButton" href="/">
+    <a class="homeButton" href="/" id="home">
         <i class="fa fa-home"></i>
     </a>
     <a class="topLinks" href="/design-page/">Design</a>
@@ -81,8 +81,8 @@
     
     <div class="search-container">
         <form method="get" action="/search/" id="searchform">
-            <input type="text" placeholder="Search..." name="query">
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <input type="text" placeholder="Search..." name="query" id="searchbar">
+            <button type="submit"><i class="fa fa-search" id="searchbutton"></i></button>
         </form>
     </div>
 </div>
