@@ -1,31 +1,204 @@
+<?php include $_SERVER['DOCUMENT_ROOT']."/scripts/base.php"; ?>
+
+    <?php
+    if(empty($_SESSION['LoggedIn']))
+    {
+        //the user is not signed in
+        include $_SERVER['DOCUMENT_ROOT']."/common/navbar.php";
+        var_dump($_SESSION);
+        echo 'Sorry, you have to be <a href="/login/">signed in</a> to create a design.';
+    }
+    elseif ($_SERVER['REQUEST_METHOD'] === 'POST'){
+        if($_POST["design"] === 'Save') {
+            $project_name = $_POST["projectname"];
+            $doortype = $_POST["doortype"];
+            $windowtype = $_POST["windowtype"];
+
+            if (!empty($_POST["windowlocB"])) {
+                $windowlocB = 1;
+            }
+            else{
+                $windowlocB = 0;
+            }
+            if (!empty($_POST["windowlocF"])) {
+                $windowlocF = 1;
+            }
+            else{
+                $windowlocF = 0;
+            }
+            if (!empty($_POST["windowlocR"])) {
+                $windowlocR = 1;
+            }
+            else{
+                $windowlocR = 0;
+            }
+            if (!empty($_POST["windowlocL"])) {
+                $windowlocL = 1;
+            }
+            else{
+                $windowlocL = 0;
+            }
+
+            $incdec = $_POST["incdec"];
+            $incdec1 = $_POST["incdec1"];
+            $incdec2 = $_POST["incdec2"];
+            $incdec3 = $_POST["incdec3"];
+            $doorloc = $_POST["doorloc"];
+            $rooftype = $_POST["rooftype"];
+
+            $querystring = "INSERT INTO designs (userid, project_name, doortype, rooftype, windowtype, windowlocR, windowlocB, 
+                            windowlocL, windowlocF, incdec, incdec1, incdec2, incdec3, doorloc) 
+                            VALUES('" . $_SESSION['userid'] . "','" .
+                $project_name . "','" .
+                $doortype . "','" .
+                $rooftype . "','" .
+                $windowtype . "'," .
+                $windowlocR . "," .
+                $windowlocB . "," .
+                $windowlocL . "," .
+                $windowlocF . "," .
+                $incdec . "," .
+                $incdec1 . "," .
+                $incdec2 . "," .
+                $incdec3 . "," .
+                $doorloc . ");";
+
+            $registerquery = mysqli_query($conn, $querystring);
+
+            if ($registerquery) {
+//                var_dump($_POST);
+                echo "<meta http-equiv='refresh' content='0;/design-page/' />";
+            } else {
+                echo "<h1>Error Saving Design.</h1>";
+                var_dump($querystring);
+            }
+        }
+        elseif($_POST["design"] === "Load") {
+            echo "Choose a design: ";
+            $querystring = "SELECT * FROM designs
+                              WHERE userid=".$_SESSION['userid'].";";
+            $raw_results = mysqli_query($conn, $querystring) or die(mysqli_error());
+            if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
+                while($results = mysqli_fetch_array($raw_results)){
+                    // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
+
+                    echo "<a href='/design-page/index.php?design_id=".$results['design_id'] ."'>".
+                            "<div class='result'>".
+                                "<p class='name'>".$results['project_name']."</p>".
+                            "</div>".
+                        "</a>";
+
+                }
+            }
+            else{ // if there is no matching rows do following
+                echo "No results";
+            }
+        }
+    }
+    else{
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET["design_id"])){
+            $querystring = "SELECT * FROM designs
+                                  WHERE design_id=".$_GET["design_id"].";";
+            $raw_results = mysqli_query($conn, $querystring) or die(mysqli_error());
+            if(mysqli_num_rows($raw_results) == 1){ // if one or more rows are returned do following
+                $results = mysqli_fetch_array($raw_results);
+                $project_name = $results["project_name"];
+                $doortype = $results["doortype"];
+                $windowtype = $results["windowtype"];
+                $windowlocB = $results["windowlocB"];
+                $windowlocR = $results["windowlocR"];
+                $windowlocF = $results["windowlocF"];
+                $windowlocL = $results["windowlocL"];
+                $incdec = $results["incdec"];
+                $incdec1 = $results["incdec1"];
+                $incdec2 = $results["incdec2"];
+                $incdec3 = $results["incdec3"];
+                $doorloc = $results["doorloc"];
+                $rooftype = $results["rooftype"];
+            }
+            else{ // if there is no matching rows do following
+                echo "ERROR LOADING";
+            }
+        }
+        else{
+            $project_name = '';
+            $doortype = '';
+            $windowtype = '';
+            $windowlocF = '';
+            $windowlocR = '';
+            $windowlocB = '';
+            $windowlocL = '';
+            $doorloc = '';
+            $incdec = '';
+            $incdec1 = '';
+            $incdec2 = '';
+            $incdec3 = '';
+            $rooftype = '';
+        }
+    ?>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
-        <link href="/css/navbar.css" type="text/css" rel="stylesheet">
-		<link href="BuildIT_Design_Page_style.css" type="text/css" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	</head>
-	<title>Design</title>
-	<body>
+<head>
+    <meta charset="UTF-8">
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+    <link href="/css/navbar.css" type="text/css" rel="stylesheet">
+    <link href="BuildIT_Design_Page_style.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $( document ).ready(function() {
+            <?php
+            if(!empty($doorloc)){
+                echo' doorLocation = '.$doorloc.';';
+            }
 
-    <!-- NAVIGATION BAR -->
-    <?php include $_SERVER['DOCUMENT_ROOT']."/common/navbar.php";?>
+            ?>
+            changeDoor();
+            changeWindow();
 
+        });
+    </script>
+</head>
+<title>Design</title>
+<body>
+
+<!-- NAVIGATION BAR -->
+<?php include $_SERVER['DOCUMENT_ROOT']."/common/navbar.php";?>
 	<form method="post" action="index.php" name="registerform" class="registerform">
         <div class="register-input">
-			<br></br>
+			<br>
 			<label for="projectname">Project Name:</label>
 			<input type="text" name="projectname"/>
-			<br></br>
+			<br>
 			
 			<div style="width:860px; height:332px; margin-left:10px; overflow:hidden">
 				<div style="width:600px; height:332px; float:left">
 					Select a door:</br>
-					<input type="radio" id="door1" name="doortype" value="simple" onClick="changeDoor();">6-Panel Primed Premium Steel Door Slab - 36" x 80", $100<br>
-					<input type="radio" id="door2" name="doortype" value="nicer" onClick="changeDoor();">6-Panel Primed Inswing Steel Door with Brickmould - 30" x 80", $175<br>
-					<input type="radio" id="door3" name="doortype" value="double" onClick="changeDoor();">Smooth Carrara Core Primed Molded Composite Double Door - 60" x 80", $400<br>
+                    <?php
+                        if($doortype == "simple") {
+                            echo' <input type="radio" id="door1" name="doortype" value="simple" checked="checked"
+                                   onClick="changeDoor();">6-Panel Primed Premium Steel Door Slab - 36" x 80", $100<br>';
+                        }
+                        else{
+                            echo' <input type="radio" id="door1" name="doortype" value="simple"
+                                                   onClick="changeDoor();">6-Panel Primed Premium Steel Door Slab - 36" x 80", $100<br>';
+                        }
+                        if($doortype == "nicer"){
+                            echo' <input type="radio" id="door2" name="doortype" value="nicer" checked="checked"
+                                   onClick="changeDoor();">6-Panel Primed Inswing Steel Door with Brickmould - 30" x 80", $175<br>';
+                        }
+                        else{
+                            echo' <input type="radio" id="door2" name="doortype" value="nicer"
+                                   onClick="changeDoor();">6-Panel Primed Inswing Steel Door with Brickmould - 30" x 80", $175<br>';
+                        }
+                        if($doortype == 'double') {
+                            echo ' <input type="radio" id="door3" name="doortype" value="double" checked="checked" 
+                                    onClick="changeDoor();">Smooth Carrara Core Primed Molded Composite Double Door - 60" x 80", $400<br>';
+                        }
+                        else{
+                            echo ' <input type="radio" id="door3" name="doortype" value="double"
+                                    onClick="changeDoor();">Smooth Carrara Core Primed Molded Composite Double Door - 60" x 80", $400<br>';
+                        }
+					?>
 					<script>
 						function changeDoor(){
 							if(doorLocation == 1){
@@ -92,25 +265,109 @@
 					
 					<p></p>
 					Select a door location:
-					<button type="button" onclick="if(windowLocationF!=1){doorLocation=1;changeDoor();}">Front</button>
-					<button type="button" onclick="if(windowLocationL!=1){doorLocation=2;changeDoor();}">Side</button>
+                    <?php
+                    if($doorloc == '1'){
+                        echo' <input type="radio" name="doorloc" value="1" checked="checked" 
+                            onclick="if(windowLocationF!=1){doorLocation=1;changeDoor();}">Front';
+                    }
+                    else{
+                        echo' <input type="radio" name="doorloc" value="1"
+                            onclick="if(windowLocationF!=1){doorLocation=1;changeDoor();}">Front';
+                    }
+                    if($doorloc == '2'){
+                        echo' <input type="radio" name="doorloc" checked="checked" value="2"
+                            onclick="if(windowLocationL!=1){doorLocation=2;changeDoor();}">Side';
+                    }
+                    else{
+                        echo' <input type="radio" name="doorloc" value="2"
+                            onclick="if(windowLocationL!=1){doorLocation=2;changeDoor();}">Side';
+                    }
+                    ?>
+
+
 					</br>
 					
 					<p></p>
 					Select a window:</br>
-					<input type="radio" id="window1" name="windowtype" value="sliding1" onClick="changeWindow()">Right-Hand Sliding Vinyl Window - 24" x 24", $100<br>
-					<input type="radio" id="window2" name="windowtype" value="sliding2" onClick="windowType=2;changeWindow()">Right-Hand Sliding Vinyl Window - 32" x 32", $200<br>
-					<input type="radio" id="window4" name="windowtype" value="hung1" onClick="windowType=4;changeWindow()">Single Hung Vinyl Window - 24" x 47.5", $150<br>
-					<input type="radio" id="window5" name="windowtype" value="hung2" onClick="windowType=5;changeWindow()">Single Hung Vinyl Window - 24" x 32", $120<br>
-					<input type="radio" id="window6" name="windowtype" value="hung3" onClick="windowType=6;changeWindow()">Single Hung Vinyl Window - 32" x 32", $160<br>
-					<input type="radio" id="window7" name="windowtype" value="casement" onClick="windowType=7;changeWindow()">Left-Hand Casement Vinyl Window - 24" x 32, $180<br>
-					
+                    <?php
+                        if ($windowtype == 'sliding1'){
+                            echo' <input type="radio" id="window1" name="windowtype" value="sliding1" checked="checked"
+                                onClick="changeWindow()">Right-Hand Sliding Vinyl Window - 24" x 24", $100<br>';
+                        }
+                        else{
+                            echo' <input type="radio" id="window1" name="windowtype" value="sliding1"
+                                onClick="changeWindow()">Right-Hand Sliding Vinyl Window - 24" x 24", $100<br>';
+                        }
+                        if ($windowtype == 'sliding2'){
+                            echo' <input type="radio" id="window2" name="windowtype" value="sliding2" checked="checked"
+                                onClick="windowType=2;changeWindow()">Right-Hand Sliding Vinyl Window - 32" x 32", $200<br>';
+                        }
+                        else{
+                            echo' <input type="radio" id="window2" name="windowtype" value="sliding2"
+                                onClick="windowType=2;changeWindow()">Right-Hand Sliding Vinyl Window - 32" x 32", $200<br>';
+                        }
+                        if ($windowtype == 'hung1'){
+                            echo' <input type="radio" id="window4" name="windowtype" value="hung1" checked="checked"
+                                onClick="windowType=4;changeWindow()">Single Hung Vinyl Window - 24" x 47.5", $150<br>';
+                        }
+                        else{
+                            echo' <input type="radio" id="window4" name="windowtype" value="hung1"
+                                onClick="windowType=4;changeWindow()">Single Hung Vinyl Window - 24" x 47.5", $150<br>';
+                        }
+                        if ($windowtype == 'hung2'){
+                            echo' <input type="radio" id="window5" name="windowtype" value="hung2" checked="checked"
+                                onClick="windowType=5;changeWindow()">Single Hung Vinyl Window - 24" x 32", $120<br>';
+                        }
+                        else{
+                            echo' <input type="radio" id="window5" name="windowtype" value="hung2"
+                                onClick="windowType=5;changeWindow()">Single Hung Vinyl Window - 24" x 32", $120<br>';
+                        }
+                        if ($windowtype == 'hung3'){
+                            echo' <input type="radio" id="window6" name="windowtype" value="hung3" checked="checked" 
+ 					                onClick="windowType=6;changeWindow()">Single Hung Vinyl Window - 32" x 32", $160<br>';
+                        }
+                        else{
+                            echo' <input type="radio" id="window6" name="windowtype" value="hung3" 
+ 					                onClick="windowType=6;changeWindow()">Single Hung Vinyl Window - 32" x 32", $160<br>';
+                        }
+                        if ($windowtype == 'casement'){
+                            echo' <input type="radio" id="window7" name="windowtype" value="casement" checked="checked"
+                                onClick="windowType=7;changeWindow()">Left-Hand Casement Vinyl Window - 24" x 32, $180<br>';
+                        }
+                        else{
+                            echo' <input type="radio" id="window7" name="windowtype" value="casement"
+                                onClick="windowType=7;changeWindow()">Left-Hand Casement Vinyl Window - 24" x 32, $180<br>';
+                        }
+                    ?>
+
 					<p></p>
 					Window location:
-					<input type="checkbox" id="windowlocF" name="windowloc" onClick="addWindow();">Front  
-					<input type="checkbox" id="windowlocL" name="windowloc" onClick="if(doorLocation!=2){addWindow();}">Left  
-					<input type="checkbox" id="windowlocB" name="windowloc" onClick="addWindow();">Back  
-					<input type="checkbox" id="windowlocR" name="windowloc" onClick="addWindow();">Right  
+                    <?php
+                        if($windowlocF == '1'){
+                            echo' <input type="checkbox" id="windowlocF" name="windowlocF" onClick="addWindow();" checked="checked">Front';
+                        }
+                        else{
+                            echo' <input type="checkbox" id="windowlocF" name="windowlocF" onClick="addWindow();">Front';;
+                        }
+                        if($windowlocL == '1'){
+                            echo' <input type="checkbox" id="windowlocL" name="windowlocL" checked="checked" onClick="if(doorLocation!=2){addWindow();}" value="L">Left';
+                        }
+                        else{
+                            echo '<input type="checkbox" id="windowlocL" name="windowlocL" onClick="if(doorLocation!=2){addWindow();}" value="L">Left';
+                        }
+                        if($windowlocB == '1'){
+                            echo' <input type="checkbox" id="windowlocB" name="windowlocB" onClick="addWindow();" checked="checked">Back';
+                        }
+                        else{
+                            echo' <input type="checkbox" id="windowlocB" name="windowlocB" onClick="addWindow();">Back';
+                        }
+                        if($windowlocR == '1'){
+                            echo' <input type="checkbox" id="windowlocR" name="windowlocR" onClick="addWindow();" checked="checked">Right';
+                        }
+                        else{
+                            echo' <input type="checkbox" id="windowlocR" name="windowlocR" onClick="addWindow();">Right';
+                        }
+                    ?>
 					
 					<script>
 						function changeWindow(){
@@ -169,7 +426,7 @@
 				</div>
 			</div>
 			
-			<br></br>
+			<br>
 			
 			<p id="cost" style="margin-left:10px;"></p>
 			<div id="mastercontainer" style="width:1000px; height:500px; float:left; margin-left:10px;">
@@ -182,19 +439,83 @@
 						var dataCount = 0;
 						var dataMatrix = new Array();
 						var dataMatrixTemp = new Array();
-								
-						var baseWidth = 6;
-						var baseDepth = 8;
-						var Rise = 5;
-						var Height = 8;
-						var doorType = 0; // no door
-								
-						var topStyle = 1;
+                        <?php
+                                if(!empty($incdec)){
+                                    echo'var baseWidth = '.$incdec.';';
+                                }
+                                else{
+                                    echo 'var baseWidth = 6;';
+                                }
+                                if(!empty($incdec1)){
+                                    echo'var baseDepth = '.$incdec1.';';
+                                }
+                                else{
+                                    echo 'var baseDepth = 8;';
+                                }
+                                if(!empty($incdec3)){
+                                    echo'var Rise = '.$incdec3.';';
+                                }
+                                else{
+                                    echo 'var Rise = 5;';
+                                }
+                                if(!empty($incdec2)){
+                                    echo'var Height = '.$incdec2.';';
+                                }
+                                else{
+                                    echo 'var Height = 8;';
+                                }
+
+                                if ($doortype=='simple'){
+                                    echo' var doorType = 1;';
+                                }
+                                elseif($doortype=='nicer'){
+                                    echo' var doorType=2;';
+                                }
+                                elseif($doortype=='double'){
+                                    echo' var doorType=3;';
+                                }
+                                else{
+                                    echo' var doorType=0;';
+                                }
+
+                                if($rooftype == 'slanted'){
+                                    echo' var topStyle = 2;';
+                                }
+                                else{
+                                    echo' var topStyle = 1;';
+                                }
+                        ?>
+
 						var doorLocation = 0;
-						var windowLocationF = 0; // no window
-						var windowLocationL = 0;
-						var windowLocationB = 0;
-						var windowLocationR = 0;
+
+                        <?php
+
+                        if($windowlocF == '1'){
+                            echo'var windowLocationF = 1;';
+                        }
+                        else{
+                            echo' var windowLocationF = 0;';
+                        }
+                        if($windowlocB == '1'){
+                            echo'var windowLocationB = 1;';
+                        }
+                        else{
+                            echo' var windowLocationB = 0;';
+                        }
+                        if($windowlocR == '1'){
+                            echo'var windowLocationR = 1;';
+                        }
+                        else{
+                            echo' var windowLocationR = 0;';
+                        }
+                        if($windowlocL == '1'){
+                            echo'var windowLocationL = 1;';
+                        }
+                        else{
+                            echo' var windowLocationL = 0;';
+                        }
+                        ?>
+
 						var windowType = 0;
 						
 						var Fchecked = 0; // box unchecked
@@ -788,7 +1109,15 @@
 			
 						<div id="incdec" style="float:left; clear:left; margin-left:10px;">
 						    <p>Base width:
-							<input type="text" value="6" style="width:30px; height:25px; text-align:center; vertical-align: middle;" name="incdec" />
+                                <?php
+                                 if(!empty($incdec)){
+                                     echo' <input type="text" value="'.$incdec.'" style="width:30px; height:25px; text-align:center; vertical-align: middle;" name="incdec" />';
+                                 }
+                                 else{
+                                     echo' <input type="text" value="6" style="width:30px; height:25px; text-align:center; vertical-align: middle;" name="incdec" />';
+                                 }
+                                ?>
+
 						    <script>
 								function widthIncrease(){
 									if (baseWidth<15) {baseWidth++;Build();drawData();BuildF();drawDataF();BuildT();drawDataT();} }
@@ -809,7 +1138,14 @@
 
 						<div id="incdec1" style="float:left; margin-left:50px; margin-left:10px;">
 						    <p>Base depth:
-							<input type="text" value="8" style="width:30px; height:25px; text-align:center; vertical-align: middle;" name="incdec1"/>
+                                <?php if(!empty($incdec1)){
+                                    echo' <input type="text" value="'.$incdec1.'" style="width:30px; height:25px; text-align:center; vertical-align: middle;" name="incdec1"/>';
+                                }
+                                else{
+                                    echo '<input type="text" value="8" style="width:30px; height:25px; text-align:center; vertical-align: middle;" name="incdec1"/>';
+                                }
+                                ?>
+
 						    <script>
 								function depthIncrease(){
 									if (baseDepth<15) {baseDepth++;Build();drawData();BuildF();drawDataF();BuildT();drawDataT();} }
@@ -830,7 +1166,15 @@
 
 						<div id="incdec2" style="float:left; clear:left; margin-left:10px;">
 						    <p>Height:
-							<input type="text" value="8" style="width:30px; height:25px; text-align:center; vertical-align: middle;" name="incdec2"/>
+                                <?php
+                                if(!empty($incdec2)){
+                                    echo' <input type="text" value="'.$incdec2.'" style="width:30px; height:25px; text-align:center; vertical-align: middle;" name="incdec2"/>';
+                                }
+                                else{
+                                    echo' <input type="text" value="8" style="width:30px; height:25px; text-align:center; vertical-align: middle;" name="incdec2"/>';
+                                }
+                                ?>
+
 						    <img onclick="if (Height < 11) {Height++;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="up_arrow2.jpeg" id="up2" />
 						    <img onclick="if (Height > 7) {Height--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="down_arrow2.jpeg" id="down2" />
 							</p>
@@ -838,7 +1182,16 @@
 
 						<div id="incdec3" style="float:left; margin-left:81px; margin-left:10px;">
 						    <p>Roof rise:
-							<input type="text" value="5" style="width:30px; height:25px; text-align:center; vertical-align: middle;" name="incdec3"/>
+                                <?php
+                                if(!empty($incdec3)){
+                                    echo' <input type="text" value="'.$incdec3.'" style="width:30px; height:25px; text-align:center; vertical-align: middle;" name="incdec3"/>';
+                                }
+                                else{
+                                    echo'<input type="text" value="5" style="width:30px; height:25px; text-align:center; vertical-align: middle;" name="incdec3"/>';
+                                }
+
+                                ?>
+
 						    <img onclick="if (Rise < 6) {Rise++;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="up_arrow3.jpeg" id="up3" />
 						    <img onclick="if (Rise > 2) {Rise--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="down_arrow3.jpeg" id="down3" />
 							</p>
@@ -906,9 +1259,31 @@
 					});
 					</script>
 					<div id="rooftype" style="float:left; clear:left; margin-left:80px">					
-						<p>Roof type: 
-							<button type="button" onclick="topStyle = 1;Build();drawData();topStyle1 = 1;BuildT();drawDataT();topStyle2 = 1;BuildF();drawDataF();">Gable</button>
-							<button type="button" onclick="topStyle = 2;Build();drawData();topStyle1 = 0;BuildT();drawDataT();topStyle2 = 0;BuildF();drawDataF();">Slanted</button>
+						<p>Roof type:
+                            <?php
+                              if($rooftype == 'gable'){
+                                  echo' <input type="radio" value="gable" checked="checked" name="rooftype"
+                                   onclick="topStyle = 1;Build();drawData();topStyle1 = 1;BuildT();drawDataT();
+                                            topStyle2 = 1;BuildF();drawDataF();">Gable';
+                              }
+                              else{
+                                  echo' <input type="radio" value="gable" name="rooftype"
+                                   onclick="topStyle = 1;Build();drawData();topStyle1 = 1;BuildT();drawDataT();
+                                            topStyle2 = 1;BuildF();drawDataF();">Gable';
+                              }
+                              if($rooftype == 'slanted'){
+                                  echo' <input type="radio" value="slanted" checked="checked" name="rooftype"
+                                   onclick="topStyle = 2;Build();drawData();topStyle1 = 0;BuildT();drawDataT();
+                                            topStyle2 = 0;BuildF();drawDataF();">Slanted';
+                              }
+                              else{
+                                  echo' <input type="radio" value="slanted" name="rooftype"
+                                   onclick="topStyle = 2;Build();drawData();topStyle1 = 0;BuildT();drawDataT();
+                                            topStyle2 = 0;BuildF();drawDataF();">Slanted';
+                              }
+                            ?>
+
+
 						</p>
 					</div>
 						</body>
@@ -917,7 +1292,9 @@
 				</div>
 				<div id="savecontainer" style="float:left; clear:left; width:100%; height:95px;">
 					<input type="submit" name="design" id="design" value="Save" style="font-size:16px; height:45px; width:80px; margin-top:20px; margin-bottom:20px; margin-left:150px;" />
+                    <input type="submit" name="design" value="Load" style="font-size:16px; height:45px; width:80px; margin-top:20px; margin-bottom:20px; margin-left:1px;"/>
 				</div>
-        </form>
+    </form>
+    <?php } ?>
 	</body>	
 </html>

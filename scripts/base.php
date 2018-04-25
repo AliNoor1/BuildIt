@@ -22,9 +22,15 @@ session_start();
 // ========= FOR LOCAL TESTING ===========
 $dbhost = "localhost";
 $dbname = "buildit";
-$dbuser = "root";
+$dbuser = "admin";
 $dbpass = "password";
 
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die("MySQL Error: " . mysqli_connect_error());
 
 mysqli_select_db($conn, $dbname) or die("MySQL Error: " . mysqli_error($conn));
+
+if (version_compare(PHP_VERSION, '5.4.0', '<')) {
+    if(session_id() == '') {session_start();}
+} else  {
+    if (session_status() == PHP_SESSION_NONE) {session_start();}
+}

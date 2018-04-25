@@ -28,7 +28,6 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'POST'){
                                         $city."','".
                                         $state."','".
                                         $zip."');";
-    var_dump($querystring);
     $registerquery = mysqli_query($conn, $querystring);
 
     if($registerquery)

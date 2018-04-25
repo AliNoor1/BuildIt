@@ -103,4 +103,23 @@ CREATE TABLE IF NOT EXISTS contracts (
         REFERENCES users (userID)
 );
   
-
+CREATE TABLE IF NOT EXISTS designs (
+    design_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    userid INT NOT NULL,
+    project_name VARCHAR(45),
+    doortype VARCHAR(20),
+    doorloc INT,
+    rooftype VARCHAR(20),
+    windowtype VARCHAR(20),
+    windowlocR BIT,
+    windowlocL BIT,
+    windowlocF BIT,
+    windowlocB BIT,
+    incdec INT,
+    incdec1 INT,
+    incdec2 INT,
+    incdec3 INT,
+    PRIMARY KEY (design_id),
+    FOREIGN KEY (userid)
+        REFERENCES users (userID)
+);
