@@ -75,6 +75,6 @@
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies vulputate odio, et pulvinar ante pellentesque ac. Nullam placerat quam sit amet aliquet dictum. Duis mattis nisl faucibus tellus maximus, sit amet fringilla tortor interdum. Vivamus ex lorem, tincidunt sit amet dolor at, vestibulum eleifend nulla. Vestibulum tempus nunc orci, quis ornare turpis congue at. Maecenas in enim mi. Nunc sit amet leo eu libero molestie volutpat. Nunc faucibus ligula sed tortor finibus hendrerit. Sed nec enim vitae risus aliquam tristique. Curabitur ullamcorper, neque sed tempor dignissim, lorem nisi faucibus augue, sed tristique lacus nulla ac dolor.</p> 
 		
 		</div>
-		
+        <?php include $_SERVER['DOCUMENT_ROOT']."/common/footer.php";?>
 	</body>
 </html>

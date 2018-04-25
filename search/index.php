@@ -20,6 +20,7 @@
         <div class="search-results">
             <?php include $_SERVER['DOCUMENT_ROOT']."/scripts/search.php";?>
         </div>
+        <?php include $_SERVER['DOCUMENT_ROOT']."/common/footer.php";?>
 
 	</body>
 </html>

@@ -29,7 +29,6 @@
     
 <div class="main">
     <?php
-    var_dump($_POST);
     if(!empty($_POST['username']) && !empty($_POST['password']) && $_POST['usertype'] == "builder")
     {
         include $_SERVER['DOCUMENT_ROOT']."/scripts/register_user.php";
@@ -108,5 +107,7 @@
     ?>
 
 </div>
+    <?php include $_SERVER['DOCUMENT_ROOT']."/common/footer.php";?>
+
 </body>
 </html>
