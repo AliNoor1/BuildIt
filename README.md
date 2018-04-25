@@ -33,3 +33,9 @@ A user-friendly website where hobbyists, contractors, and everyday homeowners ca
   |-- data
   index.html
 ```
+
+## Apache Resources
+In order to test locally, you will need an apache server to run the PHP code. Here is how I got setup:
+https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-16-04
+And if you want to move your webroot to a directory other than /var/www/html (this isn't what I followed but it looks similar--Can't find the one That I looked at):
+https://www.digitalocean.com/community/tutorials/how-to-move-an-apache-web-root-to-a-new-location-on-ubuntu-16-04

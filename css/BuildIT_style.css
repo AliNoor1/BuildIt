@@ -1,9 +1,97 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
 
+/* ADDS ANIMATION FOR THE SLIDES@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+/* ADDS ANIMATION FOR THE SLIDES */
+
+@-moz-keyframes slide {
+  20% {margin-left: 0px;}
+  30% {margin-left: -100%;}
+  50% {margin-left: -100%;}
+  60% {margin-left: -200%;}
+  70% {margin-left: -200%;}
+  80% {margin-left: -300%;}
+  90% {margin-left: -300%;}
+}
+
+@-webkit-keyframes slide {
+  20% {margin-left: 0px;}
+  30% {margin-left: -100%;}
+  50% {margin-left: -100%;}
+  60% {margin-left: -200%;}
+  70% {margin-left: -200%;}
+  80% {margin-left: -300%;}
+  90% {margin-left: -300%;}
+}
+
+@keyframes slide{
+  20% {margin-left: 0px;}
+  30% {margin-left: -100%;}
+  50% {margin-left: -100%;}
+  60% {margin-left: -200%;}
+  70% {margin-left: -200%;}
+  80% {margin-left: -300%;}
+  90% {margin-left: -300%;}
+}
+
+.slideShow{
+	width: 400%;
+	height: auto;
+	-webkit-animation: slide 20s ease infinite;
+	-moz-animation: slide 20s ease infinite;
+	animation: slide 20s ease infinite;
+	display: flex;
+}
+
+.slide {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ADDS ANIMATION FOR GRADIENT BACKGROUND */
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+/* Body */
 body {
 	margin: 0;
-	background: linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%);
-	color:#555;
+	background: #dddddd;
+	color: white;
+
 }
 
 *{
@@ -11,69 +99,43 @@ body {
 }
 
 /* Style the top header */
-.topContainer{
+#topContainer{
+	background: linear-gradient(-45deg, #7ea6ce, #557291 , #3c4b68 , #3c4b68 );
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
 	padding-top:3vh;
 	text-align:center;
-	background:linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%);
-	
+	color:white;
 }
 
 /* Style the BuildIt Box */
 .header {
-    background-image: url(https://wallpapertag.com/wallpaper/full/8/7/a/338558-popular-blueprint-background-2605x2000.jpg);
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	padding: 5px;
-    text-align: center;
-	font-size: 30px;
-	font-variant: small-caps;
-	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    	 text-align: center;
+	font-family:'Roboto';
+	font-size: 40px;
+	font-weight:300;
 	color: white;
-	width: 50%;
+	width: 100%;
 	margin: 15px 0px;
 }
 
-/* Style the top navigation bar */
-.topnav {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    overflow: hidden;
-    background-color: #7ea6ce;
-	width: 50%;
-	text-align: left;
-	margin: 0 auto;
-}
 
-/* Style the top navigation links */
-.topnav a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 20px 25px;
-	font-family:'Roboto';
-	font-size: 20px;
-	font-weight:300;
-	text-decoration: none;
-}
-
-/* Change color on hover */
-.topnav a:hover {
-    background-color: #ddd;
-    color: royalblue;
-}
 
 /* First image resized to fit any display */
 img.imagePreview{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	display: block;
-	max-width: 100%;
-	height: auto;
+	width:100%;
+	height:auto;
 	transition: 1.8s ease;
 	backface-visibility: hidden;
-	
 }
 
 /* Hover mechanics to respond to your cursor */
 .secondaryContainer{
+	overflow: hidden;
 	position: relative;
 }
 .secondaryContainer:hover .imagePreview {
@@ -92,16 +154,21 @@ img.imagePreview{
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%)
+	-ms-transform: translate(-50%, -50%);
 	text-align: center;
 }
 
 /* A div with some text for the image above, describing the design process. Still unfinished */
-.description{
+#description{
 	background-color: white;
 	padding: 75px 50px;
-	background: linear-gradient(141deg, #ccc 25%, #eee 40%, #ddd 55%);
+	background: linear-gradient(-45deg, #7ea6ce, #557291 , #3c4b68 , #3c4b68 );
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
 	font-family:'Roboto';
+	font-size: 20px;
 }
 
 #desc_header{
@@ -109,6 +176,52 @@ img.imagePreview{
 	font-family:'Roboto';
 }
 
+.search-results{
+	width: 50%
+}
+
+.search-results div{
+	margin-left: 5%;
+}
+
+.search-results .name {
+	font-size: 30px;
+	margin-left: 5%;
+	margin-top: 0;
+	margin-bottom: 0;
+	width: 100%;
+	color: #272727;
+	text-decoration: none;
+}
+
+.search-results .location {
+	font-size: 20px;
+	margin-left: 5%;
+	margin-top: 0;
+	padding-bottom: 10px;
+	margin-bottom: 0;
+	width: 100%;
+	color: #8c8c8c;
+	text-decoration: none;
+}
+
+.search-results p{
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+.search-results a{
+	text-decoration: none;
+}
+.search-results div:hover{
+	background-color: #cccccc;
+	border: 2px solid #55555;
+	border-radius: 5px;
+}
+
+.search-results i{
+	font-size: 15px;
+}
 
 /* Shutter Out Horizontal, The "Get Started" tab when you hover over the image */
 .shutterOutTab {
@@ -124,7 +237,7 @@ img.imagePreview{
 	-webkit-transition-duration: 0.3s;
 	transition-duration: 0.3s;
 	padding: 25px 0px;
-
+	border-radius: 5px;
 }
 
 .shutterOutTab a{
@@ -164,3 +277,5 @@ img.imagePreview{
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
+
+
