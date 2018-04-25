@@ -882,9 +882,15 @@
 								ctx.lineTo(dataMatrixTemp[i+1][0], dataMatrixTemp[i+1][1]);
 							}
 							ctx.stroke();
-							for(i=0;i<dataMatrix.length;i=i+2){
-								cost = cost + Math.sqrt(Math.pow(dataMatrix[i][0]-dataMatrix[i+1][0],2)+Math.pow(dataMatrix[i][1]-dataMatrix[i+1][1],2)+Math.pow(dataMatrix[i][2]-dataMatrix[i+1][2],2));
-							}
+							cost = 50;
+							doorCost = [0,100,175,400,100,100,100,100];
+							windowCost = [0,100,200,150,120,160,180,200];
+							cost = cost + doorCost[doorType];
+							cost = cost + windowCost[windowType]*(windowLocationB+windowLocationF+windowLocationL+windowLocationR);
+							cost = cost + baseDepth*baseWidth*Height*3*1;
+							cost = cost + 7*Math.sqrt(Rise*Rise+baseWidth*baseWidth)*baseDepth;
+							cost = cost + 0.42*Height*(baseWidth+baseDepth)*2;
+							document.getElementById("cost").innerHTML = "Cost: $"+Math.floor(cost);
 							document.getElementById("cost").innerHTML = "Cost: $"+Math.floor(cost/10+500);
 						}
 						Build();
