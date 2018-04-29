@@ -27,8 +27,11 @@ function update_session_info($conn,$username)
 
 function get_user_info($conn,$username)
 {
-    $user_query = "SELECT * FROM users WHERE username = '" . $username . "'";
-    $userinfo = mysqli_query($conn, $user_query);
+    $user_query = "SELECT * FROM users WHERE username = '" . $username . "';";
+    $userinfo = mysqli_query($conn, $user_query) or die("error finding " . $username . ". \n". $user_query);
+    if (mysqli_num_rows($userinfo) < 1) {
+        die("error finding user " . $username);
+    }
 
     $row = mysqli_fetch_array($userinfo);
 
