@@ -891,7 +891,6 @@
 							cost = cost + 7*Math.sqrt(Rise*Rise+baseWidth*baseWidth)*baseDepth;
 							cost = cost + 0.42*Height*(baseWidth+baseDepth)*2;
 							document.getElementById("cost").innerHTML = "Cost: $"+Math.floor(cost);
-							document.getElementById("cost").innerHTML = "Cost: $"+Math.floor(cost/10+500);
 						}
 						Build();
 						drawData();
