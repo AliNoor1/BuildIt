@@ -422,7 +422,7 @@
 					</script>
 				</div>
 				<div style="width:260px; height:332px; float:left; text-align:center; margin-top:25px;">
-					<img src="white-background.jpg" id="picture">
+					<img src="img/white-background.jpg" id="picture">
 				</div>
 			</div>
 			
@@ -1136,8 +1136,8 @@
 										if (baseWidth>3){baseWidth--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT();} }
 								}
 							</script>
-							<img onclick="widthIncrease();" src="up_arrow.jpeg" id="up" />
-						    <img onclick="widthDecrease();" src="down_arrow.jpeg" id="down" />
+							<img onclick="widthIncrease();" src="img/up_arrow.jpeg" id="up" />
+						    <img onclick="widthDecrease();" src="img/down_arrow.jpeg" id="down" />
 							</p>
 						</div>
 						
@@ -1165,8 +1165,8 @@
 								}
 							</script>
 							
-							<img onclick="depthIncrease();" src="up_arrow1.jpeg" id="up1" />
-						    <img onclick="depthDecrease();" src="down_arrow1.jpeg" id="down1" />
+							<img onclick="depthIncrease();" src="img/up_arrow1.jpeg" id="up1" />
+						    <img onclick="depthDecrease();" src="img/down_arrow1.jpeg" id="down1" />
 							</p>
 						</div>
 
@@ -1181,8 +1181,8 @@
                                 }
                                 ?>
 
-						    <img onclick="if (Height < 11) {Height++;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="up_arrow2.jpeg" id="up2" />
-						    <img onclick="if (Height > 7) {Height--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="down_arrow2.jpeg" id="down2" />
+						    <img onclick="if (Height < 11) {Height++;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="img/up_arrow2.jpeg" id="up2" />
+						    <img onclick="if (Height > 7) {Height--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="img/down_arrow2.jpeg" id="down2" />
 							</p>
 						</div>
 
@@ -1198,8 +1198,8 @@
 
                                 ?>
 
-						    <img onclick="if (Rise < 6) {Rise++;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="up_arrow3.jpeg" id="up3" />
-						    <img onclick="if (Rise > 2) {Rise--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="down_arrow3.jpeg" id="down3" />
+						    <img onclick="if (Rise < 6) {Rise++;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="img/up_arrow3.jpeg" id="up3" />
+						    <img onclick="if (Rise > 2) {Rise--;Build();drawData();BuildF();drawDataF();BuildT();drawDataT(); }" src="img/down_arrow3.jpeg" id="down3" />
 							</p>
 						</div>
 
