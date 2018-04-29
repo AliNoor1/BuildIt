@@ -10,7 +10,7 @@
 
 	</head>
 
-	<title>John's Contract</title>
+	<title>Contract</title>
 
 	<body>
 
@@ -52,7 +52,7 @@
 				<div class="topUserInfo">
 
 					<div class="topRight">
-                        <a href="/user/index.php?username='<?=$results['username']?>'" style="text-decoration: none">
+                        <a href="/user/index.php?username=<?=$results['username']?>" style="text-decoration: none">
                             <div class="userParent">
                                 <div class="userImg">
                                     <img src="https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png">

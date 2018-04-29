@@ -10,19 +10,19 @@
                     <h1>Filters</h1>
 
                     <!-- LOCATION -->
-                    <div class="location">
-
-                        <h2>Location</h2>
-
-                        <select name="location">
-                            <option value="any">Any</option>
-                            <option value="1mi">1 Mile</option>
-                            <option value="5mi">5 Miles</option>
-                            <option value="10mi">10 Miles</option>
-                            <option value="25mi">25 Miles+</option>
-                        </select>
-
-                    </div>
+<!--                    <div class="location">-->
+<!---->
+<!--                        <h2>Location</h2>-->
+<!---->
+<!--                        <select name="location">-->
+<!--                            <option value="any">Any</option>-->
+<!--                            <option value="1mi">1 Mile</option>-->
+<!--                            <option value="5mi">5 Miles</option>-->
+<!--                            <option value="10mi">10 Miles</option>-->
+<!--                            <option value="25mi">25 Miles+</option>-->
+<!--                        </select>-->
+<!---->
+<!--                    </div>-->
 
                     <!-- SIZE -->
                     <div class="size">

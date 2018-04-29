@@ -92,10 +92,10 @@ else
                 </tr>
                 </div>
                    <?php } ?>
-
+                </table>
                 <div>
                     <form method="post" action="reply.php?topic_id=<?=$_GET['topic_id']?>&cat_id=<?=$_GET['cat_id']?>">
-                        <textarea name="reply-content"></textarea>
+                        <textarea name="reply-content" style="width: 80%; margin: 10px; height: 100px;"></textarea>
                         <input type="submit" value="Submit reply" />
                     </form>
                 </div>

@@ -226,6 +226,7 @@ body {
 	margin-bottom: 5%;
 	border-radius: 5px;
 	border-top: 3px solid #7ea6ce;
+	overflow: auto;
 
 }
 

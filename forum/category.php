@@ -97,6 +97,7 @@ else
     }
 }
 ?>
+</table>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/forum/footer.php"; ?>
 
 
