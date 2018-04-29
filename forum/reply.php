@@ -23,20 +23,20 @@ else
                           post_date,
                           post_topic,
                           post_by) 
-                VALUES ('" . $_POST['reply-content'] . "',
+                VALUES ('" . mysqli_real_escape_string($conn,$_POST['reply-content']) . "',
                         NOW(),
                         " . mysqli_real_escape_string($conn, $_GET['topic_id']) . ",
-                        " . $_SESSION['userid'] . ")";
-
-        $result = mysqli_query($conn, $sql);
+                        " . $_SESSION['userid'] . ");";
+        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn) . $sql);
 
         if(!$result)
         {
             echo 'Your reply has not been saved, please try again later.';
         }
         else
-        {
-            echo 'Your reply has been saved, check out <a href="topic.php?topic_id=' . $_GET['topic_id'] . '&cat_id='. $_GET['cat_id'] . '">the topic</a>.';
+        {?>
+            <meta http-equiv="refresh" content="0;/forum/topic.php?topic_id=<?=$_GET['topic_id']?>&cat_id=<?=$_GET['cat_id']?>">
+        <?php
         }
     }
 }

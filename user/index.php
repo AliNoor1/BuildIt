@@ -86,15 +86,61 @@ else{
 
             <div class="userDesigns">
                 <h2 class="header2">Designs</h2>
+                <?php
+                    $sql_query = 'SELECT * from contracts where userid = '.$user['userid'].';';
+                    $raw_results = mysqli_query($conn, $sql_query) or die("error");
+                    if (mysqli_num_rows($raw_results) == 0){
+                        echo" Error finding contracts";
+                    }
+                    else {
+                        while($results = mysqli_fetch_array($raw_results)){
+                            echo "<p>" . $results['description'] . "</p>";
+//                            $i++;
+                        }
+                    }
+
+                ?>
             </div>
 
             <div class="userProjects">
                 <h2 class="header2">Projects</h2>
+                <?php
+                    $querystring = "SELECT * FROM designs
+                    WHERE userid=".$user['userid'].";";
+                    $raw_results = mysqli_query($conn, $querystring) or die(mysqli_error());
+                    if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
+                        while($results = mysqli_fetch_array($raw_results)){
+                            // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
+                            echo "<a href='/design-page/index.php?design_id=".$results['design_id'] ."'>".
+                                    "<div class='result'>".
+                                        "<p class='name'>".$results['project_name']."</p>".
+                                    "</div>".
+                                 "</a>";
+                        }
+                    }
+                    else{ // if there is no matching rows do following
+                        echo "No results";
+                    }
+                ?>
+
             </div>
 
         </div>
         <div class="userForums">
             <h2>Forums</h2>
+            <?php
+            $sql_query = "SELECT * FROM  forum_posts WHERE post_by = " . $user['userid'] . ";";
+            $raw_results = mysqli_query($conn, $sql_query);
+            if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
+                while($results = mysqli_fetch_array($raw_results)){
+                    // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
+                    echo "<p>" . $results['post_content'] . "</p>";
+                }
+            }
+            else{
+                echo "No Results.";
+            }
+            ?>
         </div>
     </div>
 </div>

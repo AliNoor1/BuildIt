@@ -10,19 +10,19 @@
                     <h1>Filters</h1>
 
                     <!-- LOCATION -->
-                    <div class="location">
-
-                        <h2>Location</h2>
-
-                        <select name="location">
-                            <option value="any">Any</option>
-                            <option value="1mi">1 Mile</option>
-                            <option value="5mi">5 Miles</option>
-                            <option value="10mi">10 Miles</option>
-                            <option value="25mi">25 Miles+</option>
-                        </select>
-
-                    </div>
+<!--                    <div class="location">-->
+<!---->
+<!--                        <h2>Location</h2>-->
+<!---->
+<!--                        <select name="location">-->
+<!--                            <option value="any">Any</option>-->
+<!--                            <option value="1mi">1 Mile</option>-->
+<!--                            <option value="5mi">5 Miles</option>-->
+<!--                            <option value="10mi">10 Miles</option>-->
+<!--                            <option value="25mi">25 Miles+</option>-->
+<!--                        </select>-->
+<!---->
+<!--                    </div>-->
 
                     <!-- SIZE -->
                     <div class="size">
@@ -133,7 +133,7 @@
 
                         if ($_SERVER['REQUEST_METHOD']==='GET' && !empty($_GET['footprint'])) {
 
-                            $sql_query = "SELECT * FROM contracts WHERE";
+                            $sql_query = "SELECT * FROM contracts join users on contracts.userid=users.userID WHERE";
 
                             $footprint = $_GET['footprint'];
                             if ($footprint === 'any') {
@@ -229,15 +229,14 @@
 
                             $sql_query = $sql_query . ");";
 
-
                         }
                         else{
-                            $sql_query = "SELECT * FROM contracts;";
+                            $sql_query = "SELECT * FROM contracts  join users on contracts.userid=users.userID;";
                         }
                         if (empty($_GET['page'])){
                             $_GET['page'] = 1;
                         }
-                        var_dump($sql_query);
+
                         $results_per_page = 10;
                             $raw_results = mysqli_query($conn, $sql_query) or die(mysqli_error($conn));
                             if(mysqli_num_rows($raw_results) > 0){ // if one or more rows are returned do following
@@ -249,7 +248,7 @@
                                     // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
                                     if($i > ($_GET['page']-1)*$results_per_page && $i <= ($_GET['page'])*$results_per_page) {
                                         ?>
-                                        <a href="#">
+                                        <a href="view_contract.php?id=<?=$results['contract_id']?>">
                                             <div class="post">
 
                                                 <div class="postImage">
@@ -267,7 +266,7 @@
                                                             </div>
 
                                                             <div class="userName">
-                                                                <p><?= $results['userid'] ?></p>
+                                                                <p><?= $results['firstName']. " ". $results['lastName'] ?></p>
                                                             </div>
 
                                                             <div class="userLocation">
