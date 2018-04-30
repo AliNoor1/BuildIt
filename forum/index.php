@@ -11,27 +11,32 @@
 </head>
 
 <body>
-<div id="bread">
-    <ul>
-        <li class="active-bread"><a href="#">Forum</a></li>
-    </ul>
-</div>
+
 <h1 class="header">Forums</h1>
-	<div class="search-forum">
-        <form method="get" action="/search/" id="searchform">
-            <input type="text" placeholder="Search..." name="query">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-    </div>
+<div class="search-forum">
+    <form method="get" action="/search/" id="searchform">
+        <input type="text" placeholder="Search..." name="query">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</div>
 
 <div class="wrapper">
+    <div id="bread">
+        <ul>
+            <li class="active-bread"><a href="#">Forum</a></li>
+        </ul>
+    </div>
+
     <div class="menu">
         <a class="item" href="/forum/index.php">Home</a> -
         <a class="item" href="/forum/create_topic.php">Create Topic</a>
-        <?php if ($_SESSION['admin']==1) {
-            echo"-
-        <a class=\"item\" href=\"/forum/create_cat.php\">Create Category</a>
-        ";
+        <?php
+        if (!empty($_SESSION['admin'])) {
+            if ($_SESSION['admin'] == 1) {
+                echo "-
+            <a class=\"item\" href=\"/forum/create_cat.php\">Create Category</a>
+            ";
+            }
         }
         ?>
 
@@ -98,7 +103,7 @@
             }
         }
         ?>
-              </table>
+        </table>
     </div>
 </div>
 

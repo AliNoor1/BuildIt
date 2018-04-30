@@ -1,13 +1,18 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/forum/header.php"; ?>
-<div id="bread">
-    <ul>
-        <li class="active-bread"><a href="#">Topics</a></li>
-        <li><a href="index.php">Forum</a></li>
-    </ul>
-</div>
-<h1>Forum</h1>
+<h1 class="header">Forum</h1>
+<div class="wrapper">
 <?php
 //first select the category based on $_GET['cat_id']
+    echo '<div id="bread">
+			<ul>
+				<li class="active-bread"><a href="#">Topics</a></li>
+				<li><a href="index.php">Forum</a></li>
+			</ul>
+		  </div>';
+
+echo '<div class="content">';
+
+
 $sql = "SELECT
             cat_id,
             cat_name,
@@ -34,7 +39,7 @@ else
         //display category data
         while($row = mysqli_fetch_assoc($result))
         {
-            echo '<h2>Topics in ′' . $row['cat_name'] . '′ category</h2>';
+            echo '<h2 class="header2">Topics in ′' . $row['cat_name'] . '′ category</h2>';
         }
 
         //do a query for the topics
@@ -63,7 +68,7 @@ else
             else
             {
                 //prepare the table
-                echo '<table border="1">
+                echo '<table class="ftable" border="1">
                       <tr>
                         <th>Topic</th>
                         <th>Posts</th>
@@ -80,13 +85,13 @@ else
                     $post_cnt = mysqli_fetch_array($count_cat_query)['cnt'];
                     ?>
                     <tr>
-                        <td class="leftpart">
+                        <td class="topic_row">
                             <h3><a href="topic.php?topic_id=<?=$row['topic_id']?>&cat_id=<?=$_GET['cat_id']?>"><?=$row['topic_subject']?></a></h3>
                         </td>
                         <td>
                             <a href="topic.php?topic_id=<?=$row['topic_id']?>&cat_id=<?=$_GET['cat_id']?>"><?=$post_cnt?></a>
-                        </td>
-                        <td class="rightpart">
+                        </td    >
+                        <td class="posts_row">
                     <?php echo date('d-m-Y', strtotime($row['topic_date'])); ?>
                         </td>
                     </tr>
@@ -97,7 +102,9 @@ else
     }
 }
 ?>
-</table>
+    </table>
+</div>
+</div>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/forum/footer.php"; ?>
 
 

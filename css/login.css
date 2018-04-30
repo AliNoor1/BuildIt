@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300');
 
 body {
-	margin: 0;
-	color: #3c4b68;
-	font-family:'Roboto';
+    margin: 0;
+    font-family:'Roboto';
 }
 
 *{
@@ -22,7 +21,7 @@ body {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Opaque with black tint */
     padding-top: 60px;
-	color: #3C4B68;
+    color: #3C4B68;
 }
 
 
@@ -35,7 +34,7 @@ body {
 }
 
 .login-input label{
-	font-size: 20px;
+    font-size: 20px;
 }
 
 
@@ -43,20 +42,20 @@ body {
 
 
 .login-input input{
-	margin: 10px;
-	border: 1px solid #898989;
-	width: 100px;
-	border-radius: 4px;
-	/*box-sizing: border-box;*/
-	-webkit-transition:  width .35s ease-in-out;
-	transition:  width .35s ease-in-out;
+    margin: 10px;
+    border: 1px solid #898989;
+    width: 100px;
+    border-radius: 4px;
+    /*box-sizing: border-box;*/
+    -webkit-transition:  width .35s ease-in-out;
+    transition:  width .35s ease-in-out;
 }
 
 .login-input:focus input{
-	border: 1px solid black;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	width: 200px;
-	outline: none;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 200px;
+    outline: none;
 }
 
 
@@ -70,7 +69,7 @@ Make labels closer to boxes*/
 
 
 #login{
-	width: 100px;
+    width: 100px;
     background-color: #7ea6ce;
     color: white;
     padding: 14px 20px;
@@ -78,13 +77,13 @@ Make labels closer to boxes*/
     border: none;
     border-radius: 4px;
     cursor: pointer;
-	-webkit-transition: 0.5s;
-    transition: 0.5s;	
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
 }
 
 #login:hover {
     background-color: #3c4b68;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* The Close Button (x) */
@@ -109,3 +108,11 @@ Make labels closer to boxes*/
     clear: both;
     display: table;
 }
+
+.signINheader{
+    color: #3c4b68;
+}
+
+
+
+

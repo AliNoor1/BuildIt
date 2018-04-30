@@ -5,33 +5,33 @@
 /* ADDS ANIMATION FOR THE SLIDES */
 
 @-moz-keyframes slide {
-  20% {margin-left: 0px;}
-  30% {margin-left: -100%;}
-  50% {margin-left: -100%;}
-  60% {margin-left: -200%;}
-  70% {margin-left: -200%;}
-  80% {margin-left: -300%;}
-  90% {margin-left: -300%;}
+	20% {margin-left: 0px;}
+	30% {margin-left: -100%;}
+	50% {margin-left: -100%;}
+	60% {margin-left: -200%;}
+	70% {margin-left: -200%;}
+	80% {margin-left: -300%;}
+	90% {margin-left: -300%;}
 }
 
 @-webkit-keyframes slide {
-  20% {margin-left: 0px;}
-  30% {margin-left: -100%;}
-  50% {margin-left: -100%;}
-  60% {margin-left: -200%;}
-  70% {margin-left: -200%;}
-  80% {margin-left: -300%;}
-  90% {margin-left: -300%;}
+	20% {margin-left: 0px;}
+	30% {margin-left: -100%;}
+	50% {margin-left: -100%;}
+	60% {margin-left: -200%;}
+	70% {margin-left: -200%;}
+	80% {margin-left: -300%;}
+	90% {margin-left: -300%;}
 }
 
 @keyframes slide{
-  20% {margin-left: 0px;}
-  30% {margin-left: -100%;}
-  50% {margin-left: -100%;}
-  60% {margin-left: -200%;}
-  70% {margin-left: -200%;}
-  80% {margin-left: -300%;}
-  90% {margin-left: -300%;}
+	20% {margin-left: 0px;}
+	30% {margin-left: -100%;}
+	50% {margin-left: -100%;}
+	60% {margin-left: -200%;}
+	70% {margin-left: -200%;}
+	80% {margin-left: -300%;}
+	90% {margin-left: -300%;}
 }
 
 .slideShow{
@@ -44,9 +44,9 @@
 }
 
 .slide {
-  width: 100%;
-  height: auto;
-  display: block;
+	width: 100%;
+	height: auto;
+	display: block;
 }
 
 /* ADDS ANIMATION FOR GRADIENT BACKGROUND */
@@ -95,7 +95,7 @@ body {
 }
 
 *{
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 /* Style the top header */
@@ -112,7 +112,7 @@ body {
 
 /* Style the BuildIt Box */
 .header {
-    	 text-align: center;
+	text-align: center;
 	font-family:'Roboto';
 	font-size: 40px;
 	font-weight:300;
@@ -143,7 +143,7 @@ img.imagePreview{
 }
 
 .secondaryContainer:hover .imageTab {
-  opacity: 1;
+	opacity: 1;
 }
 
 /* The part that drove me nuts. Trying to center the "Get started" tab with any display. */
@@ -169,19 +169,24 @@ img.imagePreview{
 	animation: Gradient 15s ease infinite;
 	font-family:'Roboto';
 	font-size: 20px;
+	color: white;
 }
 
 #desc_header{
 	font-size: 45px;
 	font-family:'Roboto';
+	color: white;
 }
 
 .search-results{
-	width: 50%
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .search-results div{
 	margin-left: 5%;
+	border-bottom: 2px solid #d8d8d8;
 }
 
 .search-results .name {
@@ -201,8 +206,13 @@ img.imagePreview{
 	padding-bottom: 10px;
 	margin-bottom: 0;
 	width: 100%;
-	color: #8c8c8c;
+	color: rgba(0, 0, 0, 0.60);
 	text-decoration: none;
+}
+
+.location i{
+	color: #7ea6ce;
+	font-size: 20px;
 }
 
 .search-results p{
@@ -214,14 +224,38 @@ img.imagePreview{
 	text-decoration: none;
 }
 .search-results div:hover{
-	background-color: #cccccc;
+	background-color: #ededed;
 	border: 2px solid #55555;
 	border-radius: 5px;
 }
 
 .search-results i{
-	font-size: 15px;
+	font-size: 20px;
 }
+
+.searchHeader{
+	margin-top: 0;
+	text-align: center;
+	font-size: 100px;
+	font-family:'Roboto';
+	font-weight: 1500;
+	color: rgba(0, 0, 0, 0.60);
+}
+
+.searchContainer{
+	background: white;
+	padding: 10px;
+	margin-top: 30px;
+	border-top: 5px solid #7ea6ce;
+	border-bottom: 5px solid #7ea6ce;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 10px;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+}
+
 
 /* Shutter Out Horizontal, The "Get Started" tab when you hover over the image */
 .shutterOutTab {
@@ -241,41 +275,41 @@ img.imagePreview{
 }
 
 .shutterOutTab a{
-		font-family:'Roboto';
-		text-decoration: none;
-		font-size: 20px;
-		color: white;
-		padding: 25px 35px;
-	
+	font-family:'Roboto';
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+	padding: 25px 35px;
+
 }
 
 .shutterOutTab:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #7ea6ce;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transform-origin: 50%;
-  transform-origin: 50%;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
- 
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #7ea6ce;
+	-webkit-transform: scaleX(0);
+	transform: scaleX(0);
+	-webkit-transform-origin: 50%;
+	transform-origin: 50%;
+	-webkit-transition-property: transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+
 }
 .shutterOutTab:hover, .hvr-shutter-out-horizontal:focus, .hvr-shutter-out-horizontal:active {
-  color: white;
+	color: white;
 }
 .shutterOutTab:hover:before, .hvr-shutter-out-horizontal:focus:before, .hvr-shutter-out-horizontal:active:before {
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
+	-webkit-transform: scaleX(1);
+	transform: scaleX(1);
 }
 
 

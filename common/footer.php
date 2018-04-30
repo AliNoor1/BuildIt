@@ -12,7 +12,7 @@
 
             <h1>BuildIt</h1>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
+            <p>BuildIT is developed by 5 CU students. Our goal is to provide a platform where anyone can go online and design their own shed. Even if you aren’t a 20 year builder, we have a forums page to guide you on the process of constructing one. Don’t want to do the project yourself?  We got you covered with our Contractor Page. Try the links on the right, and enjoy the journey!</p>
 
         </div>
 

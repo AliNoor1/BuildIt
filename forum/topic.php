@@ -1,12 +1,14 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/forum/header.php"; ?>
-<div id="bread">
-    <ul>
-        <li class="active-bread"><a href="#">Posts</a></li>
-        <li><a href="category.php?cat_id=<?= $_GET['cat_id'] ?>">Topics</a></li>
-        <li><a href="index.php">Forum</a></li>
-    </ul>
-</div>
-<h1>Forum</h1>
+<h1 class="header">Forum</h1>
+<div class="wrapper">
+
+    <div id="bread">
+        <ul>
+            <li class="active-bread"><a href="#">Posts</a></li>
+            <li><a href="category.php?cat_id=<?= $_GET['cat_id'] ?>">Topics</a></li>
+            <li><a href="index.php">Forum</a></li>
+        </ul>
+    </div>
     <?php
     //first select the category based on $_GET['cat_id']
     $sql = "SELECT
@@ -19,21 +21,15 @@
 
     $result = mysqli_query($conn, $sql);
 
-    if (!$result)
-    {
+    if (!$result) {
         echo 'The category could not be displayed, please try again later.' . mysqli_error($conn);
-    }
-    else
-    {
-    if (mysqli_num_rows($result) == 0)
-    {
-        echo 'This category does not exist.';
-    }
-    else
-    {
+    } else {
+        if (mysqli_num_rows($result) == 0) {
+            echo 'This category does not exist.';
+        } else {
 
-    //do a query for the topics
-    $sql = "SELECT
+            //do a query for the topics
+            $sql = "SELECT
                     forum_posts.post_topic,
                     forum_posts.post_content,
                     forum_posts.post_date,
@@ -51,61 +47,53 @@
                     forum_posts.post_topic = " . mysqli_real_escape_string($conn, $_GET['topic_id']) . ";";
 
 
-    $result = mysqli_query($conn, $sql);
+            $result = mysqli_query($conn, $sql);
 
-    if (!$result)
-    {
-        echo 'This topic could not be displayed, please try again later.';
+            if (!$result) {
+                echo 'This topic could not be displayed, please try again later.';
+            } else {
+                if (mysqli_num_rows($result) == 0) {
+                    echo 'This post does not seem to exists.';
+                } else { ?>
+                    <table class="ftable">
+                        <tr>
+                            <th>Post</th>
+                            <th>Created at</th>
+                            <th>User</th>
+                        </tr>
+                        <?php
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            ?>
+                            <tr>
+                                <td class="posts_row">
+                                    <h3><?= $row['post_content'] ?></h3>
+                                </td>
+                                <td class="rightpart">
+                                    <?php echo date('d-m-Y', strtotime($row['post_date'])); ?>
+                                </td>
+                                <td class="author_row">
+                                    <h3><?= $row['username'] ?></h3>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </table>
+                    <div>
+                        <form method="post"
+                              action="reply.php?topic_id=<?= $_GET['topic_id'] ?>&cat_id=<?= $_GET['cat_id'] ?>">
+                            <textarea class="reply" name="reply-content"></textarea>
+                            <div>
+                                <input class="replyButton" type="submit" value="Submit reply"/>
+                            </div>
+                        </form>
+                    </div>
+                    <?php
+
+                }
+            }
+        }
     }
-    else
-    {
-    if (mysqli_num_rows($result) == 0)
-    {
-        echo 'This post does not seem to exists.';
-    }
-    else
-    {
-    //prepare the table
-    echo '<div>
-                   <table border="1">
-                      <tr>
-                      <th>Post</th>
-                      <th>Created at</th>
-                      <th>User</th>
-
-                      </tr>';
-
-    while ($row = mysqli_fetch_assoc($result))
-    {
-
     ?>
-    <tr>
-        <td class="leftpart">
-            <h3><?= $row['post_content'] ?></h3>
-        </td>
-        <td class="rightpart">
-            <?php echo date('d-m-Y', strtotime($row['post_date'])); ?>
-        </td>
-        <td class="username">
-            <h3><?= $row['username'] ?></h3>
-        </td>
-    </tr>
-<?php } ?>
-    </table>
 </div>
-<div style="display: block;">
-    <form method="post" action="reply.php?topic_id=<?= $_GET['topic_id'] ?>&cat_id=<?= $_GET['cat_id'] ?>">
-        <textarea name="reply-content"></textarea>
-        <input type="submit" value="Submit reply"/>
-    </form>
-</div>
-<?php
-
-}
-}
-}
-}
-?>
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/forum/footer.php"; ?>
 
 

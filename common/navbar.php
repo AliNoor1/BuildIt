@@ -29,7 +29,7 @@
               <span onclick=\"document.getElementById('id01').style.display='none'\" class=\"close\" title=\"Close Modal\">&times;</span>
                   <form class=\"modal-content\" name=\"modal-content\" method=\"post\" action=\"/login/index.php\">
                       <div class=\"login-input\" style=\"text-align:center; border-radius: 20px; border-top: 5px solid #898989; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\">
-                          <h1 id=desc_header style=\"font-size:50px\">Sign In</h1>
+                          <h1 id=desc_header style=\"font - size:50px\">Sign In</h1>
                           <p style=\"font-size:22px\">If you do not have an account, click <a href=\"/register/index.php\">here to register</a></p>
                           
 						  

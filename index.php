@@ -40,9 +40,9 @@
 		
 		<div id= "description">
 			<h2 id= "desc_header">BuildIT Sets Out A Plan For Anyone, Anywhere</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies vulputate odio, et pulvinar ante pellentesque ac. Nullam placerat quam sit amet aliquet dictum. Duis mattis nisl faucibus tellus maximus, sit amet fringilla tortor interdum. Vivamus ex lorem, tincidunt sit amet dolor at, vestibulum eleifend nulla. Vestibulum tempus nunc orci, quis ornare turpis congue at. Maecenas in enim mi. Nunc sit amet leo eu libero molestie volutpat. Nunc faucibus ligula sed tortor finibus hendrerit. Sed nec enim vitae risus aliquam tristique. Curabitur ullamcorper, neque sed tempor dignissim, lorem nisi faucibus augue, sed tristique lacus nulla ac dolor.</p> 
-		
-		</div>
+            <p>Use our design page to start your shed project today. Our algorithm will estimate the base cost of the materials that will go into the structure. This includes the cost of the studs, planks, flooring, exterior sheathing panels, foundation blocks, gravel, nails, and more. There are hundreds of ways of creating a unique shed on our site, with a number of options on changing the height of your structure, to its length and width. We also offer  a variety of windows and doors to accommodate the aesthetics of your shed. Through our diligent work, we continue to add more design options to make the possibilities endless.</p>
+
+        </div>
 		
 		<!-- SECOND IMAGE ON THE SITE -->
 		<div class="secondaryContainer">
@@ -56,9 +56,9 @@
 		
 		<div id= "description">
 			<h2 id= "desc_header">Find A Contractor Today</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies vulputate odio, et pulvinar ante pellentesque ac. Nullam placerat quam sit amet aliquet dictum. Duis mattis nisl faucibus tellus maximus, sit amet fringilla tortor interdum. Vivamus ex lorem, tincidunt sit amet dolor at, vestibulum eleifend nulla. Vestibulum tempus nunc orci, quis ornare turpis congue at. Maecenas in enim mi. Nunc sit amet leo eu libero molestie volutpat. Nunc faucibus ligula sed tortor finibus hendrerit. Sed nec enim vitae risus aliquam tristique. Curabitur ullamcorper, neque sed tempor dignissim, lorem nisi faucibus augue, sed tristique lacus nulla ac dolor.</p> 
-		
-		</div>
+            <p>Post your design today, and have several contractors and builders contact you. Our contractor page wants to ease the process of finding a local builder. We created an algorithm to sort out the budget, location, and style of shed, to fit the needs on what the contractor is the most proficient at. No need to overpay or underpay on jobs, with our already calculated costs, and a buy-out cost, posted by the user. </p>
+
+        </div>
 		
 		<!-- THIRD IMAGE ON THE SITE -->
 		<div class="secondaryContainer">
@@ -72,7 +72,7 @@
 		
 		<div id= "description">
 			<h2 id= "desc_header">A Community Of Builders</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies vulputate odio, et pulvinar ante pellentesque ac. Nullam placerat quam sit amet aliquet dictum. Duis mattis nisl faucibus tellus maximus, sit amet fringilla tortor interdum. Vivamus ex lorem, tincidunt sit amet dolor at, vestibulum eleifend nulla. Vestibulum tempus nunc orci, quis ornare turpis congue at. Maecenas in enim mi. Nunc sit amet leo eu libero molestie volutpat. Nunc faucibus ligula sed tortor finibus hendrerit. Sed nec enim vitae risus aliquam tristique. Curabitur ullamcorper, neque sed tempor dignissim, lorem nisi faucibus augue, sed tristique lacus nulla ac dolor.</p> 
+            <p>Don’t want to post your design for a contractor? You can do it yourself with our help. BuildIT is proud to welcome new builders with our forums page. Ask our community on the procedure required to build a shed in your backyard. We have a number of topics and categories to accommodate your questions. </p>
 		
 		</div>
         <?php include $_SERVER['DOCUMENT_ROOT']."/common/footer.php";?>
